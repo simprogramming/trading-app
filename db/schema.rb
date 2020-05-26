@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_181235) do
+ActiveRecord::Schema.define(version: 2020_05_26_205012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2020_05_26_181235) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.integer "entry_1"
+    t.string "entry_1"
     t.integer "quantity_1"
-    t.integer "entry_2"
+    t.string "entry_2"
     t.integer "quantity_2"
     t.integer "target"
     t.integer "stop_loss"
@@ -58,7 +58,9 @@ ActiveRecord::Schema.define(version: 2020_05_26_181235) do
     t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["stock_id"], name: "index_positions_on_stock_id"
+    t.index ["user_id"], name: "index_positions_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -87,10 +89,22 @@ ActiveRecord::Schema.define(version: 2020_05_26_181235) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "watched_stocks", force: :cascade do |t|
+    t.bigint "stock_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_id"], name: "index_watched_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_watched_stocks_on_user_id"
+  end
+
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "hot_stocks", "stocks"
   add_foreign_key "hot_stocks", "users"
   add_foreign_key "positions", "stocks"
+  add_foreign_key "positions", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "watched_stocks", "stocks"
+  add_foreign_key "watched_stocks", "users"
 end
