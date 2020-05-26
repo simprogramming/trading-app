@@ -1,3 +1,24 @@
+
+
+<div class="container">
+  <h1>Profile Page</h1>
+
+  <%= link_to "home", root_path %>
+
+  <div class="row justify-content-center">
+    <% @positions.each do | position | %>
+      <%= position.user_id %> <br>
+      <%= position.entry_1 %> <br>
+      <%= position.quantity_1 %> <br>
+      <%= position.stock_id %> <br>
+
+    <% end %>
+
+  </div>
+
+</div>
+
 <h1>Profile Page</h1>
 
 <%= link_to "home", root_path %>
+
