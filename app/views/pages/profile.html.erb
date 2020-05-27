@@ -1,23 +1,82 @@
+<div class="text-center">
+  <h1>Profile Page</h1>
+</div>
 
 <div class="container">
-  <h1>Profile Page</h1>
-
-
-  <div class="d-flex flex-column">
-
-    <% @positions.each do | position | %>
-    <div>
-      <h4>Position <%= position.id %></h4>
-      <p>
-        User Id: <%= position.user_id %> <br>
-        Entry: <%= position.entry_1 %> <br>
-        Quantity: <%= position.quantity_1 %> <br>
-        Symbol: <%= Stock.pluck[position.stock_id - 1][1] %> <br>
-      </p>
+  <div class="row">
+  <% @users.each do |user| %>
+    <div class="col-12 col-md-4">
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar" %></p>
+      <p><%= user.nickname %></p>
+      <p><%= user.description %></p>
     </div>
-    <% end %>
+  <% end %>
+  </div>
+</div>
 
+
+<div class="py-4 px-5 mx-5 ">
+  <div id="accordion" class=" d-flex flex-column align-items-center">
+    <div class="card mt-3" style="width: 80%;">
+      <div class="card-header" id="headingOne">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link text-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              <div>
+                <% @users.each do |user| %>
+                  <p><%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar" %> <%= user.nickname %></p>
+                <% end %>
+              </div>
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body mx-4">
+            <% @positions.each do | position | %>
+              <h4>Position <%= position.id %></h4>
+              <p>
+                User Id: <%= position.user_id %> <br>
+                Entry: <%= position.entry_1 %> <br>
+                Quantity: <%= position.quantity_1 %> <br>
+                Symbol: <%= Stock.pluck[position.stock_id - 1][1] %> <br>
+                Baseline: <%= position.target %> <br>
+                Target Price: <%= position.target %> <br>
+                Stop Loss: <%= position.stop_loss %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex">
+
+  <div class="container form">
+    <h3>Add stocks to your personal watchlist</h3>
+    <div class="row justify-content-left">
+      <div class="col-md-2">
+        <%= simple_form_for @watched_stock do |f| %>
+          <%= f.input :symbol, placeholder: 'AAPL'%>
+          <%= f.input :category, collection: ['Financial', 'Industrials', 'Real Estate', 'Consumer Staples', 'Consumer Discretionary', 'Materials', 'Energy', 'Communication Services', 'Utilities', 'Health Care' ,'Information Technology' ] %>
+
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <%= link_to "home", root_path %>
+  <div class="text-center">
+    <div>
+      <% @watched_stocks.each do |stock| %>
+        <div>
+          <p><%= stock.symbol %></p>
+          <p><%= stock.category %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
+
