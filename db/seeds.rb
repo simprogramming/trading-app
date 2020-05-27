@@ -23,20 +23,22 @@ stocks.each do |stock|
   )
   new_stock.save
 
-  hot_stock = HotStock.new(
-    date: Date.today - rand(0..10),
-    stock: new_stock,
-    user: user
-  )
-  hot_stock.save
+  2.times do
+    hot_stock = HotStock.new(
+      date: Date.today - rand(0..4),
+      stock: new_stock,
+      user: user
+    )
+    hot_stock.save
+  end
 
 
   2.times do
     positions = Position.new(
-      entry_1: rand(1..15),
-      quantity_1: rand(1..15),
-      close_1: rand(1..15),
-      c_quantity_1: rand(1..15),
+      entry_1: rand(10..15),
+      quantity_1: rand(100..200),
+      close_1: rand(20..25),
+      c_quantity_1: rand(100..200),
       stock: new_stock
     )
     positions.save
