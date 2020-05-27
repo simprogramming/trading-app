@@ -7,9 +7,13 @@ class PagesController < ApplicationController
 
   def profile
     @positions = Position.all
+    @users = User.all
+    @watched_stock = WatchedStock.new
+    @watched_stocks = WatchedStock.all
   end
 
   def scoreboard
+    # 1.
   end
 
   def dashboard

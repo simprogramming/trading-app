@@ -5,7 +5,7 @@ class PositionsController < ApplicationController
     @position.entry_1 = params.require(:position)[:entry_1].last
     @position.user = current_user
     if @position.save
-      redirect_to dashboard_path
+      redirect_to scoreboard_path
     else
       render 'pages/dashboard'
     end
@@ -16,6 +16,6 @@ class PositionsController < ApplicationController
 
   private
   def position_params
-    params.require(:position).permit(:stock_id, :quantity_1)
+    params.require(:position).permit(:stock_id, :quantity_1, :entry_1, :baseline, :target, :stop_loss)
   end
 end

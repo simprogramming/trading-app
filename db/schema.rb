@@ -12,6 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2020_05_26_205012) do
 
+ActiveRecord::Schema.define(version: 2020_05_27_183017) do
+
+ActiveRecord::Schema.define(version: 2020_05_27_182340) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,17 +53,19 @@ ActiveRecord::Schema.define(version: 2020_05_26_205012) do
     t.integer "quantity_1"
     t.string "entry_2"
     t.integer "quantity_2"
-    t.integer "target"
-    t.integer "stop_loss"
-    t.integer "close_1"
+    t.float "target"
+    t.float "stop_loss"
+    t.float "close_1"
     t.integer "c_quantity_1"
     t.integer "c_quantity_2"
-    t.integer "close_3"
+    t.float "close_3"
     t.integer "c_quantity_3"
     t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.float "baseline"
+    t.float "close_2"
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
@@ -85,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_205012) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -94,6 +103,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_205012) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "symbol"
+    t.string "category"
     t.index ["stock_id"], name: "index_watched_stocks_on_stock_id"
     t.index ["user_id"], name: "index_watched_stocks_on_user_id"
   end

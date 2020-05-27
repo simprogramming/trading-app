@@ -22,4 +22,10 @@ Rails.application.routes.draw do
   resources :posts, only: [ :create ] do
     resources :comments, only: [ :create ]
   end
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :restaurants, only: [ :index ]
+    end
+  end
 end

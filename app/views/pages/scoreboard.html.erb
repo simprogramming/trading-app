@@ -1,4 +1,90 @@
-<h1>Scoreboard</h1>
+<h1 class="text-center my-5">Scoreboard</h1>
+<div class="py-4 px-5 mx-5 ">
+  <div id="accordion" class=" d-flex flex-column align-items-center">
+    <div class="card mt-3" style="width: 80%;">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link text-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <%= current_user.email %>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body mx-4" >
+          <table style = "width:100%" class="border">
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Size 1</th>
+              <th>Entry 1</th>
+              <th>Size 2</th>
+              <th>Entry 2</th>
+              <th>Total Size</th>
+              <th>Avg Position</th>
+              <th>Target Price</th>
+              <th>Stop Loss</th>
+              <th>Current Stock Price</th>
+              <th>Gain/Loss %</th>
+              <th>Vente 1</th>
+              <th>Prix 1</th>
+              <th>Vente 2</th>
+              <th>Prix 2</th>
+              <th>Vente 3</th>
+              <th>Prix 3</th>
+              <th>Remaining Shares</th>
+              <th>Gain/Loss at close</th>
+              <th>Gain/Loss %</th>
+            </tr>
+            <tr>
+              <th>Simon</th>
+              <th>1/1/1</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>0</th>
+              <th>111</th>
+              <th>Avg Position</th>
+              <th>300</th>
+              <th>290</th>
+              <th>440</th>
+              <th>10 %</th>
+              <th>Vente 1</th>
+              <th>111</th>
+              <th>10</th>
+              <th>123</th>
+              <th>10</th>
+              <th>130</th>
+              <th>0</th>
+              <th>3333</th>
+              <th>20 %</th>
+            </tr>
 
 
-<%= link_to "home", root_path %>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
