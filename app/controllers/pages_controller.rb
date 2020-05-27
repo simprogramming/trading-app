@@ -7,6 +7,8 @@ class PagesController < ApplicationController
 
   def profile
     @positions = Position.all
+    @users = User.all
+    # @watched_stock = Watched_stock.new
   end
 
   def scoreboard

@@ -1,21 +1,23 @@
 
-
 <div class="container">
   <h1>Profile Page</h1>
 
-  <%= link_to "home", root_path %>
 
-  <div class="row justify-content-center">
+  <div class="d-flex flex-column">
+
     <% @positions.each do | position | %>
-      <%= position.user_id %> <br>
-      <%= position.entry_1 %> <br>
-      <%= position.quantity_1 %> <br>
-      <%= position.stock_id %> <br>
-
+    <div>
+      <h4>Position <%= position.id %></h4>
+      <p>
+        User Id: <%= position.user_id %> <br>
+        Entry: <%= position.entry_1 %> <br>
+        Quantity: <%= position.quantity_1 %> <br>
+        Symbol: <%= Stock.pluck[position.stock_id - 1][1] %> <br>
+      </p>
+    </div>
     <% end %>
 
   </div>
 
+  <%= link_to "home", root_path %>
 </div>
-
-
