@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   end
 
   def scoreboard
+    # 1.
   end
 
   def dashboard
