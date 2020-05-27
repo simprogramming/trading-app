@@ -25,4 +25,4 @@ class DocumentsController < ApplicationController
     params.require(:document).permit(:category, :title, :content)
   end
 end
-end
+
