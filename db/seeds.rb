@@ -16,7 +16,9 @@ user = User.create(
   email: Faker::Internet.email,
   password: "123456"
 )
-stocks = ['aapl', 'amzn', 'ge', 'acb', 'cgc']
+
+
+stocks = ['AAPL', 'AMZN', 'GE', 'ACB', 'CGC']
 stocks.each do |stock|
   new_stock = Stock.new(
     symbol: stock
