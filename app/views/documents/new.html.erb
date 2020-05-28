@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="form row justify-content-center">
+    <%= simple_form_for @document do |f| %>
+      <%= f.input :title %>
+      <%= f.input :category, collection: ['Document', 'Video', 'Podcast', 'Book'] %>
+      <%= f.input :content, placeholder: 'Short description' %>
+      <%= f.input :url %>
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
