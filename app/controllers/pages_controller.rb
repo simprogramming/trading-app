@@ -11,14 +11,13 @@ class PagesController < ApplicationController
   end
 
   def scoreboard
-    # 1.
+    @positions = Position.all
   end
 
   def dashboard
 
     # @stocks = ['AMZN','AAPL','NFLX', 'BA', 'BABA']
     @position = Position.new
-
 
 
   end
