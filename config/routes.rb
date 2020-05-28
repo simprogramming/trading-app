@@ -11,13 +11,23 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'pages#dashboard'
 
+  get '/documents/documents', to: 'documents#documents'
+
+  get '/documents/videos', to: 'documents#videos'
+
+
+  get '/documents/podcasts', to: 'documents#podcasts'
+
+  get '/documents/books', to: 'documents#books'
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :watched_stocks, only: [ :create, :destroy ]
 
   resources :positions, only: [ :create, :update]
 
 
-  resources :documents, only: [ :index, :create, :destroy ]
+  resources :documents, only: [ :index, :create, :destroy, :new ]
 
   resources :posts, only: [ :create ] do
     resources :comments, only: [ :create ]

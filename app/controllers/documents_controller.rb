@@ -1,10 +1,11 @@
 class DocumentsController < ApplicationController
   def index
+    @documents = Document.all
+    skip_authorization
   end
 
   def create
-    @document = document.new(document_params)
-    @document.user_id = current_user.id
+    @document = Document.new(document_params)
     if @document.save
       redirect_to documents_path
     else
@@ -13,16 +14,35 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @document = document.find(params[:id])
+    @document = Document.find(params[:id])
     @document.destroy
 
     redirect_to documents_path
   end
 
+  def new
+    @document = Document.new
+  end
+
+  def documents
+    @documents = Document.where(category: "Document")
+  end
+
+  def videos
+    @videos = Document.where(category: "Video") 
+  end
+
+  def podcasts
+    @podcasts = Document.where(category: "Podcast")
+  end
+
+  def books
+    @books = Document.where(category: "Book")
+  end
   private
 
   def document_params
-    params.require(:document).permit(:category, :title, :content)
+    params.require(:document).permit(:category, :title, :content, :url)
   end
 end
 
