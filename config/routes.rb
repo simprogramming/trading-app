@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :positions, only: [ :create, :update]
 
 
-  resources :documents, only: [ :index, :create, :destroy ]
+  resources :documents, only: [ :index, :create, :destroy, :new ]
 
   resources :posts, only: [ :create ] do
     resources :comments, only: [ :create ]

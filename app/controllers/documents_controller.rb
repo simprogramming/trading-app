@@ -1,5 +1,7 @@
 class DocumentsController < ApplicationController
   def index
+    @documents = Document.all
+    skip_authorization
   end
 
   def create
@@ -17,6 +19,9 @@ class DocumentsController < ApplicationController
     @document.destroy
 
     redirect_to documents_path
+  end
+
+  def new
   end
 
   private
