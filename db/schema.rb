@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_195107) do
-
-ActiveRecord::Schema.define(version: 2020_05_28_183634) do
-
+ActiveRecord::Schema.define(version: 2020_05_29_175215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,24 +45,20 @@ ActiveRecord::Schema.define(version: 2020_05_28_183634) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.string "entry_1"
-    t.integer "quantity_1"
-    t.string "entry_2"
-    t.integer "quantity_2"
-    t.float "target"
-    t.float "stop_loss"
-    t.float "close_1"
-    t.integer "c_quantity_1"
-    t.integer "c_quantity_2"
-    t.float "close_3"
-    t.integer "c_quantity_3"
-    t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
+    t.bigint "stock_id", null: false
+    t.string "buy_sell"
+    t.integer "size"
+    t.float "entry"
+    t.float "baseline"
+    t.float "target"
+    t.float "R1"
+    t.float "R2"
+    t.float "R3"
+    t.float "current_price"
+    t.float "stop_loss"
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.float "baseline"
-    t.float "close_2"
-    t.float "bid"
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end

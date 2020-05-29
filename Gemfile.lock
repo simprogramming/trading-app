@@ -77,6 +77,7 @@ GEM
     childprocess (3.0.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
+    connection_pool (2.2.2)
     crass (1.0.6)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -134,6 +135,8 @@ GEM
     puma (4.3.5)
       nio4r (~> 2.0)
     rack (2.2.2)
+    rack-protection (2.0.8.1)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -168,6 +171,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.1.4)
     regexp_parser (1.7.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -186,6 +190,13 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sidekiq (6.0.7)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -251,6 +262,8 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq
+  sidekiq-failures (~> 1.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
