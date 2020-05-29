@@ -13,7 +13,7 @@
 
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <a class="navbar-brand website-logo avatar" href="/"> <%= image_tag "https://www.printableparadise.com/letters/printable-letter-e-silhouette.png" %> Eventialize</a>
+      <a class="navbar-brand website-logo avatar" href="/"> <%= image_tag("Logo.png", class:"logo") %> ELITE</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
@@ -27,7 +27,7 @@
               <%= link_to "Education", documents_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
-              <%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <i class="fas fa-bars burger-menu" data-toggle = "dropdown"></i>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
                 <%= link_to "Scoreboard", scoreboard_path, class: "dropdown-item" %>
@@ -43,8 +43,6 @@
         </ul>
       </div>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
 
   </body>

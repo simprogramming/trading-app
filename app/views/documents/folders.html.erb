@@ -1,34 +1,24 @@
-<div class="homedisplay">
-  
-    <h1>Documentation</h1>
-
-    <div class="container">
+<div class="container">
       <div class="cards">
         <%= link_to "/documents/folders" do %>
           <div class="documents-card">
-            <p>Documents</p>
+            <p>Administrative</p>
           </div>
         <% end %>
         <%= link_to "/documents/podcasts" do %>
           <div class="podcasts-card">
-            <p>Podcasts</p>
+            <p>Tools</p>
           </div>
         <% end %>
         <%= link_to "/documents/videos" do %>
           <div class="videos-card">
-            <p>Videos</p>
+            <p>Education</p>
           </div>
         <% end %>
         <%= link_to "/documents/books" do %>
           <div class="books-card">
-            <p>Books</p>
+            <p>Portfolio</p>
           </div>
         <% end %>
       </div>
     </div>
-    
-  
-    <%=link_to "Add a new source", new_document_path, class: "btn btn-primary btn-flat" %>
-
-
-</div>
