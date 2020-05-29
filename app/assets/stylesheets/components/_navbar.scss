@@ -41,4 +41,7 @@
 
 .navbar-light .navbar-brand {
   color: $light-gray;
+  &:hover{
+    color: $light-gray;
+  }
 }
