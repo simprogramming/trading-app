@@ -41,8 +41,15 @@
 
 .navbar-light .navbar-brand {
   color: $light-gray;
+
+  &:hover{
+    color: $light-gray;
+  }
+}
+
 }
 
 #name {
   color: $light-gray;
 }
+
