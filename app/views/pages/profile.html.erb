@@ -4,51 +4,66 @@
 
 <div class="container">
   <div class="row">
-  <% @users.each do |user| %>
+
     <div class="col-12 col-md-4">
       <p><%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar" %></p>
-      <p><%= user.nickname %></p>
-      <p><%= user.description %></p>
+      <p><%= current_user.nickname %></p>
+      <p><%= current_user.description %></p>
     </div>
-  <% end %>
+
   </div>
 </div>
 
 
-<div class="py-4 px-5 mx-5 ">
-  <div id="accordion" class=" d-flex flex-column align-items-center">
-    <div class="card mt-3" style="width: 80%;">
-      <div class="card-header" id="headingOne">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link text-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              <div>
-                <% @users.each do |user| %>
-                  <p><%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar" %> <%= user.nickname %></p>
-                <% end %>
-              </div>
-            </button>
-          </h5>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body mx-4">
+
+
+<div class="container-fluid">
+   <table style = "width:100%" class="border">
+            <tr class="border">
+              <th>Symbol</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Buy/Sell</th>
+              <th>Size</th>
+              <th>Entry Price</th>
+              <th>Total Amount ($)</th>
+              <th>Baseline</th>
+              <th>Target Price</th>
+              <th>Stop Loss</th>
+              <th>Current Stock Price</th>
+              <th>Gain/Loss %</th>
+              <th>R1</th>
+              <th>R2</th>
+              <th>R3</th>
+              <th>Remaining Shares</th>
+              <th>Gain/Loss at close ($)</th>
+              <th>Gain/Loss %</th>
+            </tr>
             <% @positions.each do | position | %>
-              <h4>Position <%= position.id %></h4>
-              <p>
-                User Id: <%= position.user_id %> <br>
-                Entry: <%= position.entry_1 %> <br>
-                Quantity: <%= position.quantity_1 %> <br>
-                Symbol: <%= Stock.pluck[position.stock_id - 1][1] %> <br>
-                Baseline: <%= position.target %> <br>
-                Target Price: <%= position.target %> <br>
-                Stop Loss: <%= position.stop_loss %>
-              </p>
+            <tr class="border">
+              <th><%= Stock.pluck[position.stock_id - 1][1]%></th>
+              <th><%=position.created_at.to_date %></th>
+              <th><%=position.created_at.to_time.to_s.split[1] %></th>
+              <th><%=position.buy_sell%></th>
+              <th><%=position.size%></th>
+              <th><%= position.entry%></th>
+              <th><%= number_to_currency(position.total_amount) %></th>
+              <th><%= position.baseline %></th>
+              <th><%= position.target %></th>
+              <th><%= position.stop_loss %></th>
+              <th><%= position.current_price %></th>
+              <th><%= position.gain_loss_percentage.truncate(4)*100 %></th>
+              <th><%# position.price * 1.3 %></th>
+              <th><%# position.price * 1.7 %></th>
+              <th><%# position.price * 2 %></th>
+              <th><%# position.quantity_1 - (position.quantity_1 - x) %></th>
+              <th></th>
+              <th></th>
+            </tr>
             <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+          </table>
 </div>
 
 

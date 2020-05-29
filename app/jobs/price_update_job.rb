@@ -15,8 +15,6 @@ class PriceUpdateJob < ApplicationJob
       symbols << position.stock.symbol
     end
 
-
-
     url = URI("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=#{symbols.uniq.join(',')}")
 
     http = Net::HTTP.new(url.host, url.port)
