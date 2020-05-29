@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_224541) do
+ActiveRecord::Schema.define(version: 2020_05_29_175215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,31 +40,25 @@ ActiveRecord::Schema.define(version: 2020_05_28_224541) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "symbol"
     t.index ["stock_id"], name: "index_hot_stocks_on_stock_id"
     t.index ["user_id"], name: "index_hot_stocks_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
-    t.string "entry_1"
-    t.integer "quantity_1"
-    t.string "entry_2"
-    t.integer "quantity_2"
-    t.float "target"
-    t.float "stop_loss"
-    t.float "close_1"
-    t.integer "c_quantity_1"
-    t.integer "c_quantity_2"
-    t.float "close_3"
-    t.integer "c_quantity_3"
-    t.bigint "stock_id", null: false
     t.datetime "created_at", precision: 6, null: false
+    t.bigint "stock_id", null: false
+    t.string "buy_sell"
+    t.integer "size"
+    t.float "entry"
+    t.float "baseline"
+    t.float "target"
+    t.float "R1"
+    t.float "R2"
+    t.float "R3"
+    t.float "current_price"
+    t.float "stop_loss"
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.float "baseline"
-    t.float "close_2"
-    t.float "bid"
-    t.float "current_price"
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
@@ -81,7 +75,6 @@ ActiveRecord::Schema.define(version: 2020_05_28_224541) do
     t.string "symbol"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,9 +87,19 @@ ActiveRecord::Schema.define(version: 2020_05_28_224541) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname"
     t.text "description"
-    t.string "img_avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "watched_stocks", force: :cascade do |t|
+    t.bigint "stock_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "symbol"
+    t.string "category"
+    t.index ["stock_id"], name: "index_watched_stocks_on_stock_id"
+    t.index ["user_id"], name: "index_watched_stocks_on_user_id"
   end
 
   add_foreign_key "comments", "posts"
@@ -106,4 +109,6 @@ ActiveRecord::Schema.define(version: 2020_05_28_224541) do
   add_foreign_key "positions", "stocks"
   add_foreign_key "positions", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "watched_stocks", "stocks"
+  add_foreign_key "watched_stocks", "users"
 end
