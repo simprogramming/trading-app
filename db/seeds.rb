@@ -35,10 +35,8 @@ stocks.each do |stock|
 
   2.times do
     positions = Position.new(
-      entry_1: rand(10..15),
-      quantity_1: rand(100..200),
-      close_1: rand(20..25),
-      c_quantity_1: rand(100..200),
+      entry: rand(10..15),
+      size: rand(100..200),
       stock: new_stock
     )
     positions.save
