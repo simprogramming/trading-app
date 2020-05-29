@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #2F3241;
-  
+
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -40,5 +40,9 @@
 }
 
 .navbar-light .navbar-brand {
+  color: $light-gray;
+}
+
+#name {
   color: $light-gray;
 }

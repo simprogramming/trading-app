@@ -45,20 +45,20 @@ ActiveRecord::Schema.define(version: 2020_05_29_175215) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.bigint "stock_id", null: false
-    t.string "buy_sell"
     t.integer "size"
-    t.float "entry"
-    t.float "baseline"
     t.float "target"
-    t.float "R1"
-    t.float "R2"
-    t.float "R3"
-    t.float "current_price"
     t.float "stop_loss"
+    t.float "R1"
+    t.float "R3"
+    t.bigint "stock_id", null: false
+    t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.float "baseline"
+    t.float "R2"
+    t.float "current_price"
+    t.string "buy_sell"
+    t.float "entry"
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
