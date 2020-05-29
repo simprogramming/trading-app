@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'pages#dashboard'
 
+  get '/documents/folders', to: 'documents#folders'
+
   get '/documents/documents', to: 'documents#documents'
 
   get '/documents/videos', to: 'documents#videos'

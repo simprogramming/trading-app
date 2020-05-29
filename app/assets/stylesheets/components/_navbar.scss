@@ -1,12 +1,44 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #2F3241;
+  
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $light-gray;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  position: absolute;
+  right: 0;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.burger-menu {
+  font-size: 25px;
+  margin: 10px;
+  color: $light-gray;
+  transition: 0.2s;
+  &:hover{
+    color:black;
+    opacity: 0.8;
+
+  }
+}
+
+.navbar{
+  padding: 0;
+}
+
+.logo{
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.navbar-light .navbar-brand {
+  color: $light-gray;
 }

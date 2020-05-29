@@ -1,7 +1,6 @@
 class DocumentsController < ApplicationController
   def index
     @documents = Document.all
-    skip_authorization
   end
 
   def create
@@ -26,6 +25,9 @@ class DocumentsController < ApplicationController
 
   def documents
     @documents = Document.where(category: "Document")
+  end
+
+  def folders
   end
 
   def videos
