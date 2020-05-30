@@ -35,17 +35,21 @@ class Position < ApplicationRecord
 
 
     if buy_sell == "Buy"
-      close1 = entry * 1.3 # creates theoretical sell price
-      close2 = entry * 1.7
-      close3 = entry * 2
+      r1 = baseline + ((target - baseline) * 0.3) # creates theoretical sell price
+      r2 = baseline + ((target - baseline) * 0.7)
+      r3 = target
     else
-      r1 = entry - (entry * 0.3)
-      r2 = entry - (entry * 0.7)
-      r3 = 0
+      r1 = baseline - ((baseline - target) * 0.3)
+      r2 = baseline - ((baseline - target) * 0.7)
+      r3 = target
     end
 
 
     if buy_sell == "Buy" && current_price >= close1
+      position.r1 = close1 # makes close1 official
+      position.size = (2/3) * position.size
+      # need to create a table for cash_balance and update it
+
       if current_price >= close2
         position.r2 = close2
         if current_price >= close3
@@ -53,9 +57,6 @@ class Position < ApplicationRecord
         end
       end
 
-      position.r1 = close1 # makes close1 official
-      position.size = (2/3) * position.size
-      # need to create a table for cash_balance and update it
 
     elsif buy_sell == "Sell" && current_price <= r1
       position.r1 = close1

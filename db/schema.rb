@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_05_30_154545) do
-
-ActiveRecord::Schema.define(version: 2020_05_30_023840) do
-
+ActiveRecord::Schema.define(version: 2020_05_30_165845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +37,10 @@ ActiveRecord::Schema.define(version: 2020_05_30_023840) do
   create_table "hot_stocks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
-    t.string "direction"
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "direction"
     t.index ["stock_id"], name: "index_hot_stocks_on_stock_id"
     t.index ["user_id"], name: "index_hot_stocks_on_user_id"
   end
@@ -54,28 +50,16 @@ ActiveRecord::Schema.define(version: 2020_05_30_023840) do
     t.string "buy_sell"
     t.float "entry"
     t.integer "size"
-    t.float "target"
     t.float "baseline"
+    t.float "target"
     t.float "stop_loss"
-
     t.float "r1"
+    t.float "r2"
     t.float "r3"
-
-    t.float "current_price"
-    t.float "R1"
-    t.float "R2"
-    t.float "R3"
-
     t.bigint "stock_id", null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-
-    t.float "baseline"
-    t.float "r2"
     t.float "current_price"
-    t.string "buy_sell"
-    t.float "entry"
-
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
