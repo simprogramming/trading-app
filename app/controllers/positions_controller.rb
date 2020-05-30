@@ -5,7 +5,7 @@ class PositionsController < ApplicationController
     @position.current_price = @position.entry
     @position.user = current_user
     if @position.save
-      redirect_to scoreboard_path
+      redirect_to profil_path
     else
       render 'pages/dashboard'
     end

@@ -1,4 +1,47 @@
-<h1>Dashboard</h1>
+<div class="container">
+  <div class="row">
+    <div class="card border-success mb-3 col " style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success text-center">Monday</div>
+      <div class="card-body text-success">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
+    <div class="card border-success mb-3 col" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success text-center">tuesday</div>
+      <div class="card-body text-success">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
+    <div class="card border-success mb-3 col" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success text-center">Wednesday</div>
+      <div class="card-body text-success">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
+    <div class="card border-success mb-3 col" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success text-center">thursday</div>
+      <div class="card-body text-success">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
+    <div class="card border-success mb-3 col" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success text-center">Friday</div>
+      <div class="card-body text-success">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <div class="container text-center">
   <!-- TradingView Widget BEGIN -->
@@ -29,10 +72,10 @@
   <!-- TradingView Widget END -->
 </div>
 
-<div class="container">
+<div class="container text-center">
   <h2>Broker</h2>
   <div class="border form row">
-    <div class="col-md-8" id="new_position">
+    <div class="col-sm-2" id="new_position">
       <%= simple_form_for [@position] do |f| %>
       <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol' %>
       <%= f.input :buy_sell, as: :radio_buttons, collection: ['Buy', 'Sell'], include_blank: false, label: "Entry Action"  %>
