@@ -13,6 +13,16 @@
 </div>
 
 <div class="container-fluid">
+  <div class=border>
+    <% cash=100000 %>
+    <% equity=0 %>
+    <% @positions.each do | position | %>
+      <% equity += position.total_amount %>
+    <% end %>
+    <p>Cash: <%=cash %></p>
+    <p>Equity: <%= equity %></p>
+  </div>
+
   <table style = "width:100%" class="table table-hover table-striped">
     <thead>
       <tr class="border">
@@ -51,14 +61,15 @@
           <th class= "table-text-color" scope="row"><%= position.stop_loss %></th>
           <th class= "table-text-color" scope="row"><%= position.current_price %></th>
           <th class= "table-text-color" scope="row"><%= position.gain_loss_percentage.truncate(4)*100 %></th>
-          <th class= "table-text-color" scope="row"><%# position.price * 1.3 %></th>
-          <th class= "table-text-color" scope="row"><%# position.price * 1.7 %></th>
-          <th class= "table-text-color" scope="row"><%# position.price * 2 %></th>
+          <th class= "table-text-color" scope="row"><%= position.r1 %></th>
+          <th class= "table-text-color" scope="row"><%= position.r2 %></th>
+          <th class= "table-text-color" scope="row"><%= position.r3 %></th>
           <th class= "table-text-color" scope="row"><%# position.quantity_1 - (position.quantity_1 - x) %></th>
           <th class= "table-text-color" scope="row"></th>
           <th class= "table-text-color" scope="row"></th>
         </tr>
         <% end %>
+
       </tbody>
 
 

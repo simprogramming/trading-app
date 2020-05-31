@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_165845) do
+ActiveRecord::Schema.define(version: 2020_05_31_180430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,20 +46,20 @@ ActiveRecord::Schema.define(version: 2020_05_30_165845) do
   end
 
   create_table "positions", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.string "buy_sell"
-    t.float "entry"
     t.integer "size"
-    t.float "baseline"
     t.float "target"
     t.float "stop_loss"
+    t.bigint "stock_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.float "baseline"
+    t.float "current_price"
+    t.string "buy_sell"
+    t.float "entry"
     t.float "r1"
     t.float "r2"
     t.float "r3"
-    t.bigint "stock_id", null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.float "current_price"
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
@@ -89,7 +89,9 @@ ActiveRecord::Schema.define(version: 2020_05_30_165845) do
     t.string "nickname"
     t.text "description"
     t.string "category"
-    t.float "wallet"
+    t.float "equity"
+    t.float "cash", default: 100000.0
+    t.float "cash_plus_equity"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
