@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @positions = Position.all
-    @users = User.all
+    @user = current_user
+    @positions = Position.where(user_id: current_user.id)
   end
 
   def scoreboard
