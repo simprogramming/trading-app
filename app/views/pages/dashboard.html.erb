@@ -74,7 +74,7 @@
 
 <div class="container text-center">
   <h2>Broker</h2>
-  <div class="border form row">
+  <div class="d-inline form">
     <div class="col-sm-2" id="new_position">
       <%= simple_form_for [@position] do |f| %>
       <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol' %>
