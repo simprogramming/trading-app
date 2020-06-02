@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/documents/books', to: 'documents#books'
 
+  get '/positions/reset', to: 'positions#reset', as: :reset
+
   Rails.application.routes.draw do
   # Sidekiq Web UI, only for admins.
     require "sidekiq/web"
