@@ -1,4 +1,14 @@
+<div class="header">
+  <%= link_to "/documents" do %>
+    <p><i class="fas fa-chevron-left"></i>   BACK</p>
+  <% end %>
+  <h1><%= @podcasts.first.category %>
+</div>
 <% @podcasts.each do |podcast| %>
-  <h2><%= podcast.title %></h2>
-  <%= podcast.url %>
+  <div class="card-edu">
+    <div class="card-edu-infos">
+      <a href="<%= podcast.url %>"><h2><%= podcast.title %></h2></a>
+      <p><%= podcast.content %></p>
+    </div>
+  </div>
 <% end %>

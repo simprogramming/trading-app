@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
 
 .documents-card{
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
@@ -9,11 +9,9 @@
     background-size: cover;
     background-position: center;
     p {
-        position: absolute;
-        top: 50%;
+        padding-top: 10%;
+        padding-left: 10%;
         width: 100%;
-        text-align: center;
-        font-family: 'Oswald', sans-serif;
         font-size: 30px;
     }
 }
@@ -26,11 +24,9 @@
     background-size: cover;
     background-position: center;
     p {
-        position: absolute;
-        top: 50%;
+        padding-top: 10%;
+        padding-left: 10%;
         width: 100%;
-        text-align: center;
-        font-family: 'Oswald', sans-serif;
         font-size: 30px;
     }
     
@@ -44,11 +40,8 @@
     background-size: cover;
     background-position: center;
     p {
-        position: absolute;
-        top: 50%;
-        left: 40%;
-        text-align: center;
-        font-family: 'Oswald', sans-serif;
+        padding-top: 10%;
+        padding-left: 10%;
         font-size: 30px;
     }
  
@@ -63,11 +56,9 @@
     background-size: cover;
     background-position: center;
     p {
-        position: absolute;
-        top: 50%;
+        padding-top: 10%;
+        padding-left: 10%;
         width: 100%;
-        text-align: center;
-        font-family: 'Oswald', sans-serif;
         font-size: 30px;
     }
  
@@ -81,12 +72,16 @@
     align-items: center;
     flex-wrap: wrap;
     margin: auto;
+   
     a {
         color:white;
-        font-family: 'Oswald', sans-serif;
+        transition: 0.5s;
+        opacity: 0.6;
     }
     a:hover{
         text-decoration: none;
+        opacity: 1;
+        
     }
 }
 
@@ -94,7 +89,8 @@
         background-color: #131722;
     h1{   
       color: white;
-      font-family: 'Oswald', sans-serif;
+      font-weight: 100;
+      padding: 1%;
     } 
 }
 
@@ -102,6 +98,7 @@
     color: white;
     padding: 8px 24px;
     transition: background 0.3s ease;
+    margin: 1%;
   }
   
   .btn-flat:hover {

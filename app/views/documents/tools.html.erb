@@ -1,0 +1,16 @@
+<div class="header">
+  <%= link_to "/documents/folders" do %>
+    <p><i class="fas fa-chevron-left"></i>   BACK</p>
+  <% end %>
+  <h1><%= @tools.first.category %>/<%= @tools.first.subcategory%></h1>
+</div>
+
+<% @tools.each do |tool| %>
+  <div class="card-edu">
+    <i class="fas fa-book-tools"></i>
+    <div class="card-edu-infos">
+      <a href="<%= tool.url %>"><h2><%= tool.title %></h2></a>
+      <h4><%= tool.content %></h4>
+    </div>
+  </div>
+<% end %>

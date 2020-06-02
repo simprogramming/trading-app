@@ -1,0 +1,49 @@
+.card-edu {
+    height: 120px;
+    background: #2F3241;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    padding: 30px;
+    font-size: 50px;
+    margin-top: 30px;
+    h2, p{
+        font-weight: 100 !important;
+    }
+
+    p{
+        font-size: 18px;
+    }
+
+    .card-edu-infos{
+        padding: 5px;
+        font-size: 10px;
+        margin-left: 40px;
+    }
+    a:hover{
+        text-decoration: none;
+        transition: 0.3s;
+    }
+}
+
+.header{
+    margin: 15px;
+    p{
+        color: #2F3241;
+        padding-bottom: 40px;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    p:hover{
+        color: $light-gray;
+    }
+
+    h1{
+        font-weight: 100;
+    }
+}

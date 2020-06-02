@@ -30,34 +30,32 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
+
 <h1 class="text-center my-5">Scoreboard</h1>
-<div class="py-4 px-5 mx-5 ">
-  <div id="accordion" class=" d-flex flex-column align-items-center">
-    <div class="card mt-3" style="width: 80%;">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link text-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-            <%= current_user.email %>
-          </button>
-        </h5>
-      </div>
-      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body mx-4" >
-          <table style = "width:100%" class="border">
-            <tr class="border">
-              <th>Name</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Buy/Sell</th>
-            </tr>
-
-          </table>
-
-        </div>
-      </div>
+<div class="container border">
+  <% total_wallet = 0 %>
+  <% @users.each do | user | %>
+    <div class="container border my-2 py-2">
+      <% wallet = (user.equity + user.cash) %>
+      <% total_wallet += wallet %>
+      <%= user.email%>
+      <%= user.nickname %>
+      <% positions = Position.where(user_id: user.id) %>
+      Total Positions: <%= positions.count %>
+      <% count = 0 %>
+      <% positions.each do | position | %>
+        <% if position.remaining_size == 0%>
+         <% count += 1 %>
+        <% end %>
+      <% end %>
+      Active Positions: <%= count %>
+      Wallet: <%= number_to_currency(wallet) %>
     </div>
-
+  <% end %>
+  <div class="border m-2 p-2 w-25">
+    total_wallet: <%= number_to_currency(total_wallet) %>
   </div>
+
 </div>
 
 
