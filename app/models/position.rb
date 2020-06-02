@@ -19,7 +19,7 @@ class Position < ApplicationRecord
     return x
   end
 
-  def exit_short
+  def exit_short # test this
     self.user.cash += remaining_size * stop_loss
     self.user.equity -= remaining_size * entry
     self.user.save
@@ -57,9 +57,9 @@ class Position < ApplicationRecord
         if current_price >= stop_loss
           exit_short
         else
-          take_profit_short_R1
-          take_profit_short_R2
-          take_profit_short_R3
+          take_profit_short_R1(size1)
+          take_profit_short_R2(size1, size2)
+          take_profit_short_R3(size1, size2, size3)
         end
       end
     end
@@ -149,12 +149,12 @@ class Position < ApplicationRecord
       # change color for R3 to green
     end
   end
-
+# change this too
   def take_profit_short_R1(size1)
     if current_price <= r1 && r1_hit == false
       sell_1 = (size1 * (entry - r1))
-      self.user.cash -= sell_1
-      self.user.equity += sell_1
+      self.user.cash -= size1 * r1
+      self.user.equity += size1 * entry
       self.user.save
       self.r1_hit = true
       self.remaining_size -= size1
