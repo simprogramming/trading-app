@@ -19,6 +19,7 @@ class PagesController < ApplicationController
 
     # @stocks = ['AMZN','AAPL','NFLX', 'BA', 'BABA']
     @position = Position.new
+    @hot_stocks = HotStock.all
 
 
   end

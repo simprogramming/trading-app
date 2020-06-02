@@ -17,7 +17,7 @@
     <p>Cash: <%= number_to_currency(@user.cash) %></p>
     <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
     <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
-    <%#= link_to "reset", profile_path, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+    <%= link_to "reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %>
   </div>
 
   <table style = "width:100%" class="table table-hover table-striped">
