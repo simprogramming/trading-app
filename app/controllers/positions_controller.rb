@@ -35,7 +35,7 @@ class PositionsController < ApplicationController
     end
   end
 
-  def destroy
+  def reset
     @positions = Position.where(user_id: current_user.id)
     @positions.destroy_all
     current_user.cash = 100000

@@ -20,8 +20,8 @@ class Position < ApplicationRecord
   end
 
   def exit_short # test this
-    self.user.cash += remaining_size * stop_loss
-    self.user.equity -= remaining_size * entry
+    self.user.cash -= remaining_size * stop_loss
+    self.user.equity += remaining_size * entry
     self.user.save
     self.remaining_size = 0
     self.stop_loss_hit = true
@@ -71,8 +71,10 @@ class Position < ApplicationRecord
     size3 = size - size1 - size2
 
     if buy_sell == "Buy" && remaining_size == 0
-      if stop_loss_hit == true # put in DB
-        if r1_hit && r2_hit
+      if stop_loss_hit == true
+        if r1_hit && r2_hit && r3_hit
+          return size1 * r1 + size2 * r2 + size3 * r3 - total_amount
+        elsif r1_hit && r2_hit
           return size1 * r1 + size2 * r2 + size3 * stop_loss - total_amount
         elsif r1_hit
           return size1 * r1 + (size2 + size3) * stop_loss - total_amount
@@ -86,12 +88,14 @@ class Position < ApplicationRecord
 
     if buy_sell == "Sell" && remaining_size == 0
       if stop_loss_hit == true # put in DB
-        if r1_hit && r2_hit
+        if r1_hit && r2_hit && r3_hit
+          return total_amount - (size1 * r1 + size2 * r2 + size3 * r3)
+        elsif r1_hit && r2_hit
           return total_amount - (size1 * r1 + size2 * r2 + size3 * stop_loss)
         elsif r1_hit
           return total_amount - (size1 * r1 + (size2 + size3) * stop_loss)
         else
-          return size * stop_loss - total_amount
+          return total_amount - size * stop_loss
         end
       else
         return total_amount - (size1 * r1 + size2 * r2 + size3 * r3)
@@ -102,7 +106,7 @@ class Position < ApplicationRecord
 
   def portfolio_return
     if p_l_closed != "N/A"
-      return ((p_l_closed / 100000) * 100).truncate(2)
+      return ((p_l_closed / 100000) * 100).round(2)
     else
       return "ActivePosition"
     end
@@ -111,7 +115,7 @@ class Position < ApplicationRecord
 
   def take_profit_long_R1(size1)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r1 && r1_hit == false
+    if current_price >= r1 && r1_hit == false && remaining_size != 0
       # sell_1 = (size1 * (r1 - entry))
       self.user.cash += size1 * r1 # size 1 * entry + (r1-entry) *size1
       self.user.equity -= size1 * entry # does not work
@@ -125,7 +129,7 @@ class Position < ApplicationRecord
 
   def take_profit_long_R2(size1, size2)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r2 && r2_hit == false
+    if current_price >= r2 && r2_hit == false && remaining_size != 0
       # sell_2 = (size2 * (r2 - entry))
       self.user.cash += size2 * r2
       self.user.equity -= size2 * entry
@@ -138,7 +142,7 @@ class Position < ApplicationRecord
 
   def take_profit_long_R3(size1, size2, size3)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r3 && r3_hit == false
+    if current_price >= r3 && r3_hit == false && remaining_size != 0
       # sell_3 = (size3 * (r3 - entry))
       self.user.cash += size3 * r3
       self.user.equity -= size3 * entry
@@ -151,8 +155,8 @@ class Position < ApplicationRecord
   end
 # change this too
   def take_profit_short_R1(size1)
-    if current_price <= r1 && r1_hit == false
-      sell_1 = (size1 * (entry - r1))
+    if current_price <= r1 && r1_hit == false && remaining_size != 0
+      # sell_1 = (size1 * (entry - r1))
       self.user.cash -= size1 * r1
       self.user.equity += size1 * entry
       self.user.save
@@ -163,10 +167,10 @@ class Position < ApplicationRecord
   end
 
   def take_profit_short_R2(size1, size2)
-    if current_price <= r2 && r2_hit == false
-      sell_2 = (size2 * (entry - r2))
-      self.user.cash -= sell_2
-      self.user.equity += sell_2
+    if current_price <= r2 && r2_hit == false && remaining_size != 0
+      # sell_2 = (size2 * (entry - r2))
+      self.user.cash -= size2 * r2
+      self.user.equity += size2 * entry
       self.user.save
       self.r2_hit = true
       self.remaining_size -= size2
@@ -175,10 +179,10 @@ class Position < ApplicationRecord
   end
 
   def take_profit_short_R3(size1, size2, size3)
-    if current_price <= r3 && r3_hit == false
-      sell_3 = (size3 * (r3 - entry))
-      self.user.cash -= sell_3
-      self.user.equity += sell_3
+    if current_price <= r3 && r3_hit == false && remaining_size != 0
+      # sell_3 = (size3 * (r3 - entry))
+      self.user.cash -= size3 * r3
+      self.user.equity += size3 * entry
       self.user.save
       self.r3_hit = true
       self.remaining_size -= size3
