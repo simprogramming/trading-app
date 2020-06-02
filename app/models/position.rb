@@ -20,72 +20,170 @@ class Position < ApplicationRecord
   end
 
   def exit_short
-
+    self.user.cash += remaining_size * stop_loss
+    self.user.equity -= remaining_size * entry
+    self.user.save
+    self.remaining_size = 0
+    self.stop_loss_hit = true
+    self.save
   end
 
   def exit_long
-
-  end
-
-  def update_cash_equity
-
+    self.user.cash += remaining_size * stop_loss
+    self.user.equity -= remaining_size * entry
+    self.user.save
+    self.remaining_size = 0
+    self.stop_loss_hit = true
+    self.save
   end
 
   def gain_loss_closed
     size1 = size * 0.3
     size2 = (size - size1) * 0.5
     size3 = size - size1 - size2
-    remaining_shares = size
 
-    if current_price <= baseline
-      exit_long
+    if buy_sell == "Buy"
+
+      if current_price <= stop_loss
+        exit_long
+      else
+        take_profit_long_R1(size1)
+        take_profit_long_R2(size1, size2)
+        take_profit_long_R3(size1, size2, size3)
+      end
       # position.exit (stop-loss) / opposite for short-sell
+    else
+      if buy_sell == "Sell"
+        if current_price >= stop_loss
+          exit_short
+        else
+          take_profit_short_R1
+          take_profit_short_R2
+          take_profit_short_R3
+        end
+      end
     end
-    if current_price >= baseline
-      exit_short
+  end
+
+  def p_l_closed
+    size1 = size * 0.3
+    size2 = (size - size1) * 0.5
+    size3 = size - size1 - size2
+
+    if buy_sell == "Buy" && remaining_size == 0
+      if stop_loss_hit == true # put in DB
+        if r1_hit && r2_hit
+          return size1 * r1 + size2 * r2 + size3 * stop_loss - total_amount
+        elsif r1_hit
+          return size1 * r1 + (size2 + size3) * stop_loss - total_amount
+        else
+          return size * stop_loss - total_amount
+        end
+      else
+        return size1 * r1 + size2 * r2 + size3 * r3 - total_amount
+      end
     end
 
-    take_profit_long_R1(size1)
-    take_profit_long_R2(size1, size2)
-    take_profit_long_R3(size1, size2, size3)
+    if buy_sell == "Sell" && remaining_size == 0
+      if stop_loss_hit == true # put in DB
+        if r1_hit && r2_hit
+          return total_amount - (size1 * r1 + size2 * r2 + size3 * stop_loss)
+        elsif r1_hit
+          return total_amount - (size1 * r1 + (size2 + size3) * stop_loss)
+        else
+          return size * stop_loss - total_amount
+        end
+      else
+        return total_amount - (size1 * r1 + size2 * r2 + size3 * r3)
+      end
+    end
+      return "N/A"
+  end
 
-    return
+  def portfolio_return
+    if p_l_closed != "N/A"
+      return ((p_l_closed / 100000) * 100).truncate(2)
+    else
+      return "ActivePosition"
+    end
+
   end
 
   def take_profit_long_R1(size1)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r1 && remaining_shares == size
-      sell_1 = (size1 * (r1 - entry))
-      cash += sell_1
-      equity -= sell_1
-      remaining_shares -= size1
+    if current_price >= r1 && r1_hit == false
+      # sell_1 = (size1 * (r1 - entry))
+      self.user.cash += size1 * r1 # size 1 * entry + (r1-entry) *size1
+      self.user.equity -= size1 * entry # does not work
+      self.user.save
+      self.r1_hit = true
+      self.remaining_size -= size1
+      self.save
     end
 
   end
 
   def take_profit_long_R2(size1, size2)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r2 && remaining_shares == (size - size1)
-      sell_2 = (size2 * (r2 - entry))
-      cash += sell_2
-      equity -= sell_2
-      remaining_shares -= size2
+    if current_price >= r2 && r2_hit == false
+      # sell_2 = (size2 * (r2 - entry))
+      self.user.cash += size2 * r2
+      self.user.equity -= size2 * entry
+      self.user.save
+      self.r2_hit = true
+      self.remaining_size -= size2
+      self.save
     end
   end
 
   def take_profit_long_R3(size1, size2, size3)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r3 && remaining_shares == (size - size1 - size2)
-      sell_3 = (size3 * (r3 - entry))
-      cash += sell_3
-      equity -= sell_3
-      remaining_shares -= size3
+    if current_price >= r3 && r3_hit == false
+      # sell_3 = (size3 * (r3 - entry))
+      self.user.cash += size3 * r3
+      self.user.equity -= size3 * entry
+      self.user.save
+      self.r3_hit = true
+      self.remaining_size -= size3
+      self.save
       # change color for R3 to green
     end
-    # position size reduces by 1/3
-    # profit = size * 1/3 *
-    # cash up by that amount
-    # equity down by that amount
+  end
+
+  def take_profit_short_R1(size1)
+    if current_price <= r1 && r1_hit == false
+      sell_1 = (size1 * (entry - r1))
+      self.user.cash -= sell_1
+      self.user.equity += sell_1
+      self.user.save
+      self.r1_hit = true
+      self.remaining_size -= size1
+      self.save
+    end
+  end
+
+  def take_profit_short_R2(size1, size2)
+    if current_price <= r2 && r2_hit == false
+      sell_2 = (size2 * (entry - r2))
+      self.user.cash -= sell_2
+      self.user.equity += sell_2
+      self.user.save
+      self.r2_hit = true
+      self.remaining_size -= size2
+      self.save
+    end
+  end
+
+  def take_profit_short_R3(size1, size2, size3)
+    if current_price <= r3 && r3_hit == false
+      sell_3 = (size3 * (r3 - entry))
+      self.user.cash -= sell_3
+      self.user.equity += sell_3
+      self.user.save
+      self.r3_hit = true
+      self.remaining_size -= size3
+      self.save
+    end
   end
 
   def profit_loss_position
@@ -99,64 +197,5 @@ class Position < ApplicationRecord
   def profit_loss_percentage
     # if
   end
-
-  def close_pricesss
-    # scenario 1: trade is successful, sells at 30%, 70%, 100%
-    # 2: update positions size
-    # 3: calculate gains and update account balance
-    # 4: same for short selling
-
-    # scenario 2: trade not successful, trade hits stop_loss
-    # 2: position is closed
-    # 3: calculate losses
-    # 4: update cash balance, uodate remaining shares balance
-    # 5: same for short-selling
-
- # this creates the 3 closing prices for a long or short trade
-    if buy_sell == "Buy"
-      close1 = baseline + ((target - baseline) * 0.3) # creates theoretical sell price
-      close2 = baseline + ((target - baseline) * 0.7)
-      close3 = target
-    else
-      close1 = baseline - ((baseline - target) * 0.3)
-      close2 = baseline - ((baseline - target) * 0.7)
-      close3 = target
-    end
-
-    balance = total_amount
-
-    if buy_sell == "Buy" && current_price >= close1
-      position.r1 = close1 # makes close1 official
-
-      sold_size = 1/3 * position.size # amount of shares sold
-      position.size -= sold_size # remaining position size after close 1
-      # need to create a table for cash_balance and update it
-      gains = sold_size * (close1 - entry)
-      user.wallet = user.wallet + gains
-
-
-
-      if current_price >= close2
-        position.r2 = close2
-        if current_price >= close3
-          position.r3 = close3
-        end
-      end
-
-
-    elsif buy_sell == "Sell" && current_price <= r1
-      position.r1 = close1
-      position.size = (2/3) * position.size
-
-    end
-
-      # sell 1/3 of position.size
-      # Position.create()
-  end
-
-  # def close_1(close1)
-  #   position.r1 = close1
-  # end
-
 
 end
