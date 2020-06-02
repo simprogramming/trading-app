@@ -6,10 +6,6 @@ class PagesController < ApplicationController
     @hot_stock = HotStock.new
   end
 
-  def profile
-    @user = current_user
-    @positions = Position.where(user_id: current_user.id)
-  end
 
   def scoreboard
     @user = current_user
@@ -20,7 +16,7 @@ class PagesController < ApplicationController
 
   def dashboard
 
-    # @stocks = ['AMZN','AAPL','NFLX', 'BA', 'BABA']
+
     @position = Position.new
     @hot_stocks = HotStock.all
 
