@@ -6,6 +6,11 @@
 
 .navbar-light .navbar-nav .nav-link {
   color: $light-gray;
+  transition: 0.5s;
+  margin-top: 3px;
+  &:hover{
+    color:white;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -52,3 +57,11 @@
   color: $light-gray;
 }
 
+.logo-text{
+  align-self: center;
+  justify-self: center;
+}
+
+.website-logo{
+  display: flex;
+}
