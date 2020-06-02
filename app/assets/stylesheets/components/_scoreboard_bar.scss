@@ -1,0 +1,40 @@
+
+
+.summary {
+  margin: 20px 10px 20px 10px;
+  padding: 8px 8px;
+  background-color: #2F3241;
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+
+  .item {
+    // border: solid 1px white;
+    width: 25%;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #2F3241;
+  }
+
+
+}
+
+#mainBar {
+  margin-bottom: 50px;
+}
+
+.buttonScoreboard {
+  border-radius: 8px;
+  color: white;
+  background-color: green;
+  padding: 5px 15px 5px 15px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  text-align: center;
+
+  //   :hover {
+  //   opacity: 0.8;
+  // }
+
+}
+
