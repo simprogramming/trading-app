@@ -1,24 +1,25 @@
+<div class="header">
+  <%= link_to "/documents" do %>
+      <p><i class="fas fa-chevron-left"></i>   BACK</p>
+  <% end %>
+</div>
 <div class="container">
-      <div class="cards">
-        <%= link_to "/documents/folders" do %>
-          <div class="documents-card">
-            <p>Administrative</p>
-          </div>
-        <% end %>
-        <%= link_to "/documents/podcasts" do %>
-          <div class="podcasts-card">
-            <p>Tools</p>
-          </div>
-        <% end %>
-        <%= link_to "/documents/videos" do %>
-          <div class="videos-card">
-            <p>Education</p>
-          </div>
-        <% end %>
-        <%= link_to "/documents/books" do %>
-          <div class="books-card">
-            <p>Portfolio</p>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <div class="icons">
+    <%= link_to "/documents/administratives" do %>
+      <i class="fas fa-university"></i>
+      <p>Administrative</p>
+    <% end %>
+    <%= link_to "/documents/tools" do %>
+      <i class="fas fa-tools"></i>
+      <p>Tools</p>
+    <% end %>
+    <%= link_to "/documents/educations" do %>
+      <i class="fas fa-book-reader"></i>
+      <p>Education</p>
+    <% end %>
+    <%= link_to "/documents/portfolios" do %>
+      <i class="fas fa-file-powerpoint"></i>
+      <p>Portfolio</p>
+    <% end %>
+  </div>
+</div>

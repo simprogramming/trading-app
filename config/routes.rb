@@ -11,18 +11,29 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'pages#dashboard'
 
+  
+  
   get '/documents/folders', to: 'documents#folders'
 
   get '/documents/documents', to: 'documents#documents'
 
   get '/documents/videos', to: 'documents#videos'
 
-
   get '/documents/podcasts', to: 'documents#podcasts'
 
   get '/documents/books', to: 'documents#books'
 
+
+  get '/documents/administratives', to: 'documents#administratives'
+
+  get '/documents/educations', to: 'documents#educations'
+
+  get '/documents/tools', to: 'documents#tools'
+
+  get '/documents/portfolios', to: 'documents#portfolios'
+
   get '/positions/reset', to: 'positions#reset', as: :reset
+
 
   Rails.application.routes.draw do
   # Sidekiq Web UI, only for admins.
