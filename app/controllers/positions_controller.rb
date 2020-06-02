@@ -29,7 +29,7 @@ class PositionsController < ApplicationController
         current_user.equity -= @position.size * @position.entry
         current_user.save
       end
-      redirect_to profile_path
+      redirect_to user_path(current_user)
     else
       render 'pages/dashboard'
     end
