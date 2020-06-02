@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def my_watchlist
+    @hot_stock = HotStock.new
   end
 
   def profile
