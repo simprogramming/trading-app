@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :watched_stocks, dependent: :destroy
   has_many :posts
   has_many :comments
+  has_many :hot_stocks, dependent: :destroy
 end

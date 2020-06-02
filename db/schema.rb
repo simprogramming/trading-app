@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_06_01_153053) do
+
+ActiveRecord::Schema.define(version: 2020_06_01_183248) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +65,11 @@ ActiveRecord::Schema.define(version: 2020_06_01_153053) do
     t.float "r1"
     t.float "r2"
     t.float "r3"
+    t.integer "remaining_size"
+    t.boolean "r1_hit", default: false
+    t.boolean "r2_hit", default: false
+    t.boolean "r3_hit", default: false
+    t.boolean "stop_loss_hit", default: false
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
@@ -90,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_06_01_153053) do
     t.string "nickname"
     t.text "description"
     t.string "category"
-    t.float "equity"
+    t.float "equity", default: 0.0
     t.float "cash", default: 100000.0
     t.float "cash_plus_equity"
     t.index ["email"], name: "index_users_on_email", unique: true

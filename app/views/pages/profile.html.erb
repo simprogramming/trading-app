@@ -8,19 +8,17 @@
       <p><%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar" %></p>
       <p><%= current_user.nickname %></p>
       <p><%= current_user.description %></p>
+      <p><%= current_user.email %></p>
     </div>
   </div>
 </div>
 
 <div class="container-fluid">
   <div class=border>
-    <% cash=100000 %>
-    <% equity=0 %>
-    <% @positions.each do | position | %>
-      <% equity += position.total_amount %>
-    <% end %>
-    <p>Cash: <%=cash %></p>
-    <p>Equity: <%= equity %></p>
+    <p>Cash: <%= number_to_currency(@user.cash) %></p>
+    <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
+    <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
+    <%= link_to "reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %>
   </div>
 
   <table style = "width:100%" class="table table-hover table-striped">
@@ -32,41 +30,65 @@
         <th class= "table-text-color" scope="col">Buy/Sell</th>
         <th class= "table-text-color" scope="col">Size</th>
         <th class= "table-text-color" scope="col">Entry</th>
-        <th class= "table-text-color" scope="col">$</th>
+        <th class= "table-text-color" scope="col">Total $</th>
         <th class= "table-text-color" scope="col">Bline</th>
         <th class= "table-text-color" scope="col">Target</th>
         <th class= "table-text-color" scope="col">Stop Loss</th>
         <th class= "table-text-color" scope="col">Stock Price</th>
-        <th class= "table-text-color" scope="col">P/L%</th>
+        <th class= "table-text-color" scope="col">P/L on stock %</th>
         <th class= "table-text-color" scope="col">1R</th>
         <th class= "table-text-color" scope="col">2R</th>
         <th class= "table-text-color" scope="col">3R</th>
-        <th class= "table-text-color" scope="col">Shares</th>
-        <th class= "table-text-color" scope="col">P/L</th>
+        <th class= "table-text-color" scope="col">Shares Left</th>
+        <th class= "table-text-color" scope="col">P/L closed</th>
         <th class= "table-text-color" scope="col">Wallet %</th>
       </tr>
     <thead>
       <tbody>
         <% @positions.each do | position | %>
+        <% position.gain_loss_closed %>
         <tr class="border">
           <th class= "table-text-color" scope="row"><%= Stock.pluck[position.stock_id - 1][1]%></th>
           <th class= "table-text-color" scope="row"><%=position.created_at.to_date %></th>
           <th class= "table-text-color" scope="row"><%=position.created_at.to_time.to_s.split[1] %></th>
           <th class= "table-text-color" scope="row"><%=position.buy_sell%></th>
           <th class= "table-text-color" scope="row"><%=position.size%></th>
-          <th class= "table-text-color" scope="row"><%= position.entry%></th>
+          <th class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></th>
           <th class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></th>
           <th class= "table-text-color" scope="row"><%= position.baseline %></th>
           <th class= "table-text-color" scope="row"><%= position.target %></th>
           <th class= "table-text-color" scope="row"><%= position.stop_loss %></th>
           <th class= "table-text-color" scope="row"><%= position.current_price %></th>
-          <th class= "table-text-color" scope="row"><%= position.gain_loss_percentage.truncate(4)*100 %></th>
-          <th class= "table-text-color" scope="row"><%= position.r1 %></th>
-          <th class= "table-text-color" scope="row"><%= position.r2 %></th>
-          <th class= "table-text-color" scope="row"><%= position.r3 %></th>
-          <th class= "table-text-color" scope="row"><%# position.quantity_1 - (position.quantity_1 - x) %></th>
-          <th class= "table-text-color" scope="row"></th>
-          <th class= "table-text-color" scope="row"></th>
+          <th class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).truncate(2) %>%</th>
+          <th class= "table-text-color" scope="row">
+            <% if position.r1_hit%>
+             <em><%= position.r1 %></em>
+             <% else %>
+             <%= position.r1 %>
+            <% end %>
+          </th>
+          <th class= "table-text-color" scope="row">
+            <% if position.r2_hit%>
+             <em><%= position.r2 %></em>
+             <% else %>
+             <%= position.r2 %>
+            <% end %>
+          </th>
+          <th class= "table-text-color" scope="row">
+            <% if position.r3_hit%>
+             <em><%= position.r3 %></em>
+             <% else %>
+             <%= position.r3 %>
+            <% end %>
+          </th>
+          <th class= "table-text-color" scope="row"><%= position.remaining_size%></th>
+          <th class= "table-text-color" scope="row">
+            <% if position.p_l_closed != "N/A" %>
+              <%= number_to_currency(position.p_l_closed) %>
+              <% else %>
+              <%= position.p_l_closed %>
+            <% end %> </th>
+          <th class= "table-text-color" scope="row"><%=position.portfolio_return%></th>
         </tr>
         <% end %>
 

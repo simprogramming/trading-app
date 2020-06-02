@@ -16,7 +16,10 @@ const newPosition = () => {
       })
       .then(response => response.json())
       .then((data) => {
-        entry.value = (data['quoteResponse']['result'][0]['bid'])
+        const bid = (data['quoteResponse']['result'][0]['bid'])
+        const ask = (data['quoteResponse']['result'][0]['ask'])
+        let avg = (bid + ask) / 2
+        entry.value = avg
       });
     });
   }

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   get '/documents/books', to: 'documents#books'
 
+
   get '/documents/administratives', to: 'documents#administratives'
 
   get '/documents/educations', to: 'documents#educations'
@@ -30,6 +31,9 @@ Rails.application.routes.draw do
   get '/documents/tools', to: 'documents#tools'
 
   get '/documents/portfolios', to: 'documents#portfolios'
+
+  get '/positions/reset', to: 'positions#reset', as: :reset
+
 
   Rails.application.routes.draw do
   # Sidekiq Web UI, only for admins.
