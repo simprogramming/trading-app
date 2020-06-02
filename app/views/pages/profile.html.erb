@@ -8,6 +8,7 @@
       <p><%= image_tag "https://image.flaticon.com/icons/svg/2919/2919573.svg", class: "avatar" %></p>
       <p><%= current_user.nickname %></p>
       <p><%= current_user.description %></p>
+      <p><%= current_user.email %></p>
     </div>
   </div>
 </div>
@@ -34,7 +35,7 @@
         <th class= "table-text-color" scope="col">Target</th>
         <th class= "table-text-color" scope="col">Stop Loss</th>
         <th class= "table-text-color" scope="col">Stock Price</th>
-        <th class= "table-text-color" scope="col">P/L%</th>
+        <th class= "table-text-color" scope="col">P/L on stock %</th>
         <th class= "table-text-color" scope="col">1R</th>
         <th class= "table-text-color" scope="col">2R</th>
         <th class= "table-text-color" scope="col">3R</th>
@@ -59,9 +60,27 @@
           <th class= "table-text-color" scope="row"><%= position.stop_loss %></th>
           <th class= "table-text-color" scope="row"><%= position.current_price %></th>
           <th class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).truncate(2) %>%</th>
-          <th class= "table-text-color" scope="row"><%= position.r1 %></th>
-          <th class= "table-text-color" scope="row"><%= position.r2 %></th>
-          <th class= "table-text-color" scope="row"><%= position.r3 %></th>
+          <th class= "table-text-color" scope="row">
+            <% if position.r1_hit%>
+             <em><%= position.r1 %></em>
+             <% else %>
+             <%= position.r1 %>
+            <% end %>
+          </th>
+          <th class= "table-text-color" scope="row">
+            <% if position.r2_hit%>
+             <em><%= position.r2 %></em>
+             <% else %>
+             <%= position.r2 %>
+            <% end %>
+          </th>
+          <th class= "table-text-color" scope="row">
+            <% if position.r3_hit%>
+             <em><%= position.r3 %></em>
+             <% else %>
+             <%= position.r3 %>
+            <% end %>
+          </th>
           <th class= "table-text-color" scope="row"><%= position.remaining_size%></th>
           <th class= "table-text-color" scope="row">
             <% if position.p_l_closed != "N/A" %>
