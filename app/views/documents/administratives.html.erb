@@ -1,0 +1,15 @@
+<div class="header">
+  <%= link_to "/documents/folders" do %>
+    <p><i class="fas fa-chevron-left"></i>   BACK</p>
+  <% end %>
+  <h1><%= @administratives.first.category %>/<%= @administratives.first.subcategory%></h1>
+</div>
+<% @administratives.each do |administrative| %>
+  <div class="card-edu">
+    <i class="fas fa-university"></i>
+    <div class="card-edu-infos">
+      <a href="<%= administrative.url %>"><h2><%= administrative.title %></h2></a>
+      <p><%= administrative.content %></p>
+    </div>
+  </div>
+<% end %>

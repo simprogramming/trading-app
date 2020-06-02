@@ -41,10 +41,27 @@ class DocumentsController < ApplicationController
   def books
     @books = Document.where(category: "Book")
   end
+
+  def tools 
+    @tools = Document.where(subcategory: "Tool")
+  end
+
+  def administratives 
+    @administratives = Document.where(subcategory: "Administrative")
+  end
+
+  def portfolios 
+    @portfolios = Document.where(subcategory: "Portfolio")
+  end
+
+  def educations 
+    @educations = Document.where(subcategory: "Education")
+  end
+
   private
 
   def document_params
-    params.require(:document).permit(:category, :title, :content, :url)
+    params.require(:document).permit(:category, :title, :content, :url, :subcategory)
   end
 end
 
