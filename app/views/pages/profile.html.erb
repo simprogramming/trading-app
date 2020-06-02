@@ -52,7 +52,7 @@
           <th class= "table-text-color" scope="row"><%=position.created_at.to_time.to_s.split[1] %></th>
           <th class= "table-text-color" scope="row"><%=position.buy_sell%></th>
           <th class= "table-text-color" scope="row"><%=position.size%></th>
-          <th class= "table-text-color" scope="row"><%= position.entry%></th>
+          <th class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></th>
           <th class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></th>
           <th class= "table-text-color" scope="row"><%= position.baseline %></th>
           <th class= "table-text-color" scope="row"><%= position.target %></th>
