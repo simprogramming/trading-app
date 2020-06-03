@@ -19,7 +19,7 @@ const newPosition = () => {
       .then((data) => {
         const bid = (data['quoteResponse']['result'][0]['bid'])
         const ask = (data['quoteResponse']['result'][0]['ask'])
-        let avg = (bid + ask) / 2
+        let avg = ((bid + ask) / 2).toFixed(2)
         entry.value = avg
       });
     });

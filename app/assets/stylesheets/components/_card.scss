@@ -12,6 +12,8 @@
   height: 350px;
   border:  1px solid #141822;
   background-color: #303341;
+  border-radius: 5px;
+
 }
 
 .card-category {
@@ -27,15 +29,14 @@
 
 .text-left {
   position: text-left;
-
-  margin-left: 3px;
-
-  margin-left: 5px;
-
+  padding-left: 2px;
+  padding-top: 2px;
 }
 
 .text-right {
   position: text-right;
+  padding-right: 2px;
+  padding-top: 2px;
 }
 
 
@@ -48,6 +49,14 @@
 .stock_ticker {
   background-color: rgba(255,255,255, 0.1);
   padding: 2px;
+}
+
+.stock_ticker_buy {
+  background-color: rgba(42, 192, 22, 0.2)
+}
+
+.stock_ticker_sell {
+  background-color: rgba(148, 27, 11, 0.3)
 }
 
 .broker-form {

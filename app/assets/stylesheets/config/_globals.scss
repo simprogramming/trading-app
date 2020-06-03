@@ -8,6 +8,20 @@ input[type=text], input[type=number] {
     background-color: $light-gray !important;
 }
 .container-hot-stocks{
+
+    margin-top: 5px;
+}
+
+.btn-outline-secondary {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
     margin-top: 30px;
 }
 
@@ -20,3 +34,4 @@ input[type=text], input[type=number] {
     margin-bottom: 80px;
     text-align: center;
 }
+
