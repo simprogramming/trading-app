@@ -2,3 +2,24 @@
   width: 100% !important;
 }
 
+.select2-container--default .select2-selection--single {
+  background-color: $light-gray;
+  border: none;
+  border-radius: 2px;
+  height: 40px !important;
+  .span{
+    height: 40px;
+  }
+}
+
+.select2-results__option{
+  color: black;
+}
+
+.select2-results__option{
+  background-color: $light-gray;
+  border-radius: 2px;
+}
+.select2-selection__arrow{
+  height: 40px !important;
+}

@@ -2,7 +2,36 @@ body{
     background-color: #131722;
     color: $light-gray;
 }
-
+input[type=text], input[type=number] {
+    border: none !important;
+    border-radius: 2px !important;
+    background-color: $light-gray !important;
+}
 .container-hot-stocks{
+
+    margin-top: 5px;
+}
+
+.btn-outline-secondary {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
     margin-top: 30px;
 }
+
+.tradingview-widget-container{
+    margin: 0px !important;
+}
+
+.text-center-profile{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
