@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#dashboard'
 
   get '/my_watchlist', to: 'pages#my_watchlist' #create & delete
   resources :hot_stocks, only: [ :create, :destroy ]
 
   # get '/profile', to: 'pages#profile'
   resources :users, only: [ :show]
+
+  resources :groups, only: [ :update]
 
   get '/scoreboard', to: 'pages#scoreboard'
 

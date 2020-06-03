@@ -10,12 +10,24 @@
 <div class="container-fluid" style="width:90%">
   <div class="profile-overview">
     <div class="info">
-      <p>Name: <%= @user.nickname %></p>
+      <div class="user-avatar">
+        <%= image_tag("user.png") %>
+      </div>
+    </div>
+    <div class="info">
+      <p>Nickname: <%= @user.nickname %></p>
       <p>Description: <%= @user.description %></p>
     </div>
     <div class="info">
       <p>Sector: <%= @user.category %></p>
       <p>Amount of Position: <%= @positions.count %></p>
+    </div>
+  </div>
+
+  <div class="profile-overview">
+    <div class="info">
+      <p>Nickname: <%= @user.nickname %></p>
+      <p>Description: <%= @user.description %></p>
     </div>
     <div class="info">
       <div>
@@ -24,9 +36,10 @@
         <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
       </div>
     </div>
-      <p><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
   </div>
-
+    <% if  @user == current_user%>
+      <p><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
+    <% end  %>
   <table class="table table-hover table-dark">
     <thead>
       <tr>
@@ -50,6 +63,11 @@
         <th class= "table-text-color" scope="col">Wallet%</th>
       </tr>
     <thead>
+      <!-- refresh positions to appear in table -->
+      <% @positions.each do | position | %>
+        <% position.gain_loss_closed %>
+      <% end %>
+
       <tbody>
         <% @positions.each do | position | %>
         <tr class="border">
@@ -60,10 +78,10 @@
           <td class= "table-text-color" scope="row"><%=position.size%></td>
           <td class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></td>
           <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
-          <td class= "table-text-color" scope="row"><%= position.baseline %></td>
-          <td class= "table-text-color" scope="row"><%= position.target %></td>
-          <td class= "table-text-color" scope="row"><%= position.stop_loss %></td>
-          <td class= "table-text-color" scope="row"><%= position.current_price %></td>
+          <td class= "table-text-color" scope="row"><%= number_to_currency(position.baseline) %></td>
+          <td class= "table-text-color" scope="row"><%= number_to_currency(position.target) %></td>
+          <td class= "table-text-color" scope="row"><%= number_to_currency(position.stop_loss) %></td>
+          <td class= "table-text-color" scope="row"><%= number_to_currency(position.current_price) %></td>
           <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).truncate(2) %>%</td>
           <td class= "table-text-color" scope="row">
             <% if position.r1_hit%>

@@ -11,6 +11,9 @@ HotStock.destroy_all
 Position.destroy_all
 Stock.destroy_all
 User.destroy_all
+Group.destroy_all
+
+Group.create(objective: 100000)
 
 user = User.create(
   email: Faker::Internet.email,

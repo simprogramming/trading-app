@@ -40,20 +40,21 @@
         <% wallet = (user.equity + user.cash) %>
         <% total_wallet += wallet %>
       <% end %>
-      Total Wallet: <%= number_to_currency(total_wallet) %>
+      Group Wallet: <%= number_to_currency(total_wallet) %>
+    </div>
+    <div class="item" data-toggle="modal" data-target="#exampleModal">
+      Objective: <%= number_to_currency(Group.first.objective) %>
     </div>
     <div class="item">
-      Objective: xxxx
-    </div>
-    <div class="item">
-      Aggregate Gains/Losses <%#= @users.count %>
+      <% initialAmount = @users.count*100000 %>
+      Group Wallet P/L: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>%
     </div>
     <div class="item">
       Team Size: <%= @users.count %>
     </div>
-    <div class="buttonScoreboard">
+    <!-- <div class="buttonScoreboard">
       Change
-    </div>
+    </div> -->
   </div>
 
 
@@ -90,7 +91,27 @@
 
 </div>
 
+<!-- modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Objective</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for Group.first do |f|%>
+          <%= f.input :objective %>
+          <%= f.submit %>
+        <% end %>
 
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 

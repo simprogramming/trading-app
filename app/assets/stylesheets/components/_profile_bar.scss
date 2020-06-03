@@ -7,7 +7,7 @@
   height: auto;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -20,8 +20,17 @@
     text-align: left;
   }
 
-  #reset {
-    position: absolute;
-    align-self: bottom;
-  }
+  // #reset {
+  //   position: absolute;
+  //   align-self: bottom;
+  // }
+.user-avatar {
+  text-align: center;
+}
 
+.user-avatar img{
+  height: 65px;
+  width: 65px;
+  vertical-align: middle;
+
+}
