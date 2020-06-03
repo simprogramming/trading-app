@@ -14,6 +14,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -37,6 +38,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -60,6 +62,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -83,6 +86,7 @@
           </p>
         </div>
       </div>
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -106,6 +110,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 4) - 4, direction: 'Sell').each do |hot_stock| %>
@@ -139,7 +144,7 @@
       new TradingView.widget(
       {
       "width": 1100,
-      "height": 675,
+      "height": 700,
       "symbol": "AMEX:SPY",
       "interval": "W",
       "timezone": "Etc/UTC",

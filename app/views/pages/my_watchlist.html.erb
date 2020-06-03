@@ -5,7 +5,7 @@
         <div class="card-category text-center">Monday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"> <%= Date.today.monday.day %> </p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -15,8 +15,11 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -32,7 +35,7 @@
         <div class="card-category text-center">Tuesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 1).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -42,8 +45,11 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -59,7 +65,7 @@
         <div class="card-category text-center">Wednesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 2).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -69,8 +75,11 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -86,7 +95,7 @@
         <div class="card-category text-center">Thursday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 3).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -96,8 +105,11 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -113,7 +125,7 @@
         <div class="card-category text-center">Friday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 4).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -123,8 +135,11 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -148,7 +163,7 @@
       <script type="text/javascript">
       new TradingView.widget(
       {
-      "width": 1100,
+      "width": 1090,
       "height": 675,
       "symbol": "AMEX:SPY",
       "interval": "W",
