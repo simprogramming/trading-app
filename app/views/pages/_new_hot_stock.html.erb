@@ -1,6 +1,4 @@
-<button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#<%= direction %>-<%= date.day %>">
-  +
-</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#<%= direction %>-<%= date.day %>">+</button>
 
 <!-- Modal -->
 <div class="modal fade modal-color" id="<%= direction %>-<%= date.day %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -17,7 +15,7 @@
        <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', input_html: {class: 'select2', id:"hot_stock#{direction}#{date.day}"} %>
        <%= f.input :date, as: :hidden, input_html: { value: date } %>
        <%= f.input :direction, as: :hidden, input_html: { value: direction } %>
-       <%= f.submit 'add stock', class: "btn-primary"%>
+       <%= f.submit 'add stock', class: "btn-dark"%>
        <% end %>
       </div>
     </div>

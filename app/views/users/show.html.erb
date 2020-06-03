@@ -24,7 +24,9 @@
         <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
       </div>
     </div>
-      <p><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
+      <% if @user == current_user%>
+        <p><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
+      <% end %>
   </div>
 
   <table class="table table-hover table-dark">
@@ -39,7 +41,7 @@
         <th class= "table-text-color" scope="col">Total</th>
         <th class= "table-text-color" scope="col">Bline</th>
         <th class= "table-text-color" scope="col">Target</th>
-        <th class= "table-text-color" scope="col">Stop-Loss</th>
+        <th class= "table-text-color" scope="col">S/L</th>
         <th class= "table-text-color" scope="col">Price</th>
         <th class= "table-text-color" scope="col">P/L%</th>
         <th class= "table-text-color" scope="col">1R</th>
@@ -53,9 +55,9 @@
       <tbody>
         <% @positions.each do | position | %>
         <tr class="border">
-          <td class= "table-text-color" scope="row"><%= Stock.pluck[position.stock_id - 1][1]%></td>
-          <td class= "table-text-color" scope="row"><%=position.created_at.to_date %></td>
-          <td class= "table-text-color" scope="row"><%=position.created_at.to_time.to_s.split[1] %></td>
+          <td class= "table-text-color" scope="row"><%= position.stock.symbol%></td>
+          <td class= "table-text-color" scope="row"><%=position.created_at.to_date.strftime("%b %e") %></td>
+          <td class= "table-text-color" scope="row"><%=position.created_at.to_time.getlocal('-04:00').strftime("%k:%M") %></td>
           <td class= "table-text-color" scope="row"><%=position.buy_sell%></td>
           <td class= "table-text-color" scope="row"><%=position.size%></td>
           <td class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></td>
@@ -98,54 +100,54 @@
         <% end %>
       </tbody>
     </table>
-  </div>
 
-<div class="container text-center">
-  <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container">
-    <div id="tradingview_ffdae"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AMEX-SPY/" rel="noopener" target="_blank"><span class="blue-text">SPY Chart</span></a> by TradingView</div>
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
-    new TradingView.widget(
-    {
-    "width": 980,
-    "height": 610,
-    "symbol": "AMEX:SPY",
-    "interval": "D",
-    "timezone": "Etc/UTC",
-    "theme": "dark",
-    "style": "2",
-    "locale": "en",
-    "toolbar_bg": "#f1f3f6",
-    "enable_publishing": false,
-    "hide_side_toolbar": false,
-    "allow_symbol_change": true,
-    "container_id": "tradingview_ffdae"
-  }
-    );
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
-</div>
 
-<div class="container text-center">
+  <div class="container-fluid">
     <!-- TradingView Widget BEGIN -->
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/screener/" rel="noopener" target="_blank"><span class="blue-text">Stock Screener</span></a> by TradingView</div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-    {
-    "width": 1100,
-    "height": 512,
-    "defaultColumn": "overview",
-    "defaultScreen": "most_capitalized",
-    "market": "america",
-    "showToolbar": true,
-    "colorTheme": "dark",
-    "locale": "en"
-  }
-    </script>
+    <div class="tradingview-widget-container">
+      <div id="tradingview_ffdae" class="profile-chart"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AMEX-SPY/" rel="noopener" target="_blank"><span class="blue-text">SPY Chart</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.widget(
+      {
+      "autosize": "true",
+      "symbol": "SPY",
+      "interval": "D",
+      "timezone": "Etc/UTC",
+      "theme": "dark",
+      "style": "2",
+      "locale": "en",
+      "toolbar_bg": "#f1f3f6",
+      "enable_publishing": false,
+      "hide_side_toolbar": false,
+      "allow_symbol_change": true,
+      "container_id": "tradingview_ffdae"
+    }
+      );
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
   </div>
-  <!-- TradingView Widget END -->
+
+  <div class="container-fluid">
+      <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/screener/" rel="noopener" target="_blank"><span class="blue-text">Stock Screener</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+      {
+      "width": 1100,
+      "height": 512,
+      "defaultColumn": "overview",
+      "defaultScreen": "most_capitalized",
+      "market": "america",
+      "showToolbar": true,
+      "colorTheme": "dark",
+      "locale": "en"
+    }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+  </div>
 </div>

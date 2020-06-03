@@ -5,6 +5,7 @@ class PositionsController < ApplicationController
     @position.current_price = @position.entry
     @position.user = current_user
 
+
     if @position.buy_sell == "Buy"
       @position.r1 = @position.baseline + ((@position.target - @position.baseline) * 0.3) # creates theoretical sell price
       @position.r2 = @position.baseline + ((@position.target - @position.baseline) * 0.7)
@@ -29,10 +30,12 @@ class PositionsController < ApplicationController
         current_user.equity -= @position.size * @position.entry
         current_user.save
       end
+      flash[:notice] = 'Position successfully created'
       redirect_to user_path(current_user)
     else
       render 'pages/dashboard'
     end
+
   end
 
   def reset
