@@ -59,15 +59,12 @@
 
     <% sorted_users = @users.sort_by{|x| (x.cash+x.equity)}.reverse %>
     <% sorted_users.each do | user | %>
-    <%# wallet = (user.equity + user.cash) %>
 
     <div class="summary">
 
         <div class="item">
           <strong>
-            <%= link_to user.email, user_path(user)%>
-            <%#= user.email%>
-            <%= user.nickname %>
+            <%= link_to user.nickname, user_path(user)%>
           </strong>
         </div>
         <% positions = Position.where(user_id: user.id) %>
