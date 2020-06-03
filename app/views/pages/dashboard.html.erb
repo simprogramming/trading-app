@@ -14,6 +14,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -37,6 +38,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -60,6 +62,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -83,6 +86,7 @@
           </p>
         </div>
       </div>
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -106,6 +110,7 @@
           </p>
         </div>
       </div>
+      <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 4) - 4, direction: 'Sell').each do |hot_stock| %>
@@ -119,7 +124,7 @@
   <div class="d-flex">
     <div class="broker-form">
       <%= simple_form_for [@position] do |f| %>
-      <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol' %>
+      <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', class: 'select2' %>
       <%= f.input :buy_sell, as: :radio_buttons, collection: ['Buy', 'Sell'], include_blank: false, label: "Entry Action"  %>
       <%= f.input :size %>
       <%= f.input :entry, label: "price", input_html: {readonly: "readonly"} %>
@@ -139,7 +144,7 @@
       new TradingView.widget(
       {
       "width": 1100,
-      "height": 675,
+      "height": 700,
       "symbol": "AMEX:SPY",
       "interval": "W",
       "timezone": "Etc/UTC",

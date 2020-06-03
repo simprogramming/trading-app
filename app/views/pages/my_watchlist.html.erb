@@ -5,7 +5,7 @@
         <div class="card-category text-center">Monday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"> <%= Date.today.monday.day %> </p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -15,8 +15,13 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -32,7 +37,7 @@
         <div class="card-category text-center">Tuesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 1).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -42,8 +47,13 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 1, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -59,7 +69,7 @@
         <div class="card-category text-center">Wednesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 2).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -69,8 +79,13 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 2, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -86,7 +101,7 @@
         <div class="card-category text-center">Thursday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 3).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -96,8 +111,13 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 3, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -113,7 +133,7 @@
         <div class="card-category text-center">Friday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 4).day %></p>
-          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Buy' } %>
+          <div><%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Buy' } %></div>
         </div>
         <div>
           <p>
@@ -123,8 +143,13 @@
           </p>
         </div>
       </div>
-      <div class="down text-right">
-        <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Sell' } %>
+      <div class="d-flex justify-content-between">
+
+        <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlist" %></p>
+
+        <div class="down text-right">
+          <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday + 4, direction: 'Sell' } %>
+        </div>
       </div>
       <div>
         <p>
@@ -137,141 +162,8 @@
   </div>
 
   <div class="d-flex">
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright">
-      </div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-      {
-      "colorTheme": "dark",
-      "dateRange": "12m",
-      "showChart": false,
-      "locale": "en",
-      "largeChartUrl": "",
-      "isTransparent": false,
-      "width": "300",
-      "height": "665",
-      "tabs": [
-        {
-          "title": "Indices",
-          "symbols": [
-            {
-              "s": "FOREXCOM:SPXUSD",
-              "d": "S&P 500"
-            },
-            {
-              "s": "FOREXCOM:NSXUSD",
-              "d": "Nasdaq 100"
-            },
-            {
-              "s": "FOREXCOM:DJI",
-              "d": "Dow 30"
-            },
-            {
-              "s": "INDEX:NKY",
-              "d": "Nikkei 225"
-            },
-            {
-              "s": "INDEX:DEU30",
-              "d": "DAX Index"
-            },
-            {
-              "s": "FOREXCOM:UKXGBP",
-              "d": "FTSE 100"
-            }
-          ],
-          "originalTitle": "Indices"
-        },
-        {
-          "title": "Commodities",
-          "symbols": [
-            {
-              "s": "CME_MINI:ES1!",
-              "d": "E-Mini S&P"
-            },
-            {
-              "s": "CME:6E1!",
-              "d": "Euro"
-            },
-            {
-              "s": "COMEX:GC1!",
-              "d": "Gold"
-            },
-            {
-              "s": "NYMEX:CL1!",
-              "d": "Crude Oil"
-            },
-            {
-              "s": "NYMEX:NG1!",
-              "d": "Natural Gas"
-            },
-            {
-              "s": "CBOT:ZC1!",
-              "d": "Corn"
-            }
-          ],
-          "originalTitle": "Commodities"
-        },
-        {
-          "title": "Bonds",
-          "symbols": [
-            {
-              "s": "CME:GE1!",
-              "d": "Eurodollar"
-            },
-            {
-              "s": "CBOT:ZB1!",
-              "d": "T-Bond"
-            },
-            {
-              "s": "CBOT:UB1!",
-              "d": "Ultra T-Bond"
-            },
-            {
-              "s": "EUREX:FGBL1!",
-              "d": "Euro Bund"
-            },
-            {
-              "s": "EUREX:FBTP1!",
-              "d": "Euro BTP"
-            },
-            {
-              "s": "EUREX:FGBM1!",
-              "d": "Euro BOBL"
-            }
-          ],
-          "originalTitle": "Bonds"
-        },
-        {
-          "title": "Forex",
-          "symbols": [
-            {
-              "s": "FX:EURUSD"
-            },
-            {
-              "s": "FX:GBPUSD"
-            },
-            {
-              "s": "FX:USDJPY"
-            },
-            {
-              "s": "FX:USDCHF"
-            },
-            {
-              "s": "FX:AUDUSD"
-            },
-            {
-              "s": "FX:USDCAD"
-            }
-          ],
-          "originalTitle": "Forex"
-        }
-      ]
-    }
-      </script>
-    </div>
-    <!-- TradingView Widget END -->
+    <%= render partial: 'widget_category_list'%>
+
 
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container">
@@ -281,10 +173,10 @@
       <script type="text/javascript">
       new TradingView.widget(
       {
-      "width": 1100,
+      "width": 1090,
       "height": 675,
       "symbol": "AMEX:SPY",
-      "interval": "D",
+      "interval": "W",
       "timezone": "Etc/UTC",
       "theme": "dark",
       "style": "2",

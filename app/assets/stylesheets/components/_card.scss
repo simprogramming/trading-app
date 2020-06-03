@@ -27,6 +27,11 @@
 
 .text-left {
   position: text-left;
+
+  margin-left: 3px;
+
+  margin-left: 5px;
+
 }
 
 .text-right {
@@ -37,6 +42,7 @@
 .tradingview-widget-container {
   flex-grow: 1;
   margin-top: 3px;
+  margin-left: 3px;
 }
 
 .stock_ticker {
@@ -46,7 +52,8 @@
 
 .broker-form {
   width: 300px;
+  height: 670px;
   margin-right: 3px;
-  border: 2px solid black;
+  margin-top: 3px;
   background-color: #1E222D;
 }
