@@ -1,0 +1,27 @@
+
+
+.profile-overview {
+  margin-bottom: 40px;
+  padding: 8px 8px;
+  background-color: #2F3241;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+    // border: solid 1px white;
+    width: 25%;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #2F3241;
+    text-align: left;
+  }
+
+  #reset {
+    position: absolute;
+    align-self: bottom;
+  }
+
