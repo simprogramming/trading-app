@@ -3,21 +3,11 @@
     <h1>Education</h1>
     <%=link_to " + Add a new source", new_document_path, class: "btn btn-primary btn-flat" %>
 
-    <div class="container">
+    <div class="d-flex">
       <div class="cards">
         <%= link_to "/documents/folders" do %>
           <div class="documents-card">
             <p>Documents</p>
-          </div>
-        <% end %>
-        <%= link_to "/documents/podcasts" do %>
-          <div class="podcasts-card">
-            <p>Podcasts</p>
-          </div>
-        <% end %>
-        <%= link_to "/documents/videos" do %>
-          <div class="videos-card">
-            <p>Videos</p>
           </div>
         <% end %>
         <%= link_to "/documents/books" do %>
