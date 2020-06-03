@@ -16,7 +16,7 @@
       </div>
       <div>
         <div class="d-flex text-left">
-          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg" %> _ </p>
+          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlists" %></p>
         </div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -42,7 +42,7 @@
       </div>
       <div>
         <div class="d-flex text-left">
-          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg" %> _ </p>
+          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlists" %></p>
         </div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -68,7 +68,7 @@
       </div>
       <div>
         <div class="d-flex text-left">
-          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg" %> _ </p>
+          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlists" %></p>
         </div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -94,7 +94,7 @@
       </div>
       <div>
         <div class="d-flex text-left">
-          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg" %> _ </p>
+          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlists" %></p>
         </div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -120,7 +120,7 @@
       </div>
       <div>
         <div class="d-flex text-left">
-          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg" %> _ </p>
+          <p><%= image_tag "https://image.flaticon.com/icons/svg/892/892624.svg", class: "avatar-watchlists" %></p>
         </div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 4) - 4, direction: 'Sell').each do |hot_stock| %>
