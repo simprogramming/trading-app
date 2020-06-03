@@ -119,11 +119,11 @@ class Position < ApplicationRecord
   def take_profit_long_R1(size1)
     # need a way to execute only once, not every time the stock hits the taregt
     if current_price >= r1 && r1_hit == false && remaining_size != 0
-      # sell_1 = (size1 * (r1 - entry))
-      self.user.cash += size1 * r1 # size 1 * entry + (r1-entry) *size1
-      self.user.equity -= size1 * entry # does not work
+      self.user.cash += size1 * r1
+      self.user.equity -= size1 * entry
       self.user.save
       self.r1_hit = true
+      self.stop_loss = entry
       self.remaining_size -= size1
       self.save
     end
@@ -164,6 +164,7 @@ class Position < ApplicationRecord
       self.user.equity += size1 * entry
       self.user.save
       self.r1_hit = true
+      self.stop_loss = entry
       self.remaining_size -= size1
       self.save
     end
@@ -199,10 +200,6 @@ class Position < ApplicationRecord
     else
     profit = (current_price - entry) * size
     end
-  end
-
-  def profit_loss_percentage
-    # if
   end
 
 end

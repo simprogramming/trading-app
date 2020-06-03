@@ -44,7 +44,7 @@ class PositionsController < ApplicationController
     current_user.cash = 100000
     current_user.equity = 0
     current_user.save
-    redirect_to profile_path
+    redirect_to user_path(current_user)
   end
 
   private
