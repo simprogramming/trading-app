@@ -3,7 +3,7 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="<%= direction %>-<%= date.day %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-color" id="<%= direction %>-<%= date.day %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
        <%= simple_form_for @hot_stock do |f|%>
-       <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol' %>
+       <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', input_html: {class: 'select2', id:"hot_stock#{direction}#{date.day}"} %>
        <%= f.input :date, as: :hidden, input_html: { value: date } %>
        <%= f.input :direction, as: :hidden, input_html: { value: direction } %>
        <%= f.submit 'add stock', class: "btn-primary"%>
