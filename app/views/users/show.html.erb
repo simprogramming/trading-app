@@ -2,6 +2,11 @@
   <h1>Profile Page</h1>
 </div>
 
+  <!-- Updates positions each time the page is refreshed -->
+  <% @positions.each do | position | %>
+    <% position.gain_loss_closed %>
+  <% end %>
+
 <div class="container-fluid" style="width:90%">
   <div class="profile-overview">
     <div class="info">
@@ -22,21 +27,6 @@
       <p><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
   </div>
 
-
-  <!-- Updates positions each time the page is refreshed -->
-  <% @positions.each do | position | %>
-    <% position.gain_loss_closed %>
-  <% end %>
-
-<div class="container-fluid">
-  <div class=border>
-    <p>Cash: <%= number_to_currency(@user.cash) %></p>
-    <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
-    <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
-    <button type="btn" class="btn btn-outline-secondary btn-sm"> <%= link_to "reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></button>
-  </div>
-
-
   <table class="table table-hover table-dark">
     <thead>
       <tr>
@@ -46,18 +36,12 @@
         <th class= "table-text-color" scope="col">Buy/Sell</th>
         <th class= "table-text-color" scope="col">Size</th>
         <th class= "table-text-color" scope="col">Entry</th>
-        <th class= "table-text-color" scope="col">$</th>
+        <th class= "table-text-color" scope="col">Total</th>
         <th class= "table-text-color" scope="col">Bline</th>
         <th class= "table-text-color" scope="col">Target</th>
-
-        <th class= "table-text-color" scope="col">Stop Loss</th>
-        <th class= "table-text-color" scope="col">Stock Price</th>
-        <th class= "table-text-color" scope="col">Stock %</th>
-
-        <th class= "table-text-color" scope="col">S/L</th>
+        <th class= "table-text-color" scope="col">Stop-Loss</th>
         <th class= "table-text-color" scope="col">Price</th>
         <th class= "table-text-color" scope="col">P/L%</th>
-
         <th class= "table-text-color" scope="col">1R</th>
         <th class= "table-text-color" scope="col">2R</th>
         <th class= "table-text-color" scope="col">3R</th>
