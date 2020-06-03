@@ -25,13 +25,16 @@ require("channels")
 // External imports
 import "bootstrap";
 import { newPosition } from '../components/new_position.js'
+import { initSelect2 } from '../plugins/select2.js'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  newPosition()
+  newPosition();
+  initSelect2();
 });
+
 
 
 
