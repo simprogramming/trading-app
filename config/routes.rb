@@ -14,13 +14,9 @@ Rails.application.routes.draw do
 
 
 
-  get '/documents/folders', to: 'documents#folders'
+ 
 
   get '/documents/documents', to: 'documents#documents'
-
-  get '/documents/videos', to: 'documents#videos'
-
-  get '/documents/podcasts', to: 'documents#podcasts'
 
   get '/documents/books', to: 'documents#books'
 
