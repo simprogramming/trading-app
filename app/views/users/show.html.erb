@@ -1,174 +1,161 @@
-<div class="text-center-profile">
-  <h1>Profile Page</h1>
-</div>
-
-  <!-- Updates positions each time the page is refreshed -->
-  <% @positions.each do | position | %>
-    <% position.gain_loss_closed %>
-  <% end %>
+<!-- Updates positions each time the page is refreshed -->
+<% @positions.each do | position | %>
+  <% position.gain_loss_closed %>
+<% end %>
 
 <div class="container-fluid" style="width:90%">
   <div class="profile-overview">
-    <div class="info">
+    <div class="info d-flex">
       <div class="user-avatar">
         <%= image_tag("user.png") %>
       </div>
+      <div>
+        <p><%= @user.nickname %></p>
+        <p><%= @user.description %></p>
+      </div>
     </div>
-    <div class="info">
-      <p>Nickname: <%= @user.nickname %></p>
-      <p>Description: <%= @user.description %></p>
-    </div>
-    <div class="info">
-      <p>Sector: <%= @user.category %></p>
-      <p>Amount of Position: <%= @positions.count %></p>
+    <div class="container d-flex">
+      <div class="finance-info-1">
+        <p>Positions: <%= @positions.count %></p>
+        <% if @user == current_user%>
+          <p><%= link_to "Reset my Wallet", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
+        <% end %>
+      </div>
+      <div class="finance-info-1">
+        Sectors <div class="sector-color"><%= @user.category %></div>
+      </div>
     </div>
   </div>
 
   <div class="profile-overview">
-    <div class="info">
-      <p>Nickname: <%= @user.nickname %></p>
-      <p>Description: <%= @user.description %></p>
-    </div>
-    <div class="info">
-      <div>
-        <p>Cash: <%= number_to_currency(@user.cash) %></p>
-        <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
-        <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
-      </div>
-    </div>
-    <div class="reset">
-      <% if @user == current_user%>
-        <%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to delete?' } %>
-      <% end %>
-    </div>
+    <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
+    <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
+    <p>Cash: <%= number_to_currency(@user.cash) %></p>
   </div>
+</div>
 
-  <table class="table table-hover table-dark">
-    <thead>
-      <tr>
-        <th class= "table-text-color" scope="col">Symbol</th>
-        <th class= "table-text-color" scope="col">Date</th>
-        <th class= "table-text-color" scope="col">Time</th>
-        <th class= "table-text-color" scope="col">Buy/Sell</th>
-        <th class= "table-text-color" scope="col">Size</th>
-        <th class= "table-text-color" scope="col">Entry</th>
-        <th class= "table-text-color" scope="col">Total</th>
-        <th class= "table-text-color" scope="col">Bline</th>
-        <th class= "table-text-color" scope="col">Target</th>
-        <th class= "table-text-color" scope="col">SL</th>
-        <th class= "table-text-color" scope="col">Price</th>
-        <th class= "table-text-color" scope="col">P/L%</th>
-        <th class= "table-text-color" scope="col">1R</th>
-        <th class= "table-text-color" scope="col">2R</th>
-        <th class= "table-text-color" scope="col">3R</th>
-        <th class= "table-text-color" scope="col">Shares</th>
-        <th class= "table-text-color" scope="col">P/L</th>
-        <th class= "table-text-color" scope="col">Wallet%</th>
-      </tr>
-    <thead>
-      <!-- refresh positions to appear in table -->
-      <% @positions.each do | position | %>
-        <% position.gain_loss_closed %>
-      <% end %>
+ <table class="table table-hover table-dark table-1">
+  <thead>
+    <tr>
+      <th class= "table-text-color" scope="col">Symbol</th>
+      <th class= "table-text-color" scope="col">Date</th>
+      <th class= "table-text-color" scope="col">Time</th>
+      <th class= "table-text-color" scope="col">Buy/Sell</th>
+      <th class= "table-text-color" scope="col">Size</th>
+      <th class= "table-text-color" scope="col">Entry</th>
+      <th class= "table-text-color" scope="col">Total</th>
+      <th class= "table-text-color" scope="col">Bline</th>
+      <th class= "table-text-color" scope="col">Target</th>
+      <th class= "table-text-color" scope="col">S/L</th>
+      <th class= "table-text-color" scope="col">Price</th>
+      <th class= "table-text-color" scope="col">P/L%</th>
+      <th class= "table-text-color" scope="col">1R</th>
+      <th class= "table-text-color" scope="col">2R</th>
+      <th class= "table-text-color" scope="col">3R</th>
+      <th class= "table-text-color" scope="col">Shares</th>
+      <th class= "table-text-color" scope="col">P/L</th>
+      <th class= "table-text-color" scope="col">Wallet%</th>
+    </tr>
+  </thead>
+    <!-- refresh positions to appear in table -->
+    <% @positions.each do | position | %>
+      <% position.gain_loss_closed %>
+    <% end %>
 
-      <tbody>
-        <% @positions.each do | position | %>
-        <tr class="border">
-          <td class= "table-text-color" scope="row"><%= position.stock.symbol%></td>
-          <td class= "table-text-color" scope="row"><%=position.created_at.to_date.strftime("%b %e") %></td>
-          <td class= "table-text-color" scope="row"><%=position.created_at.to_time.getlocal('-04:00').strftime("%k:%M") %></td>
-          <td class= "table-text-color" scope="row"><%=position.buy_sell%></td>
-          <td class= "table-text-color" scope="row"><%=position.size%></td>
-          <td class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></td>
-          <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
-          <td class= "table-text-color" scope="row"><%= number_to_currency(position.baseline) %></td>
-          <td class= "table-text-color" scope="row"><%= number_to_currency(position.target) %></td>
-          <td class= "table-text-color" scope="row"><%= number_to_currency(position.stop_loss) %></td>
-          <td class= "table-text-color" scope="row"><%= number_to_currency(position.current_price) %></td>
-          <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).truncate(2) %>%</td>
-          <td class= "table-text-color" scope="row">
-            <% if position.r1_hit%>
-             <em><%= position.r1 %></em>
-             <% else %>
-             <%= position.r1 %>
-            <% end %>
-          </td>
-          <td class= "table-text-color" scope="row">
-            <% if position.r2_hit%>
-             <em><%= position.r2 %></em>
-             <% else %>
-             <%= position.r2 %>
-            <% end %>
-          </td>
-          <td class= "table-text-color" scope="row">
-            <% if position.r3_hit%>
-             <em><%= position.r3 %></em>
-             <% else %>
-             <%= position.r3 %>
-            <% end %>
-          </td>
-          <td class= "table-text-color" scope="row"><%= position.remaining_size%></td>
-          <td class= "table-text-color" scope="row">
-            <% if position.p_l_closed != "N/A" %>
-              <%= number_to_currency(position.p_l_closed) %>
-              <% else %>
-              <%= position.p_l_closed %>
-            <% end %> </td>
-          <td class= "table-text-color" scope="row"><%=position.portfolio_return%></td>
-        </tr>
+  <tbody>
+    <% @positions.each do | position | %>
+    <tr class="border">
+      <td class= "table-text-color" scope="row"><%= position.stock.symbol%></td>
+      <td class= "table-text-color" scope="row"><%=position.created_at.to_date.strftime("%b %e") %></td>
+      <td class= "table-text-color" scope="row"><%=position.created_at.to_time.getlocal('-04:00').strftime("%k:%M") %></td>
+      <td class= "table-text-color" scope="row"><%=position.buy_sell%></td>
+      <td class= "table-text-color" scope="row"><%=position.size%></td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.baseline) %></td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.target) %></td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.stop_loss) %></td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.current_price) %></td>
+      <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).truncate(2) %>%</td>
+      <td class= "table-text-color" scope="row">
+        <% if position.r1_hit%>
+         <em><%= position.r1 %></em>
+         <% else %>
+         <%= position.r1 %>
         <% end %>
-      </tbody>
-    </table>
+      </td>
+      <td class= "table-text-color" scope="row">
+        <% if position.r2_hit%>
+         <em><%= position.r2 %></em>
+         <% else %>
+         <%= position.r2 %>
+        <% end %>
+      </td>
+      <td class= "table-text-color" scope="row">
+        <% if position.r3_hit%>
+         <em><%= position.r3 %></em>
+         <% else %>
+         <%= position.r3 %>
+        <% end %>
+      </td>
+      <td class= "table-text-color" scope="row"><%= position.remaining_size%></td>
+      <td class= "table-text-color" scope="row">
+        <% if position.p_l_closed != "N/A" %>
+          <%= number_to_currency(position.p_l_closed) %>
+          <% else %>
+          <%= position.p_l_closed %>
+        <% end %> </td>
+      <td class= "table-text-color" scope="row"><%=position.portfolio_return%></td>
+    </tr>
+    <% end %>
+  </tbody>
+ </table>
 
 
-  <!-- <div class="container-fluid"> -->
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container" >
-      <div id="tradingview_ffdae" class="profile-chart"></div>
-      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AMEX-SPY/" rel="noopener" target="_blank"><span class="blue-text">SPY Chart</span></a> by TradingView</div>
-      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-      <script type="text/javascript">
-      new TradingView.widget(
-      {
-      "autosize": "true",
-      "symbol": "SPY",
-      "interval": "D",
-      "timezone": "Etc/UTC",
-      "theme": "dark",
-      "style": "2",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "hide_side_toolbar": false,
-      "allow_symbol_change": true,
-      "container_id": "tradingview_ffdae"
-    }
-      );
-      </script>
-    </div>
-    <!-- TradingView Widget END -->
-  <!-- </div> -->
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" >
+  <div id="tradingview_ffdae" class="profile-chart"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AMEX-SPY/" rel="noopener" target="_blank"><span class="blue-text">SPY Chart</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "autosize": "true",
+  "symbol": "SPY",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "2",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_side_toolbar": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_ffdae"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->
 
-  <!-- <div class="container-fluid"> -->
-      <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget" id="profile-chart2" style="height: 600px"></div>
-      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/screener/" rel="noopener" target="_blank"><span class="blue-text">Stock Screener</span></a> by TradingView</div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-      {
-      "width": "100%",
+  <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget" id="profile-chart2" style="height: 600px"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/screener/" rel="noopener" target="_blank"><span class="blue-text">Stock Screener</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+  {
+  "width": "100%",
 
-      "autosize": "true",
-      "defaultColumn": "overview",
-      "defaultScreen": "most_capitalized",
-      "market": "america",
-      "showToolbar": true,
-      "colorTheme": "dark",
-      "locale": "en"
+  "autosize": "true",
+  "defaultColumn": "overview",
+  "defaultScreen": "most_capitalized",
+  "market": "america",
+  "showToolbar": true,
+  "colorTheme": "dark",
+  "locale": "en"
 
-    }
-      </script>
-    </div>
-    <!-- TradingView Widget END -->
-  <!-- </div> -->
+  }
+    </script>
+  </div>
+<!-- TradingView Widget END -->
 </div>

@@ -1,5 +1,5 @@
 <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
+<div class="tradingview-widget-container-banner">
   <div class="tradingview-widget-container__widget"></div>
   <div class="tradingview-widget-copyright"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -30,8 +30,13 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
-
-<h1 class="text-center my-5">Scoreboard</h1>
+<div class="container">
+  <div class="col">
+    <div id="scoreboard-banner">
+      <h1 class="text-center ">Scoreboard</h1>
+    </div>
+  </div>
+ </div>
 <div class="container">
   <div class="summary" id="mainBar">
     <div class="item">
@@ -58,37 +63,33 @@
   </div>
 
 
-    <% sorted_users = @users.sort_by{|x| (x.cash+x.equity)}.reverse %>
-    <% sorted_users.each do | user | %>
-
-    <div class="summary">
-
-        <div class="item">
-          <strong>
-            <%= link_to user.nickname, user_path(user)%>
-          </strong>
-        </div>
-        <% positions = Position.where(user_id: user.id) %>
-        <div class="item">
-          Total Positions: <%= positions.count %>
-        </div>
-        <% count = 0 %>
-        <% positions.each do | position | %>
-          <% if position.remaining_size == 0%>
-           <% count += 1 %>
-          <% end %>
-        <% end %>
-        <div class="item">
-          Active Positions: <%= count %>
-        </div>
-        <div class="item">
-          <% wallet = (user.equity + user.cash) %>
-          Wallet: <%= number_to_currency(wallet) %>
-        </div>
+  <% sorted_users = @users.sort_by{|x| (x.cash+x.equity)}.reverse %>
+  <% sorted_users.each do | user | %>
+  <div class="summary">
+    <div class="item">
+      <strong>
+        <%= link_to user.nickname, user_path(user)%>
+      </strong>
     </div>
+    <% positions = Position.where(user_id: user.id) %>
+    <div class="item">
+      Total Positions: <%= positions.count %>
+    </div>
+    <% count = 0 %>
+    <% positions.each do | position | %>
+      <% if position.remaining_size == 0%>
+       <% count += 1 %>
+      <% end %>
+    <% end %>
+    <div class="item">
+      Active Positions: <%= count %>
+    </div>
+    <div class="item">
+      <% wallet = (user.equity + user.cash) %>
+      Wallet: <%= number_to_currency(wallet) %>
+    </div>
+  </div>
   <% end %>
-
-
 </div>
 
 <!-- modal -->
