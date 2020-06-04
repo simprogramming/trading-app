@@ -38,7 +38,7 @@
           </p>
         </div>
       </div>
-
+      <p></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -62,7 +62,7 @@
           </p>
         </div>
       </div>
-
+      <p></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -86,7 +86,7 @@
           </p>
         </div>
       </div>
-
+      <p></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Sell').each do |hot_stock| %>
@@ -110,7 +110,7 @@
           </p>
         </div>
       </div>
-
+      <p></p>
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 4) - 4, direction: 'Sell').each do |hot_stock| %>
@@ -132,7 +132,7 @@
       <%= f.input :target, label: "Target Price" %>
       <%= f.input :stop_loss, label: "Stop Loss" %>
 
-      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :submit, class: "btn-secondary" %>
       <% end %>
     </div>
     <!-- TradingView Widget BEGIN -->

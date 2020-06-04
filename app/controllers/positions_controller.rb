@@ -31,7 +31,7 @@ class PositionsController < ApplicationController
         current_user.save
       end
       flash[:notice] = 'Position successfully created'
-      redirect_to user_path(current_user)
+      redirect_to root_path
     else
       render 'pages/dashboard'
     end

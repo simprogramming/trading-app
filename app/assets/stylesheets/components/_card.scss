@@ -48,17 +48,20 @@
 
 .stock_ticker {
   background-color: rgba(255,255,255, 0.1);
+  margin-left: 15px;
   padding: 2px;
 }
 
 .stock_ticker_buy {
   background-color: rgba(42, 192, 22, 0.2);
   margin-left: 15px;
+  padding: 2px;
 }
 
 .stock_ticker_sell {
   background-color: rgba(148, 27, 11, 0.3);
   margin-left: 15px;
+  padding: 2px;
 }
 
 .broker-form {
