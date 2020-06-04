@@ -3,38 +3,41 @@
   <% position.gain_loss_closed %>
 <% end %>
 
-<div class="container-fluid" style="width:70%">
-  <div class="profile-overview">
-    <div class="info d-flex">
-      <div class="user-avatar">
+<div class="container-fluid" style="width:90%">
+  <div class="d-flex justify-content-between">
+    <div class="profile-overview">
         <%= image_tag("user.png") %>
-      </div>
-      <div>
-        <p><%= @user.nickname %></p>
+      <div class="personnal-info">
+        <h2><%= @user.nickname %></h2>
         <p><%= @user.description %></p>
       </div>
     </div>
-    <div class="container d-flex">
+    <div class="profile-overview">
       <div class="finance-info-1">
-        <p>Positions: <%= @positions.count %></p>
-        <% if @user == current_user%>
-          <p><%= link_to "Reset my Wallet", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
-        <% end %>
-      </div>
-      <div class="finance-info-1">
-        Sectors <div class="sector-color"><%= @user.category %></div>
+        <div>
+         <p>Positions: <%= @positions.count %></p>
+           <% if @user == current_user%>
+             <p><%= link_to "Reset my Wallet", reset_path, data: { confirm: 'Are you sure you want to delete?' } %></p>
+           <% end %>
+          </div>
+          <div>
+            <p>Sectors: </p>
+            <div class="sector-color"><%= @user.category %></div>
+          </div>
+       </div>
+
+      <div class="wallet-overview">
+        <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
+        <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
+        <p>Cash: <%= number_to_currency(@user.cash) %></p>
       </div>
     </div>
   </div>
 
-  <div class="profile-overview">
-    <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
-    <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
-    <p>Cash: <%= number_to_currency(@user.cash) %></p>
-  </div>
-</div>
 
- <table class="table table-hover table-dark table-1">
+
+
+ <table class="table table-hover table-dark">
   <thead>
     <tr>
       <th class= "table-text-color" scope="col">Symbol</th>
@@ -158,4 +161,5 @@
     </script>
   </div>
 <!-- TradingView Widget END -->
+</div>
 </div>

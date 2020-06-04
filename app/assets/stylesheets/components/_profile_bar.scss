@@ -1,15 +1,14 @@
-.table-1 {
-  margin-right: 15px;
-  margin-left: 15px;
-}
+
 
 .profile-overview {
   margin-bottom: 40px;
   margin-top: 40px;
   padding: 8px 8px;
+  width: 49%;
+  height: 250px;
   background-color: #2F3241;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   box-shadow: 3px;
 
@@ -25,20 +24,50 @@
 }
 .info {
   // border: solid 1px white;
-  width: 80%;
+  width: 50%;
   padding-top: 10px;
   background-color: #2F3241;
   text-align: left;
   height: 150px;
+
+}
+
+.wallet-overview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  margin-right: 15px;
+  height: 70%;
+  width: 25%;
+
+}
+
+.personnal-info {
+  width: 50%;
+  padding-top: 10px;
+  background-color: #2F3241;
+  text-align: left;
+  height: 150px;
+  position: absolute;
+  bottom: 23%;
+  right: 27%;
+}
+
+.personnal-info p {
+  font-size: 20px;
 }
 
 
 .finance-info-1 {
   padding: 10px;
-  height: 150px;
+  height: 90%;
   margin-right: 15px;
-  width: 50%;
-  margin-left: 40px;
+  width: 25%;
+  margin-left: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
   .reset {
@@ -52,14 +81,17 @@
   //   position: absolute;
   //   align-self: bottom;
   // }
-.user-avatar {
-  text-align: center;
+// .user-avatar {
+//   text-align: center;
+//   width: 75px;
+
+// }
+
+.profile-overview > img {
+  height: 75px;
   width: 75px;
-}
-
-.user-avatar img{
-  height: 45px;
-  width: 45px;
   vertical-align: middle;
-
+  position: absolute;
+  top: 40px;
+  left: 53px;
 }
