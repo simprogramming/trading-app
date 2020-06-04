@@ -30,32 +30,24 @@ class DocumentsController < ApplicationController
   def folders
   end
 
-  def videos
-    @videos = Document.where(category: "Video") 
-  end
-
-  def podcasts
-    @podcasts = Document.where(category: "Podcast")
-  end
-
   def books
     @books = Document.where(category: "Book")
   end
 
   def tools 
-    @tools = Document.where(subcategory: "Tool")
+    @tools = Document.where(category: "Tool")
   end
 
   def administratives 
-    @administratives = Document.where(subcategory: "Administrative")
+    @administratives = Document.where(category: "Administrative")
   end
 
   def portfolios 
-    @portfolios = Document.where(subcategory: "Portfolio")
+    @portfolios = Document.where(category: "Portfolio")
   end
 
   def educations 
-    @educations = Document.where(subcategory: "Education")
+    @educations = Document.where(category: "Education")
   end
 
   private
