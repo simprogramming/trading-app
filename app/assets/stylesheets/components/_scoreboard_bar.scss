@@ -7,6 +7,7 @@
   height: 60px;
   display: flex;
   justify-content: space-evenly;
+  border-radius: 3px;
 
   .item {
     // border: solid 1px white;
@@ -15,8 +16,6 @@
     padding-top: 10px;
     background-color: #2F3241;
   }
-
-
 }
 
 #mainBar {
