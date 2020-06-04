@@ -15,10 +15,17 @@ Group.destroy_all
 
 Group.create(objective: 100000)
 
-user = User.create(
-  email: Faker::Internet.email,
-  password: "123456"
-)
+3.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: "123456",
+    nickname: Faker::Cannabis.buzzword,
+    description: Faker::GreekPhilosophers.quote,
+    category:Faker::Commerce.department
+  )
+  user.save!
+end
+
 stocks = File.open("db/stocks.txt").readlines
 stocks_sorted = stocks.sort { |a, b| a <=> b }
 stocks_sorted.each do |stock|
