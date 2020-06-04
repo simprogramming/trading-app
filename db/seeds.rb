@@ -19,7 +19,7 @@ Group.create(objective: 100000)
   user = User.new(
     email: Faker::Internet.email,
     password: "123456",
-    nickname: Faker::Cannabis.buzzword,
+    nickname: Faker::Artist.name,
     description: Faker::GreekPhilosophers.quote,
     category:Faker::Commerce.department
   )
