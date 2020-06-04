@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 2020_06_03_213049) do
     t.bigint "user_id", null: false
     t.bigint "stock_id", null: false
     t.date "date"
+    t.string "direction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "direction"
     t.index ["stock_id"], name: "index_hot_stocks_on_stock_id"
     t.index ["user_id"], name: "index_hot_stocks_on_user_id"
   end
