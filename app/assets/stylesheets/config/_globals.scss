@@ -13,6 +13,14 @@ input[type=text], input[type=number] {
 }
 
 .btn-outline-secondary {
+   width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-success {
   width: 25px;
   height: 25px;
   display: flex;
@@ -20,14 +28,28 @@ input[type=text], input[type=number] {
   justify-content: center;
 }
 
-
-
-    margin-top: 30px;
+.btn-red {
+  width: 25px;
+  height: 25px;
+  background-color: #303341;
+  color: #F71735;
+  border: 2px solid #F71735;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  opacity: 0.5;
 }
 
-.tradingview-widget-container{
-    margin: 0px !important;
+.btn-red:hover {
+  background-color: #F71735;
+  color: #FFFFFF;
 }
+
+
+
+
+
 
 .text-center-profile{
     margin-top: 80px;
