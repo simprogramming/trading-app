@@ -30,8 +30,8 @@ class DocumentsController < ApplicationController
   def folders
   end
 
-  def books
-    @books = Document.where(category: "Book")
+  def articles
+    @articles = Document.where(category: "Article")
   end
 
   def tools 

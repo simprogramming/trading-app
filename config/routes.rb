@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/documents/documents', to: 'documents#documents'
 
-  get '/documents/books', to: 'documents#books'
+  get '/documents/articles', to: 'documents#articles'
 
 
   get '/documents/administratives', to: 'documents#administratives'

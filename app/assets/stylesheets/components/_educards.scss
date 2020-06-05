@@ -30,6 +30,9 @@
 
 .header{
     margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     p{
         color: #2F3241;
         padding-bottom: 40px;
@@ -45,5 +48,19 @@
 
     h1{
         font-weight: 100;
+        position: absolute;
+        margin-right: auto;
+        margin-left: auto;
     }
+    .btn-flat {
+        color: white;
+        padding: 8px 50px;
+        transition: background 0.3s ease;
+        width: 250px;
+        height: 40px;
+      }
+      
+      .btn-flat:hover {
+        color: white;
+      }
 }
