@@ -44,20 +44,32 @@
 }
 
 .personnal-info {
-  width: 50%;
-  padding-top: 10px;
-  background-color: #2F3241;
-  text-align: left;
-  height: 150px;
-  position: absolute;
-  bottom: 23%;
-  right: 27%;
+  padding: 10px;
+  height: 80%;
+  margin-right: 15px;
+  width: 64%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
 }
 
-.personnal-info p {
-  font-size: 20px;
+.personnal-image {
+  padding: 30px;
+  margin-left: 10px;
+  vertical-align: middle;
+  margin-bottom: 60px;
 }
 
+.personnal-image > img {
+  height: 75px;
+  width: 75px;
+  vertical-align: middle;
+  // position: absolute;
+  // top: 40px;
+  // left: 53px;
+}
 
 .finance-info-1 {
   padding: 10px;
@@ -87,11 +99,3 @@
 
 // }
 
-.profile-overview > img {
-  height: 75px;
-  width: 75px;
-  vertical-align: middle;
-  position: absolute;
-  top: 40px;
-  left: 53px;
-}
