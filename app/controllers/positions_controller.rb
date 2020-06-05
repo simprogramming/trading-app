@@ -30,7 +30,7 @@ class PositionsController < ApplicationController
         current_user.equity -= @position.size * @position.entry
         current_user.save
       end
-      flash[:notice] = 'Position successfully created'
+      flash[:notice] = 'Position successfully created, for more details check profile'
       redirect_to root_path
     else
       render 'pages/dashboard'
