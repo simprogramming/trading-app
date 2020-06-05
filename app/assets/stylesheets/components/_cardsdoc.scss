@@ -29,7 +29,7 @@
         width: 100%;
         font-size: 30px;
     }
- 
+
 }
 
 .cards{
@@ -40,7 +40,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin: auto;
-   
+
     a {
         color:white;
         transition: 0.5s;
@@ -49,17 +49,17 @@
     a:hover{
         text-decoration: none;
         opacity: 1;
-        
+
     }
 }
 
 .homedisplay{
         background-color: #131722;
-    h1{   
+    h1{
       color: white;
-      font-weight: 100;
       padding: 1%;
-    } 
+      margin-top: 50px;
+    }
 }
 
   .btn-flat {
@@ -70,8 +70,7 @@
     margin: 100px auto;
     width: 250px;
   }
-  
+
   .btn-flat:hover {
     color: white;
   }
-  
