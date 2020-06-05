@@ -66,7 +66,9 @@
     color: white;
     padding: 8px 50px;
     transition: background 0.3s ease;
-    margin: 10% 10% !important;
+    display: block;
+    margin: 100px auto;
+    width: 250px;
   }
   
   .btn-flat:hover {
