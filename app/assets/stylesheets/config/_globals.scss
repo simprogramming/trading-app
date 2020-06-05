@@ -2,10 +2,11 @@ body{
     background-color: #131722;
     color: $light-gray;
 }
-input[type=text], input[type=number] {
+input[type=text], input[type=number], input[type=url], textarea, select {
     border: none !important;
     border-radius: 2px !important;
-    background-color: $light-gray !important;
+    background-color: #303341 !important;
+    color: white !important;
 }
 .container-hot-stocks{
 

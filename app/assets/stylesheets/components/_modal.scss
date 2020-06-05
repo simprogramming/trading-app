@@ -10,8 +10,8 @@
 }
 .select2-results__option[aria-selected] {
   cursor: pointer;
-  background-color: white;
-  color: black;
+  background-color: #303341;
+  color: white;
 }
 span.select2-selection, span.select2-selection--single {
   background-color: white;
@@ -22,10 +22,15 @@ span.dropdown-wrapper {
   background: red !important;
 }
 .select2-container--default .select2-search--dropdown .select2-search__field {
-  background-color: white;
-  color: black;
+  background-color: #303341;
+  color: white;
+  align-item: center;
 }
 
+.select2-container--default .select2-selection--single {
+  background-color: #303341;
+  color: white;
+}
 
 .select2-selection .select2-selection--single {
   display: flex;
