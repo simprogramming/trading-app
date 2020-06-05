@@ -1,9 +1,12 @@
 
 <div class="header">
-  <%= link_to "/documents" do %>
-    <p><i class="fas fa-chevron-left"></i>   BACK</p>
-  <% end %>
-  <h1>Documents/Portfolios</h1>
+  <div class='top'>
+    <%= link_to "/documents" do %>
+      <p><i class="fas fa-chevron-left"></i>   BACK</p>
+    <% end %>
+  </div>
+  <h1>Portfolios</h1>
+  <%=link_to " + Add a new source", new_document_path, class: "btn btn-primary btn-flat" %>
 </div>
 <% @portfolios.each do |portfolio| %>
   <div class="card-edu">

@@ -1,19 +1,18 @@
 <div class="header">
-  <div class='top'>
+  <div class="top">
     <%= link_to "/documents" do %>
       <p><i class="fas fa-chevron-left"></i>   BACK</p>
     <% end %>
   </div>
-  <h1>Educations</h1>
+  <h1>Articles</h1>
   <%=link_to " + Add a new source", new_document_path, class: "btn btn-primary btn-flat" %>
 </div>
-<% @educations.each do |education| %>
+<% @articles.each do |article| %>
   <div class="card-edu">
-    <i class="fas fa-book-reader"></i>
+    <i class="far fa-newspaper"></i>
     <div class="card-edu-infos">
-      <a href="<%= education.url %>"><h2><%= education.title %></h2></a>
-      <h4><%= education.content %></h4>
+      <a href="<%= article.url %>"><h2><%= article.title %></h2></a>
+      <p><%= article.content %></p>
     </div>
-    </a>
   </div>
 <% end %>
