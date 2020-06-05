@@ -82,7 +82,7 @@
       <% end %>
     <% end %>
     <div class="item">
-      Active Positions: <%= count %>
+      Active Positions: <%= positions.count - count %>
     </div>
     <div class="item">
       <% wallet = (user.equity + user.cash) %>

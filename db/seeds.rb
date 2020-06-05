@@ -85,7 +85,7 @@ normand = User.create!(
 denis = User.create!(
   email: 'denis@email.com',
   description: Faker::GreekPhilosophers.quote,
-  nickname: 'Yoda',
+  nickname: 'The wise trader',
   category: 'Consumer Discretionnary',
   password: '123456'
   )
@@ -96,6 +96,12 @@ denis = User.create!(
 symbol = HotStock.create!(
   stock: Stock.find_by_symbol('AMZN'),
   date: Date.today - 2,
+  user: simon,
+  direction: 'Buy'
+  )
+symbol = HotStock.create!(
+  stock: Stock.find_by_symbol('HD'),
+  date: Date.today - 4,
   user: simon,
   direction: 'Buy'
   )
@@ -155,7 +161,7 @@ prepare_position(position_4)
 position_5 = Position.create!(
   stock: Stock.find_by_symbol('SNAP'),
   entry: 16,
-  size: 300,
+  size: 750,
   stop_loss: 15.90,
   baseline: 15.95,
   target: 20,
@@ -191,8 +197,70 @@ position_7 = Position.create!(
   )
 prepare_position(position_7)
 
+position_8 = Position.create!(
+  stock: Stock.find_by_symbol('VISA'),
+  entry: 240,
+  size: 300,
+  stop_loss: 235,
+  baseline: 238,
+  target: 340,
+  buy_sell: "Buy",
+  user: alain,
+  created_at: Date.today - 14.days + 14.5.hours
+  )
+prepare_position(position_8)
 
+position_9 = Position.create!(
+  stock: Stock.find_by_symbol('KO'),
+  entry: 60,
+  size: 400,
+  stop_loss: 62,
+  baseline: 61,
+  target: 40,
+  buy_sell: "Sell",
+  user: denis,
+  created_at: Date.today - 80.days + 14.5.hours
+  )
+prepare_position(position_9)
 
+position_10 = Position.create!(
+  stock: Stock.find_by_symbol('MCD'),
+  entry: 210,
+  size: 120,
+  stop_loss: 215,
+  baseline: 212,
+  target: 140,
+  buy_sell: "Sell",
+  user: normand,
+  created_at: Date.today - 85.days + 14.5.hours
+  )
+prepare_position(position_10)
+
+position_11 = Position.create!(
+  stock: Stock.find_by_symbol('BA'),
+  entry: 120,
+  size: 110,
+  stop_loss: 115,
+  baseline: 119,
+  target: 400,
+  buy_sell: "Buy",
+  user: normand,
+  created_at: Date.today - 15.days + 14.5.hours
+  )
+prepare_position(position_11)
+
+position_12 = Position.create!(
+  stock: Stock.find_by_symbol('EA'),
+  entry: 115,
+  size: 100,
+  stop_loss: 113,
+  baseline: 114.50,
+  target: 150,
+  buy_sell: "Buy",
+  user: denis,
+  created_at: Date.today - 5.days + 14.5.hours
+  )
+prepare_position(position_12)
 
 10.times do
   user = User.new(
@@ -213,10 +281,7 @@ prepare_position(position_7)
   )
 end
 
-
 PriceUpdateJob.perform_now
-
-
 
 position_1.update(current_price: 322.32)
 
@@ -232,9 +297,12 @@ position_6.update(current_price: 248.95)
 
 position_7.update(current_price: 106.2)
 
+position_8.update(current_price: 310.52)
 
+position_9.update(current_price: 49.31)
 
+position_10.update(current_price: 180.4)
 
+position_11.update(current_price: 213.94)
 
-
-
+position_12.update(current_price: 117)
