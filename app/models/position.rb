@@ -111,7 +111,7 @@ class Position < ApplicationRecord
     if p_l_closed != "N/A"
       return ((p_l_closed / 100000) * 100).round(2)
     else
-      return "ActivePosition"
+      return "Active"
     end
 
   end

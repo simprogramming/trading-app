@@ -7,7 +7,11 @@
 }
 
 .table td {
-  font-weight: lighter !important;
+  font-weight: normal;
+}
+
+.table th {
+  font-weight: medium;
 }
 
  // #text-light {
@@ -17,14 +21,15 @@
 
 @media (max-width: 1440px){
   .table th, .table td {
-    padding: 0.5rem;
+    padding: 0.35rem;
   }
 
 }
 
-@media (max-width: 700px){
+@media (max-width: 780px){
   .table th, .table td {
     padding: 0.1rem;
+    font-weight: lighter;
   }
 
 }

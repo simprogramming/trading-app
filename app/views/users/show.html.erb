@@ -84,21 +84,21 @@
       <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).round(2) %>%</td>
       <td class= "table-text-color" scope="row">
         <% if position.r1_hit%>
-         <em><%= position.r1.round(2) %></em>
+         <div class="stock_ticker_R_hit"><%= position.r1.round(2) %></div>
          <% else %>
          <%= position.r1.round(2) %>
         <% end %>
       </td>
       <td class= "table-text-color" scope="row">
         <% if position.r2_hit%>
-         <em><%= position.r2.round(2) %></em>
+         <div class="stock_ticker_R_hit"><%= position.r2.round(2) %></div>
          <% else %>
          <%= position.r2.round(2) %>
         <% end %>
       </td>
       <td class= "table-text-color" scope="row">
         <% if position.r3_hit%>
-         <em><%= position.r3.round(2) %></em>
+         <div class="stock_ticker_R_hit"><%= position.r3.round(2) %></div>
          <% else %>
          <%= position.r3.round(2) %>
         <% end %>
@@ -116,11 +116,11 @@
   </tbody>
  </table>
 
-
+<div class="goldbar"></div>
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container" >
   <div id="tradingview_ffdae" class="profile-chart"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AMEX-SPY/" rel="noopener" target="_blank"><span class="blue-text">SPY Chart</span></a> by TradingView</div>
+  <div class="tradingview-widget-copyright"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
   <script type="text/javascript">
   new TradingView.widget(
@@ -142,11 +142,11 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
-
+<div class="goldbar"></div>
   <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget" id="profile-chart2" style="height: 600px"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/screener/" rel="noopener" target="_blank"><span class="blue-text">Stock Screener</span></a> by TradingView</div>
+  <div class="tradingview-widget-copyright"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
   {
   "width": "100%",
