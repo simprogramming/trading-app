@@ -1,14 +1,30 @@
 .table-text-color {
   color: white;
-
-  td {
-    font-weight: normal;
-  }
-  //
 }
 .table-dark {
   background-color: #2F3241;
   border: hidden;
 }
 
+.table td {
+  font-weight: lighter !important;
+}
 
+ // #text-light {
+ //    font-weight: lighter;
+ //  }
+
+
+@media (max-width: 1440px){
+  .table th, .table td {
+    padding: 0.5rem;
+  }
+
+}
+
+@media (max-width: 700px){
+  .table th, .table td {
+    padding: 0.1rem;
+  }
+
+}

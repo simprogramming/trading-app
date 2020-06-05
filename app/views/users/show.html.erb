@@ -6,7 +6,9 @@
 <div class="container-fluid" style="width:90%">
   <div class="d-flex justify-content-between">
     <div class="profile-overview">
+      <div class="personnal-image">
         <%= image_tag("user.png") %>
+      </div>
       <div class="personnal-info">
         <h2><%= @user.nickname %></h2>
         <p><%= @user.description %></p>
@@ -69,36 +71,36 @@
     <% @positions.each do | position | %>
     <tr class="border">
       <td class= "table-text-color" scope="row"><%= position.stock.symbol%></td>
-      <td class= "table-text-color" scope="row"><%=position.created_at.to_date.strftime("%b %e") %></td>
+      <td class= "table-text-color" scope="row"><%=position.created_at.to_date.strftime("%m/%d") %></td>
       <td class= "table-text-color" scope="row"><%=position.created_at.to_time.getlocal('-04:00').strftime("%k:%M") %></td>
       <td class= "table-text-color" scope="row"><%=position.buy_sell%></td>
       <td class= "table-text-color" scope="row"><%=position.size%></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.entry)%></td>
+      <td class= "table-text-color" scope="row"><%= position.entry.round(2)%></td>
       <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.baseline) %></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.target) %></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.stop_loss) %></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.current_price) %></td>
-      <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).truncate(2) %>%</td>
+      <td class= "table-text-color" scope="row"><%= position.baseline.round(2) %></td>
+      <td class= "table-text-color" scope="row"><%= position.target.round(2) %></td>
+      <td class= "table-text-color" scope="row"><%= position.stop_loss.round(2) %></td>
+      <td class= "table-text-color" scope="row"><%= position.current_price.round(2) %></td>
+      <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).round(2) %>%</td>
       <td class= "table-text-color" scope="row">
         <% if position.r1_hit%>
-         <em><%= position.r1 %></em>
+         <em><%= position.r1.round(2) %></em>
          <% else %>
-         <%= position.r1 %>
+         <%= position.r1.round(2) %>
         <% end %>
       </td>
       <td class= "table-text-color" scope="row">
         <% if position.r2_hit%>
-         <em><%= position.r2 %></em>
+         <em><%= position.r2.round(2) %></em>
          <% else %>
-         <%= position.r2 %>
+         <%= position.r2.round(2) %>
         <% end %>
       </td>
       <td class= "table-text-color" scope="row">
         <% if position.r3_hit%>
-         <em><%= position.r3 %></em>
+         <em><%= position.r3.round(2) %></em>
          <% else %>
-         <%= position.r3 %>
+         <%= position.r3.round(2) %>
         <% end %>
       </td>
       <td class= "table-text-color" scope="row"><%= position.remaining_size%></td>
