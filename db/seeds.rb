@@ -52,7 +52,7 @@ end
 sector = ['Technology', 'Communication', 'Industrial Goods', 'Utilities', 'Basic Materials', 'Energy', 'Healthcare', 'Consumer Discretionnary', 'Financial', 'Real Estate', 'Consumer Staples']
 simon = User.create!(
   email: 'sim@email.com',
-  description: 'I am looking to learn more about the Technology sector. I would like to have 5 active positions at all time',
+  description: 'I am passionate about the Technology sector. Willing to learn more everyday.',
   nickname: 'Simer',
   category: 'Technology',
   password: '123456'
@@ -94,13 +94,13 @@ denis = User.create!(
 
 
 symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('AMZN'),
-  date: Date.today - 2,
+  stock: Stock.find_by_symbol('NFLX'),
+  date: Date.today - 4,
   user: simon,
   direction: 'Buy'
   )
 symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('HD'),
+  stock: Stock.find_by_symbol('FB'),
   date: Date.today - 4,
   user: simon,
   direction: 'Buy'
