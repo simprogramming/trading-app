@@ -156,7 +156,7 @@ class Position < ApplicationRecord
       # change color for R3 to green
     end
   end
-# change this too
+  # change this too
   def take_profit_short_R1(size1)
     if current_price <= r1 && r1_hit == false && remaining_size != 0
       # sell_1 = (size1 * (entry - r1))
@@ -201,5 +201,4 @@ class Position < ApplicationRecord
     profit = (current_price - entry) * size
     end
   end
-
 end
