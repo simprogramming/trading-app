@@ -15,11 +15,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
-
     @position = Position.new
     @hot_stocks = HotStock.all
-
-
   end
 end
