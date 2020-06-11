@@ -51,11 +51,15 @@
       Objective: <%= number_to_currency(Group.first.objective) %>
     </div>
     <div class="item">
-      <% initialAmount = @users.count*100000 %>
+        <% players = @users.count %>
+        <% if @user.cash == 0 %>
+        <%  players -= 1 %>
+        <% end %>
+        <% initialAmount = players*100000 %>
       Group Wallet P/L: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>%
     </div>
     <div class="item">
-      Team Size: <%= @users.count %>
+      Team Size: <%= players %>
     </div>
     <!-- <div class="buttonScoreboard">
       Change

@@ -47,6 +47,16 @@ class PositionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def no_wallet
+    @positions = Position.where(user_id: current_user.id)
+    @positions.destroy_all
+    current_user.cash = 0
+    current_user.equity = 0
+    current_user.save
+    redirect_to user_path(current_user)
+  end
+
+
   private
   def position_params
     params.require(:position).permit(:stock_id, :size, :entry, :baseline, :target, :stop_loss, :buy_sell, :r1, :r2, :r3, :id)

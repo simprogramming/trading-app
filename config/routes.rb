@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
 
 
- 
+
 
   get '/documents/documents', to: 'documents#documents'
 
@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get '/documents/portfolios', to: 'documents#portfolios'
 
   get '/positions/reset', to: 'positions#reset', as: :reset
+
+  get '/positions/no_wallet', to: 'positions#no_wallet', as: :no_wallet
 
 
   Rails.application.routes.draw do
