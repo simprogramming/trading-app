@@ -5,7 +5,6 @@
     <% end %>
   </div>
   <h1>Educations</h1>
-  <%=link_to " + Add a new source", new_document_path, class: "btn btn-primary btn-flat" %>
 </div>
 <% @educations.each do |education| %>
   <div class="card-edu">
@@ -14,6 +13,6 @@
       <a href="<%= education.url %>"><h2><%= education.title %></h2></a>
       <h4><%= education.content %></h4>
     </div>
-    </a>
+
   </div>
 <% end %>
