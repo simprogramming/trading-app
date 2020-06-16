@@ -80,7 +80,13 @@
       <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
       <td class= "table-text-color" scope="row"><%= position.baseline.round(2) %></td>
       <td class= "table-text-color" scope="row"><%= position.target.round(2) %></td>
-      <td class= "table-text-color" scope="row"><%= position.stop_loss.round(2) %></td>
+      <td class= "table-text-color" scope="row">
+        <% if position.stop_loss_hit %>
+        <div class="stock_ticker_SL_hit"><%= position.stop_loss.round(2) %></div>
+        <% else %>
+        <%= position.stop_loss.round(2) %>
+        <% end %>
+        </td>
       <td class= "table-text-color" scope="row"><%= position.current_price.round(2) %></td>
       <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).round(2) %>%</td>
       <td class= "table-text-color" scope="row">
