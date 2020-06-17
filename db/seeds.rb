@@ -52,8 +52,13 @@ end
 sector = ['Technology', 'Communication', 'Industrial Goods', 'Utilities', 'Basic Materials', 'Energy', 'Healthcare', 'Consumer Discretionnary', 'Financial', 'Real Estate', 'Consumer Staples']
 simon = User.create!(
   email: 'sim@email.com',
+
   description: Faker::GreekPhilosophers.quote,
   nickname: 'Simon',
+
+  description: 'Trader with 2 years of experience, I am passionate about the Technology sector. Willing to learn and improve everyday.',
+  nickname: 'Simer',
+
   category: 'Technology',
   password: '123456'
   )

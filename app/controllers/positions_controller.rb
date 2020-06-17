@@ -10,15 +10,16 @@ class PositionsController < ApplicationController
       @position.r1 = @position.baseline + ((@position.target - @position.baseline) * 0.3) # creates theoretical sell price
       @position.r2 = @position.baseline + ((@position.target - @position.baseline) * 0.7)
       @position.r3 = @position.target
-      # current_user.cash -= @position.size * @position.entry
     else
       @position.r1 = @position.baseline - ((@position.baseline - @position.target) * 0.3)
       @position.r2 = @position.baseline - ((@position.baseline - @position.target) * 0.7)
       @position.r3 = @position.target
-      # current_user.cash += @position.size * @position.entry
     end
 
-    if @position.save
+    if @position.buy_sell == "Buy" && current_user.cash <= @position.size * @position.entry
+      flash[:notice] = 'Insufficient funds to complete the transaction!'
+      redirect_to root_path
+    elsif @position.save
       @position.remaining_size = @position.size
       @position.save
       if @position.buy_sell == "Buy"
