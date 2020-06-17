@@ -31,41 +31,7 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
-      <a class="navbar-brand website-logo avatar"> <%= image_tag("Logo.png", class:"logo") %><span class="logo-text">Disciplined Trader</span></a>
-
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "My Watchlist", my_watchlist_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Scoreboard", scoreboard_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Education", documents_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown">
-            <i class="fas fa-bars burger-menu" data-toggle = "dropdown"></i>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+    <%= render 'shared/navbar' %>
     <%= yield %>
 
   </body>
