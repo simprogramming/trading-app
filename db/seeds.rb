@@ -136,39 +136,75 @@ arthur = User.create!(
   category: 'Technology',
   password: '123456'
   )
+yves = User.create!(
+  email: 'yves@email.com',
+  description: Faker::GreekPhilosophers.quote,
+  nickname: 'Yves',
+  category: 'Basic Materials',
+  password: '123456'
+  )
+diane = User.create!(
+  email: 'diane@email.com',
+  description: Faker::GreekPhilosophers.quote,
+  nickname: 'Dianes',
+  category: 'Energy',
+  password: '123456'
+  )
+serge = User.create!(
+  email: 'serge@email.com',
+  description: Faker::GreekPhilosophers.quote,
+  nickname: 'Serge',
+  category: 'Utilities',
+  password: '123456'
+  )
+sylvie = User.create!(
+  email: 'sylvie@email.com',
+  description: Faker::GreekPhilosophers.quote,
+  nickname: 'Sylvie',
+  category: 'Healthcare',
+  password: '123456'
+  )
+richard = User.create!(
+  email: 'richard@email.com',
+  description: Faker::GreekPhilosophers.quote,
+  nickname: 'Richard',
+  category: 'Healthcare',
+  password: '123456'
+  )
+
 # --------------------------------------------------------------------
 
 
-symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('NFLX'),
-  date: Date.today - 6,
-  user: simon,
-  direction: 'Buy'
-  )
-symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('FB'),
-  date: Date.today - 6,
-  user: simon,
-  direction: 'Buy'
-  )
-symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('MSFT'),
-  date: Date.today - 6,
-  user: simon,
-  direction: 'Buy'
-  )
-symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('AMD'),
-  date: Date.today - 6,
-  user: simon,
-  direction: 'Buy'
-  )
-symbol = HotStock.create!(
-  stock: Stock.find_by_symbol('LLY'),
-  date: Date.today - 6,
-  user: simon,
-  direction: 'Sell'
-  )
+# symbol = HotStock.create!(
+#   stock: Stock.find_by_symbol('NFLX'),
+#   date: Date.today - 6,
+#   user: simon,
+#   direction: 'Buy'
+#   )
+# symbol = HotStock.create!(
+#   stock: Stock.find_by_symbol('FB'),
+#   date: Date.today - 6,
+#   user: simon,
+#   direction: 'Buy'
+#   )
+# symbol = HotStock.create!(
+#   stock: Stock.find_by_symbol('MSFT'),
+#   date: Date.today - 6,
+#   user: simon,
+#   direction: 'Buy'
+#   )
+# symbol = HotStock.create!(
+#   stock: Stock.find_by_symbol('AMD'),
+#   date: Date.today - 6,
+#   user: simon,
+#   direction: 'Buy'
+#   )
+# symbol = HotStock.create!(
+#   stock: Stock.find_by_symbol('LLY'),
+#   date: Date.today - 6,
+#   user: simon,
+#   direction: 'Sell'
+#   )
 
 
 # position_1 = Position.create!(
