@@ -113,7 +113,6 @@ class Position < ApplicationRecord
     else
       return "Active"
     end
-
   end
 
   def take_profit_long_R1(size1)
@@ -126,7 +125,6 @@ class Position < ApplicationRecord
       self.remaining_size -= size1
       self.save
     end
-
   end
 
   def take_profit_long_R2(size1, size2)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stocks/new'
   devise_for :users
   root to: 'pages#dashboard'
 
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
 
 
   Rails.application.routes.draw do
+  get 'stocks/new'
   # Sidekiq Web UI, only for admins.
     require "sidekiq/web"
     authenticate :user, lambda { |u| u.admin } do
