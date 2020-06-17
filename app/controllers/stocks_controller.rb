@@ -4,8 +4,8 @@ class StocksController < ApplicationController
   end
 
   def create
-    @stock = stock.new(stock_params)
-    @stock.save
+    @stock = Stock.create(stock_params)
+    redirect_to dashboard_path
   end
 
   def stock_params
