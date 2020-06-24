@@ -43,7 +43,9 @@
       <% total_wallet = 0 %>
       <% @users.each do | user | %>
         <% wallet = (user.equity + user.cash) %>
-        <% total_wallet += wallet %>
+        <% if wallet > 0 %>
+          <% total_wallet += wallet %>
+        <% end %>
       <% end %>
       Group Wallet: <%= number_to_currency(total_wallet) %>
     </div>
@@ -69,6 +71,7 @@
 
   <% sorted_users = @users.sort_by{|x| (x.cash+x.equity)}.reverse %>
   <% sorted_users.each do | user | %>
+  <% if user.cash+user.equity > 0 %>
   <div class="summary">
     <div class="item">
       <strong>
@@ -76,9 +79,6 @@
       </strong>
     </div>
     <% positions = Position.where(user_id: user.id) %>
-    <div class="item">
-      Total Positions: <%= positions.count %>
-    </div>
     <% count = 0 %>
     <% positions.each do | position | %>
       <% if position.remaining_size == 0%>
@@ -89,10 +89,14 @@
       Active Positions: <%= positions.count - count %>
     </div>
     <div class="item">
+      Equity: <%= user.equity %>
+    </div>
+    <div class="item">
       <% wallet = (user.equity + user.cash) %>
       Wallet: <%= number_to_currency(wallet) %>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
 
