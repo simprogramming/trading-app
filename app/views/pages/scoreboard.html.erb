@@ -58,7 +58,7 @@
         <%  players -= 1 %>
         <% end %>
         <% initialAmount = players*100000 %>
-      Group Wallet P/L: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>%
+      Group Wallet P/L: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>
     </div>
     <div class="item">
       Team Size: <%= players %>
@@ -89,7 +89,7 @@
       Active Positions: <%= positions.count - count %>
     </div>
     <div class="item">
-      Equity: <%= user.equity %>
+      Equity: <%= number_to_currency(user.equity) %>
     </div>
     <div class="item">
       <% wallet = (user.equity + user.cash) %>
