@@ -8,6 +8,8 @@ class StocksController < ApplicationController
     redirect_to dashboard_path
   end
 
+  private
+
   def stock_params
     params.require(:stock).permit(:symbol)
   end
