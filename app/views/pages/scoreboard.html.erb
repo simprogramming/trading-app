@@ -54,8 +54,10 @@
     </div>
     <div class="item">
         <% players = @users.count %>
-        <% if @user.cash == 0 %>
-        <%  players -= 1 %>
+        <% @users.each do |user| %>
+          <% if user.cash == 0 %>
+          <%  players -= 1 %>
+          <% end %>
         <% end %>
         <% initialAmount = players*100000 %>
       Group Wallet P/L: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>
@@ -89,7 +91,7 @@
       Active Positions: <%= positions.count - count %>
     </div>
     <div class="item">
-      Equity: <%= number_to_currency(user.equity) %>
+      Equity: <%= number_to_currency(user.equity)  %>
     </div>
     <div class="item">
       <% wallet = (user.equity + user.cash) %>
