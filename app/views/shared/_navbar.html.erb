@@ -24,7 +24,7 @@
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Yahoo!", 'https://ca.finance.yahoo.com/', target: :_blank, class: "dropdown-item" %>
                 <%= link_to "Trading Journal", '#', class: "dropdown-item" %>
-                <%= link_to "Add stock", stocks_new_path , class: "dropdown-item" %>
+                <%= link_to "Add symbol", stocks_new_path , class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>

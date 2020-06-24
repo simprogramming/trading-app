@@ -54,7 +54,6 @@ class PositionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-
   private
 
   def position_params
