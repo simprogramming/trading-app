@@ -60,7 +60,7 @@
           <% end %>
         <% end %>
         <% initialAmount = players*100000 %>
-      Group Wallet P/L: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>
+      Group Wallet P/L%: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>%
     </div>
     <div class="item">
       Team Size: <%= players %>
@@ -73,32 +73,32 @@
 
   <% sorted_users = @users.sort_by{|x| (x.cash+x.equity)}.reverse %>
   <% sorted_users.each do | user | %>
-  <% if user.cash+user.equity > 0 %>
-  <div class="summary">
-    <div class="item">
-      <strong>
-        <%= link_to user.nickname, user_path(user)%>
-      </strong>
-    </div>
-    <% positions = Position.where(user_id: user.id) %>
-    <% count = 0 %>
-    <% positions.each do | position | %>
-      <% if position.remaining_size == 0%>
-       <% count += 1 %>
+    <% if user.cash+user.equity > 0 %>
+    <div class="summary">
+      <div class="item">
+        <strong>
+          <%= link_to user.nickname, user_path(user)%>
+        </strong>
+      </div>
+      <% positions = Position.where(user_id: user.id) %>
+      <% count = 0 %>
+      <% positions.each do | position | %>
+        <% if position.remaining_size == 0%>
+         <% count += 1 %>
+        <% end %>
       <% end %>
+      <div class="item">
+        Active Positions: <%= positions.count - count %>
+      </div>
+      <div class="item">
+        P/L: <%= number_to_currency((user.cash + user.equity)-(100000)) %>
+      </div>
+      <div class="item">
+        <% wallet = (user.equity + user.cash) %>
+        Wallet: <%= number_to_currency(wallet) %>
+      </div>
+    </div>
     <% end %>
-    <div class="item">
-      Active Positions: <%= positions.count - count %>
-    </div>
-    <div class="item">
-      Equity: <%= number_to_currency(user.equity)  %>
-    </div>
-    <div class="item">
-      <% wallet = (user.equity + user.cash) %>
-      Wallet: <%= number_to_currency(wallet) %>
-    </div>
-  </div>
-  <% end %>
   <% end %>
 </div>
 
