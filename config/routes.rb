@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/positions/reset', to: 'positions#reset', as: :reset
 
+  get '/positions/refresh', to: 'positions#refresh', as: :refresh
+
   get '/positions/no_wallet', to: 'positions#no_wallet', as: :no_wallet
 
   Rails.application.routes.draw do
