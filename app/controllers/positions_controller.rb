@@ -54,6 +54,21 @@ class PositionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def refresh
+    @positions = Position.where(user_id: current_user.id)
+    sum = 0
+    @positions.each do |position|
+      if position.buy_sell == "Buy"
+        sum += position.remaining_size * position.current_price
+      else
+        sum -= position.remaining_size * position.current_price
+      end
+    end
+    current_user.equity = sum
+    current_user.save
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def position_params
