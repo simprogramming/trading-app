@@ -5,34 +5,38 @@
 
 <div class="container-fluid" style="width:90%">
   <div class="d-flex justify-content-between">
-    <div class="profile-overview">
-      <div class="personnal-image">
-        <%= image_tag("user.png") %>
-      </div>
+    <div class="profile-overview d-flex text-center">
       <div class="personnal-info">
-        <h2><%= @user.nickname %></h2>
+        <h2 class="mb-3 text-center"><%= @user.nickname %></h2>
         <p><%= @user.description %></p>
       </div>
     </div>
-    <div class="profile-overview">
+    <div class="profile-overview d-flex">
       <div class="finance-info-1">
-        <div>
-          <% if @user == current_user%>
-            <p><%= link_to "No wallet", no_wallet_path, data: { confirm: 'Are you sure you want to delete your wallet?' } %></p>
-            <p><%= link_to "Reset my Wallet", reset_path, data: { confirm: 'Are you sure you want to reset your wallet?' } %></p>
+        <div class="container wallet-overview">
+          <% positions = Position.where(user_id: @user) %>
+          <% count = 0 %>
+          <% positions.each do | position | %>
+            <% if position.remaining_size == 0%>
+             <% count += 1 %>
+            <% end %>
           <% end %>
-          <p>Sectors: </p>
-          <div class="sector-color"><%= @user.category %></div>
+          <p>Positions: <%= @positions.count - count %></p>
+          <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
+          <p>Equity: <%= number_to_currency(@user.equity) %></p>
+          <p>Cash: <%= number_to_currency(@user.cash) %></p>
+          <p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p>
         </div>
-        <div>
+        <div class="d-flex pt-2">
+          <% if @user == current_user%>
+            <div class="mr-3 pl-3"><p><%= link_to "No wallet", no_wallet_path, data: { confirm: 'Are you sure you want to delete your wallet?' } %></p></div>
+            <div><p class="ml-3"><%= link_to "Reset my Wallet", reset_path, data: { confirm: 'Are you sure you want to reset your wallet?' } %></p></div>
+          <% end %>
         </div>
       </div>
 
-      <div class="wallet-overview">
-        <p>Positions: <%= @positions.count %></p>
-        <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
-        <p>Active Cash: <%= number_to_currency(@user.equity) %></p>
-        <p>Cash: <%= number_to_currency(@user.cash) %></p>
+      <div class="sector-info center">
+        <h2 class="text-center mb-3">Sectors</h2><div class="container sector-color"><%=  @user.category  %></div>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
   margin-top: 40px;
   padding: 8px 8px;
   width: 49%;
-  height: 250px;
+  height: 270px;
   background-color: #2F3241;
   display: flex;
   justify-content: space-around;
@@ -17,9 +17,9 @@
 
 .sector-color{
   background-color: gold;
-  color: black;
-  width: 0 auto;
   text-align: center;
+  color: black;
+  width: 70%;
   border-radius: 5px;
 }
 .info {
@@ -33,26 +33,27 @@
 }
 
 .wallet-overview {
-  display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 10px;
-  margin-right: 15px;
-  height: 70%;
-  width: 25%;
-
+  height: 90%;
+  width: 100%;
+  font-size: large;
 }
 
 .personnal-info {
-  padding: 10px;
-  height: 80%;
+  padding: 5px;
+  height: 100%;
   margin-right: 15px;
-  width: 64%;
+  width: 100%;
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  // justify-content: space-around;
+}
 
+.sector-info {
+  height: 100%;
+  width: 100%;
 }
 
 .personnal-image {
@@ -73,11 +74,9 @@
 
 .finance-info-1 {
   padding: 10px;
-  height: 90%;
+  height: 100%;
   margin-right: 15px;
-  width: 25%;
-  margin-left: 35px;
-  display: flex;
+  width: 75%;
   flex-direction: column;
   justify-content: space-around;
 }
