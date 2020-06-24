@@ -28,11 +28,15 @@
           <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
           <p>Equity: <%= number_to_currency(@user.equity) %></p>
           <p>Cash: <%= number_to_currency(@user.cash) %></p>
-          <div class="d-flex"><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p>
-          <% if @user == current_user%>
-          <div><p class="ml-3 avatar-refresh"><%= link_to image_tag("refresh.svg"), refresh_path %></p></div></div>
+          <div class="d-flex">
+            <div><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p></div>
+            <% if @user == current_user%>
+              <div><p class="ml-3 avatar-refresh"><%= link_to image_tag("refresh.svg"), refresh_path %></p></div>
+            <% end %>
+          </div>
         </div>
         <div class="d-flex pt-2">
+          <% if @user == current_user%>
             <div class="mr-2 pl-3"><p><%= link_to "No wallet", no_wallet_path, data: { confirm: 'Are you sure you want to delete your wallet?' } %></p></div>
             <div><p class="ml-3"><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to reset your wallet?' } %></p></div>
           <% end %>
