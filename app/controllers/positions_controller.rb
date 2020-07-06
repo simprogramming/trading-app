@@ -14,7 +14,7 @@ class PositionsController < ApplicationController
       @position.r3 = @position.target
     end
 
-    if @position.buy_sell == "Buy" && current_user.cash <= @position.size * @position.entry
+    if @position.buy_sell == "Buy" && current_user.cash <= ( @position.size * @position.entry )
       flash[:notice] = 'Insufficient funds to complete the transaction!'
       redirect_to root_path
     elsif @position.save
