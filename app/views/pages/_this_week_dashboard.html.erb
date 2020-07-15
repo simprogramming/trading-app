@@ -10,7 +10,7 @@
         <div>
           <p>
             <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Buy').each do |hot_stock| %>
-              <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+              <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
             <% end %>
           </p>
         </div>
@@ -19,7 +19,7 @@
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Sell').each do |hot_stock| %>
-            <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+            <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
           <% end %>
         </p>
       </div>
@@ -35,7 +35,7 @@
         <div>
           <p>
             <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Buy').each do |hot_stock| %>
-              <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+              <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
             <% end %>
           </p>
         </div>
@@ -44,7 +44,7 @@
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Sell').each do |hot_stock| %>
-            <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+            <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
           <% end %>
         </p>
       </div>
@@ -60,7 +60,7 @@
         <div>
           <p>
             <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Buy').each do |hot_stock| %>
-              <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+              <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
             <% end %>
           </p>
         </div>
@@ -69,7 +69,7 @@
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Sell').each do |hot_stock| %>
-            <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+            <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
           <% end %>
         </p>
       </div>
@@ -85,7 +85,7 @@
         <div>
           <p>
             <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Buy').each do |hot_stock| %>
-              <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+              <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
             <% end %>
           </p>
         </div>
@@ -94,7 +94,7 @@
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Sell').each do |hot_stock| %>
-            <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+            <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
           <% end %>
         </p>
       </div>
@@ -119,7 +119,7 @@
       <div>
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 4) - 4, direction: 'Sell').each do |hot_stock| %>
-            <span class="stock_ticker"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+            <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
           <% end %>
         </p>
       </div>
