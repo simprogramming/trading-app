@@ -1,13 +1,13 @@
 <div class="container-hot-stocks">
   <div class="d-flex">
     <div class="card-hot-stocks">
-      <div class="top scroll">
+      <div class="top">
         <div class="card-category text-center">Monday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"> <%= Date.today.monday.day %> </p>
           <p><%= image_tag "up-arrow.svg", class: "avatar-watchlist" %></p>
         </div>
-        <div>
+        <div class="scroll-top-card">
           <p>
             <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Buy').each do |hot_stock| %>
               <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -16,7 +16,7 @@
         </div>
       </div>
       <p class="text-right"><%= image_tag "892624.svg", class: "avatar-watchlist" %></p>
-      <div class="scroll">
+      <div class="scroll-down-card">
         <p>
           <% @hot_stocks.where( date: (Date.today.monday) - 6, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -26,13 +26,13 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top scroll">
+      <div class="top">
         <div class="card-category text-center">Tuesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 1).day %></p>
           <p><%= image_tag "up-arrow.svg", class: "avatar-watchlist" %></p>
         </div>
-        <div>
+        <div class="scroll-top-card">
           <p>
             <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Buy').each do |hot_stock| %>
               <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -41,7 +41,7 @@
         </div>
       </div>
       <p class="text-right"><%= image_tag "892624.svg", class: "avatar-watchlist" %></p>
-      <div class="scroll">
+      <div class="scroll-down-card">
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 1) - 6, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -51,13 +51,13 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top scroll">
+      <div class="top">
         <div class="card-category text-center">Wednesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 2).day %></p>
           <p><%= image_tag "up-arrow.svg", class: "avatar-watchlist" %></p>
         </div>
-        <div>
+        <div class="scroll-top-card">
           <p>
             <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Buy').each do |hot_stock| %>
               <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -66,7 +66,7 @@
         </div>
       </div>
       <p class="text-right"><%= image_tag "892624.svg", class: "avatar-watchlist" %></p>
-      <div class="scroll">
+      <div class="scroll-down-card">
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 2) - 6, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -76,13 +76,13 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top scroll">
+      <div class="top">
         <div class="card-category text-center">Thursday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 3).day %></p>
           <p><%= image_tag "up-arrow.svg", class: "avatar-watchlist" %></p>
         </div>
-        <div>
+        <div class="scroll-top-card">
           <p>
             <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Buy').each do |hot_stock| %>
               <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -91,7 +91,7 @@
         </div>
       </div>
       <p class="text-right"><%= image_tag "892624.svg", class: "avatar-watchlist" %></p>
-      <div class="scroll">
+      <div class="scroll-down-card">
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 3) - 6, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -101,13 +101,13 @@
     </div>
 
     <div class="card-hot-stocks ">
-      <div class="top scroll">
+      <div class="top">
         <div class="card-category text-center">Friday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday + 4).day %></p>
           <p><%= image_tag "up-arrow.svg", class: "avatar-watchlist" %></p>
         </div>
-        <div>
+        <div class="scroll-top-card">
           <p>
             <% @hot_stocks.where(date: (Date.today.monday + 4) - 4, direction: 'Buy').each do |hot_stock| %>
                 <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -116,7 +116,7 @@
         </div>
       </div>
       <p class="text-right"><%= image_tag "892624.svg", class: "avatar-watchlist" %></p>
-      <div class="scroll">
+      <div class="scroll-down-card">
         <p>
           <% @hot_stocks.where( date: (Date.today.monday + 4) - 4, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker" data-toggle="tooltip" data-placement="top" title=<%= hot_stock.user.nickname %>><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
