@@ -39,38 +39,21 @@
   padding-top: 1px;
 }
 
-
-.tradingview-widget-container {
-  flex-grow: 1;
-  margin-top: 3px;
-  margin-left: 3px;
-  height: 600px;
-  width: 100%;
-}
-
-.tradingview-widget-container-home {
-  flex-grow: 1;
-  margin-top: 3px;
-  margin-left: 3px;
-  height: 600px;
-  width: 100%;
-}
-
 .stock_ticker {
   background-color: rgba(255,255,255, 0.1);
-  margin-left: 15px;
+  margin-left: 2px;
   padding: 2px;
 }
 
 .stock_ticker_buy {
   background-color: rgba(42, 192, 22, 0.2);
-  margin-left: 15px;
+  margin-left: 2px;
   padding: 2px;
 }
 
 .stock_ticker_sell {
   background-color: rgba(148, 27, 11, 0.3);
-  margin-left: 15px;
+  margin-left: 2px;
   padding: 2px;
 }
 
@@ -86,13 +69,4 @@
   padding: 2px;
 }
 
-.broker-form {
-  width: 400px;
-  height: 675px;
-  margin-right: 5px;
-
-  background-color: #1E222D;
-  padding: 7px;
-  border-radius: 3px;
-}
 

@@ -1,9 +1,9 @@
 .table-text-color {
   color: white;
+  border-radius: 3px;
 }
 .table-dark {
   background-color: #2F3241;
-  border: hidden;
 }
 
 .table td {
@@ -32,4 +32,21 @@
     font-weight: lighter;
   }
 
+}
+
+// .Bdazzled-blue {
+//   background-color: #415A77;
+//   opacity: .85;
+// }
+
+.gray {
+  background-color: #239C8F;
+  opacity: .85;
+}
+
+
+.blue {
+  background-color: #E7DFD5;
+  opacity: .85;
+  color: black;
 }

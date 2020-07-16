@@ -3,12 +3,12 @@
   <% position.gain_loss_closed %>
 <% end %>
 
-<div class="container-fluid" style="width:90%">
+<div class="container-fluid" >
   <div class="d-flex justify-content-between">
     <div class="profile-overview d-flex text-center">
       <div class="personnal-info">
-        <h2 class="mb-3 text-center"><%= @user.nickname %></h2>
-        <p><%= @user.description %></p>
+        <h1 class="mb-3 text-center"><%= @user.nickname %></h1>
+        <h2> Equity curve comming soon..</h2>
       </div>
     </div>
     <div class="profile-overview d-flex">
@@ -44,92 +44,10 @@
       </div>
     </div>
   </div>
-
-
-
-
- <table class="table table-bordered table-hover table-dark">
-  <thead>
-    <tr>
-      <th class= "table-text-color" scope="col">Symbol</th>
-      <th class= "table-text-color" scope="col">Date</th>
-      <th class= "table-text-color" scope="col">Time</th>
-      <th class= "table-text-color" scope="col">Buy/Sell</th>
-      <th class= "table-text-color" scope="col">Size</th>
-      <th class= "table-text-color" scope="col">Entry</th>
-      <th class= "table-text-color" scope="col">Total</th>
-      <th class= "table-text-color" scope="col">IceL</th>
-      <th class= "table-text-color" scope="col">Target</th>
-      <th class= "table-text-color" scope="col">S/L</th>
-      <th class= "table-text-color" scope="col">Price</th>
-      <th class= "table-text-color" scope="col">P/L%</th>
-      <th class= "table-text-color" scope="col">1R</th>
-      <th class= "table-text-color" scope="col">2R</th>
-      <th class= "table-text-color" scope="col">3R</th>
-      <th class= "table-text-color" scope="col">Shares</th>
-      <th class= "table-text-color" scope="col">P/L</th>
-      <th class= "table-text-color" scope="col">Wallet%</th>
-    </tr>
-  </thead>
-    <!-- refresh positions to appear in table -->
-    <% @positions.each do | position | %>
-      <% position.gain_loss_closed %>
-    <% end %>
-
-  <tbody>
-    <% @positions.each do | position | %>
-    <tr class="border">
-      <td class= "table-text-color" scope="row"><%= position.stock.symbol%></td>
-      <td class= "table-text-color" scope="row"><%=position.created_at.to_date.strftime("%m/%d") %></td>
-      <td class= "table-text-color" scope="row"><%=position.created_at.to_time.getlocal('-04:00').strftime("%k:%M") %></td>
-      <td class= "table-text-color" scope="row"><%=position.buy_sell%></td>
-      <td class= "table-text-color" scope="row"><%=position.size%></td>
-      <td class= "table-text-color" scope="row"><%= position.entry.round(2)%></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
-      <td class= "table-text-color" scope="row"><%= position.baseline.round(2) %></td>
-      <td class= "table-text-color" scope="row"><%= position.target.round(2) %></td>
-      <td class= "table-text-color" scope="row">
-        <% if position.stop_loss_hit %>
-        <div class="stock_ticker_SL_hit"><%= position.stop_loss.round(2) %></div>
-        <% else %>
-        <%= position.stop_loss.round(2) %>
-        <% end %>
-        </td>
-      <td class= "table-text-color" scope="row"><%= position.current_price.round(2) %></td>
-      <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).round(2) %>%</td>
-      <td class= "table-text-color" scope="row">
-        <% if position.r1_hit%>
-         <div class="stock_ticker_R_hit"><%= position.r1.round(2) %></div>
-         <% else %>
-         <%= position.r1.round(2) %>
-        <% end %>
-      </td>
-      <td class= "table-text-color" scope="row">
-        <% if position.r2_hit%>
-         <div class="stock_ticker_R_hit"><%= position.r2.round(2) %></div>
-         <% else %>
-         <%= position.r2.round(2) %>
-        <% end %>
-      </td>
-      <td class= "table-text-color" scope="row">
-        <% if position.r3_hit%>
-         <div class="stock_ticker_R_hit"><%= position.r3.round(2) %></div>
-         <% else %>
-         <%= position.r3.round(2) %>
-        <% end %>
-      </td>
-      <td class= "table-text-color" scope="row"><%= position.remaining_size%></td>
-      <td class= "table-text-color" scope="row">
-        <% if position.p_l_closed != "N/A" %>
-          <%= number_to_currency(position.p_l_closed) %>
-          <% else %>
-          <%= position.p_l_closed %>
-        <% end %> </td>
-      <td class= "table-text-color" scope="row"><%=position.portfolio_return%></td>
-    </tr>
-    <% end %>
-  </tbody>
- </table>
+  <%= render 'table' %>
+  <div class="container">
+    <%= render 'form' %>
+  </div>
 
   <div class="goldbar"></div>
 </div>

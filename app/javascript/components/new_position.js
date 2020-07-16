@@ -5,7 +5,7 @@ const newPosition = () => {
   const symbol = document.querySelector("#select_stock_id")
   const jquery_symbol = $('#select_stock_id')
   // const quantity = document.querySelector("#position_quantity_1")
-  const entry = document.querySelector("#position_entry")
+  const entry = document.querySelector("#position_current_price")
   if (symbol) {
     jquery_symbol.on('change', (event) => {
       fetch(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=${symbol.options[symbol.selectedIndex].text}`,{

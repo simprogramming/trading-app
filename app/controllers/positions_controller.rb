@@ -1,7 +1,7 @@
 class PositionsController < ApplicationController
   def create
     @position = Position.new(position_params)
-    @position.current_price = @position.entry
+    # @position.current_price = @position.entry
     @position.user = current_user
 
     if @position.buy_sell == "Buy"
@@ -29,8 +29,8 @@ class PositionsController < ApplicationController
         current_user.equity -= @position.remaining_size * @position.current_price
         current_user.save
       end
-      flash[:notice] = 'Position successfully created, for more details check profile'
-      redirect_to root_path
+      flash[:notice] = 'Position successfully created'
+      redirect_to user_path(current_user)
     else
       render 'pages/dashboard'
     end
@@ -72,6 +72,6 @@ class PositionsController < ApplicationController
   private
 
   def position_params
-    params.require(:position).permit(:stock_id, :size, :entry, :baseline, :target, :stop_loss, :buy_sell, :r1, :r2, :r3, :id)
+    params.require(:position).permit(:stock_id, :size, :entry, :baseline, :target, :stop_loss, :buy_sell, :r1, :r2, :r3, :current_price, :id)
   end
 end

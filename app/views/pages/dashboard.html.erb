@@ -15,20 +15,5 @@
   </div>
 </div>
 <div class="goldbar"></div>
-  <div class="mb-5">
-    <div class="broker-form">
-      <%= simple_form_for [@position] do |f| %>
-      <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', input_html: {class: 'select2', id:'select_stock_id'}  %>
-      <%= f.input :buy_sell, as: :radio_buttons, collection: ['Buy', 'Sell'], include_blank: false, label: "Entry Action"  %>
-      <%= f.input :size %>
-      <%= f.input :entry, label: "Price", input_html: {readonly: "readonly"} %>
-      <%= f.input :baseline, label: "Iceline" %>
-      <%= f.input :target, label: "Target Price" %>
-      <%= f.input :stop_loss, label: "Stop Loss" %>
 
-      <%= f.button :submit, class: "btn-secondary rounded-btn" %>
-      <% end %>
-    </div>
-  </div>
-</div>
 
