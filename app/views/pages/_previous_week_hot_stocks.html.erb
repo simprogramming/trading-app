@@ -1,7 +1,7 @@
 <div class="container-hot-stocks">
   <div class="d-flex">
     <div class="card-hot-stocks">
-      <div class="top">
+      <div class="top scroll">
         <div class="card-category text-center">Monday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"> <%= Date.today.monday.day - 7 %> </p>
@@ -21,7 +21,7 @@
           <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday - 7 , direction: 'Sell' } %>
         </div>
       </div>
-      <div>
+      <div class="scroll">
         <p>
           <% current_user.hot_stocks.where( date: Date.today.monday - 7 , direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker_sell"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top">
+      <div class="top scroll">
         <div class="card-category text-center">Tuesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday - 6).day %></p>
@@ -53,7 +53,7 @@
           <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday - 6, direction: 'Sell' } %>
         </div>
       </div>
-      <div>
+      <div class="scroll">
         <p>
           <% current_user.hot_stocks.where( date: Date.today.monday - 6, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker_sell"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top">
+      <div class="top scroll">
         <div class="card-category text-center">Wednesday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday - 5).day %></p>
@@ -85,7 +85,7 @@
           <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday - 5, direction: 'Sell' } %>
         </div>
       </div>
-      <div>
+      <div class="scroll">
         <p>
           <% current_user.hot_stocks.where( date: Date.today.monday - 5, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker_sell"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -95,7 +95,7 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top">
+      <div class="top scroll">
         <div class="card-category text-center">Thursday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday - 4).day %></p>
@@ -117,7 +117,7 @@
           <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday - 4, direction: 'Sell' } %>
         </div>
       </div>
-      <div>
+      <div class="scroll">
         <p>
           <% current_user.hot_stocks.where( date: Date.today.monday - 4, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker_sell"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
@@ -127,7 +127,7 @@
     </div>
 
     <div class="card-hot-stocks">
-      <div class="top">
+      <div class="top scroll">
         <div class="card-category text-center">Friday</div>
         <div class="d-flex justify-content-between">
           <p class="text-left"><%= (Date.today.monday - 3).day %></p>
@@ -149,7 +149,7 @@
           <%= render partial: 'new_hot_stock', locals: { date: Date.today.monday - 3, direction: 'Sell' } %>
         </div>
       </div>
-      <div>
+      <div class="scroll">
         <p>
           <% current_user.hot_stocks.where( date: Date.today.monday - 3, direction: 'Sell').each do |hot_stock| %>
             <span class="stock_ticker_sell"><%= link_to hot_stock.stock.symbol, hot_stock_path(hot_stock), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>

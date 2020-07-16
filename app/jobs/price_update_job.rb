@@ -8,6 +8,13 @@ class PriceUpdateJob < ApplicationJob
 
   def perform
 
+    opening = Time.now.beginning_of_day + 9.hours + 30.minutes
+    closing = Time.now.beginning_of_day + 16.hours + 15.minutes
+
+    if Time.now < opening || Time.now > closing
+      return
+    end
+
     positions = Position.all
 
     symbols = []
