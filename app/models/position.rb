@@ -8,6 +8,7 @@ class Position < ApplicationRecord
   validates :baseline, presence: true
   validates :target, presence: true
   validates :stop_loss, presence: true
+  validates :current_price, presence: true
 
   def total_amount
     entry * size
