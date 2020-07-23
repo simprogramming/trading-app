@@ -8,12 +8,12 @@ class PriceUpdateJob < ApplicationJob
 
   def perform
 
-    opening = (Time.now.beginning_of_day + 9.hours + 30.minutes).strftime("%l:%M:%p")
-    closing = (Time.now.beginning_of_day + 16.hours + 15.minutes).strftime("%l:%M:%p")
+    # opening = (Time.now.beginning_of_day + 9.hours + 30.minutes).strftime("%l:%M:%p")
+    # closing = (Time.now.beginning_of_day + 16.hours + 15.minutes).strftime("%l:%M:%p")
 
-    if (Time.now).strftime("%l:%M:%p") < opening || (Time.now).strftime("%l:%M:%p") > closing
-      return
-    end
+    # if (Time.now).strftime("%l:%M:%p") < opening || (Time.now).strftime("%l:%M:%p") > closing
+    #   return
+    # end
 
     positions = Position.all
 
