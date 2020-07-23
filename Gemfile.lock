@@ -245,7 +245,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack
   autoprefixer-rails
   bootsnap (>= 1.4.2)
   byebug

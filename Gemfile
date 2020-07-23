@@ -5,7 +5,7 @@ ruby '2.6.6'
 
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
-gem "actionpack"
+
 
 gem 'devise'
 gem 'faker'
