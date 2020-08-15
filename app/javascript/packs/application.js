@@ -27,6 +27,10 @@ import "bootstrap";
 import { newPosition } from '../components/new_position.js'
 import { initSelect2 } from '../plugins/select2.js'
 
+
+
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -34,7 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   newPosition();
   initSelect2();
 });
-
 
 
 $(function () {
@@ -80,3 +83,7 @@ $(function () {
  //    end
 
  //  end
+// Support component names relative to this directory:
+var componentRequireContext = require.context("components", true);
+var ReactRailsUJS = require("react_ujs");
+ReactRailsUJS.useContext(componentRequireContext);

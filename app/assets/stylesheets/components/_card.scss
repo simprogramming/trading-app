@@ -13,7 +13,6 @@
   border:  1px solid #141822;
   background-color: #303341;
   border-radius: 5px;
-
 }
 
 .card-category {
@@ -24,7 +23,7 @@
 
 .top {
   border-bottom: 2px solid #141822;
-  height: 275px;
+  height: 285px;
 }
 
 .text-left {
@@ -72,4 +71,19 @@
   padding: 2px;
 }
 
+.derivatives-card {
+  width: 20%;
+  height: 150px;
+  border:  1px solid #141822;
+  background-color: #D3D3D3;
+  border-radius: 5px;
+  margin-bottom: 75px;
+
+  textarea {
+    height: 125px;
+    width: 100%;
+    background-color: #D3D3D3!important;
+    color: black!important;
+  }
+}
 

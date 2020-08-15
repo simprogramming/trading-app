@@ -17,7 +17,9 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><%= render 'this_week_hot_stocks' %></div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><%= render 'previous_week_hot_stocks' %></div>
   </div>
+  <div id="derivatives"></div>
 </div>
 
 <div class="goldbar"></div>
 
+<%= javascript_pack_tag 'components/derivatives' %>

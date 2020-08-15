@@ -6,7 +6,7 @@ ruby '2.6.6'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 
-
+gem 'react-rails'
 gem 'devise'
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
