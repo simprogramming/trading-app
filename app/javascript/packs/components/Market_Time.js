@@ -8,7 +8,7 @@ export default function MarketTime() {
   const hours = date.getHours()
   let timeOfDay
 
-  if (hours > 9.5 && hours < 16) {
+  if (hours > 9 && hours < 16) {
     timeOfDay = 'Market Open'
   } else {
     timeOfDay = 'Market Closed'
@@ -20,5 +20,4 @@ export default function MarketTime() {
 }
 
 
-const MarketHours = document.getElementById('MarketHours');
-  ReactDOM.render(<MarketTime />, MarketHours);
+
