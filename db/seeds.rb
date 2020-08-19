@@ -39,6 +39,7 @@ Stock.destroy_all
 User.destroy_all
 Group.destroy_all
 Group.create(objective: 100000)
+Derivative.destroy_all
 
 stocks = File.open("db/stocks.txt").readlines
 stocks_sorted = stocks.sort { |a, b| a <=> b }
@@ -172,6 +173,26 @@ richard = User.create!(
   password: '123456'
   )
 
+day1 = Derivative.create!(
+  content: "day1",
+  day: "1"
+  )
+day2 = Derivative.create!(
+  content: "day2",
+  day: "2"
+  )
+day3 = Derivative.create!(
+  content: "day3",
+  day: "3"
+  )
+day4 = Derivative.create!(
+  content: "day4",
+  day: "4"
+  )
+day5 = Derivative.create!(
+  content: "day5",
+  day: "5"
+  )
 # --------------------------------------------------------------------
 
 

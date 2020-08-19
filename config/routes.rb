@@ -25,6 +25,13 @@ Rails.application.routes.draw do
 
   get '/positions/no_wallet', to: 'positions#no_wallet', as: :no_wallet
 
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :derivatives, only: [ :index, :edit, :update ]
+    end
+  end
+
   Rails.application.routes.draw do
   get 'stocks/new'
   # Sidekiq Web UI, only for admins.

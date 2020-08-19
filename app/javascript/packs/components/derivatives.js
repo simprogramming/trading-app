@@ -7,6 +7,12 @@ import Day2 from './days/day2'
 import Day3 from './days/day3'
 import Day4 from './days/day4'
 import Day5 from './days/day5'
+const root = document.getElementById('root');
+// const xyz = JSON.parse(root.dataset.derivatives);
+// const monday = xyz[0]
+// const mondayD = monday.content
+// console.log(mondayD)
+
 
 export default function DerivativesCalendar() {
   return (
@@ -21,7 +27,6 @@ export default function DerivativesCalendar() {
 }
 
 
-const derivatives = document.getElementById('derivatives');
-  ReactDOM.render(<DerivativesCalendar />, derivatives);
+  ReactDOM.render(<DerivativesCalendar />, root);
 
 

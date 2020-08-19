@@ -20,7 +20,7 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><%= render 'this_week_dashboard' %></div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><%= render 'next_week_dashboard' %></div>
   </div>
-  <div id="derivatives"></div>
+  <div id="root" data-derivatives="<%= @derivatives.to_json %>"></div>
 </div>
 
 
