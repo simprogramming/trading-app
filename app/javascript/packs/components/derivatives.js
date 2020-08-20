@@ -16,7 +16,7 @@ const Wesnesday = days.derivatives[2].content;
 const Thursday = days.derivatives[3].content;
 const Friday = days.derivatives[4].content
 
-
+console.log(days)
 
 export default function DerivativesCalendar() {
 
