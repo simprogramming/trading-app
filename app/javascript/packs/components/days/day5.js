@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 const LOCAL_STORAGE_KEY = "derivatives5.save"
 
-function Day5() {
-  const days = { derivatives: JSON.parse(root.dataset.derivatives)};
-  const initialState = days.derivatives[4].content
+function Day5(props) {
+  // const days = { derivatives: JSON.parse(root.dataset.derivatives)};
+  // const initialState = days.derivatives[4].content
+  const initialState = props.day
+  const days = props.days
 
-  const [derivatives, setDerivatives] = useState(initialState);
 
-  function handleDerivativesChange(e) {
-    setDerivatives(e.target.value);
+  let [text, setText] = useState(initialState);
+
+  function handleTextChange(e) {
+    setText(e.target.value);
   }
 
   // useEffect(() => {
@@ -17,14 +20,15 @@ function Day5() {
   //   if (storedDerivatives) setDerivatives(storedDerivatives)
   // }, [])
 
-  // useEffect(() => {
-  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(derivatives))
-  // }, [derivatives])
+  useEffect(() => {
+    const newState = [...text].join('');
+    days.derivatives[4].content = newState
+  }, [text])
 
   return (
     <div className="derivatives-card">
       <div className="container p-3">
-        <textarea value={derivatives} onChange={handleDerivativesChange} />
+        <textarea value={text} onChange={handleTextChange} />
       </div>
     </div>
   );
