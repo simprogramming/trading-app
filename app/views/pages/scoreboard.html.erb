@@ -40,17 +40,20 @@
 <div class="container mb-5">
   <div class="summary" id="mainBar">
     <div class="item">
-      <% total_wallet = 0 %>
+      <% total_wallet_position = 0 %>
       <% @users.each do | user | %>
-        <% wallet = (user.equity + user.cash) %>
-        <% if wallet > 0 %>
-          <% total_wallet += wallet %>
+        <% positions = Position.all %>
+        <% if positions.length > 0 %>
+          <% total_wallet_position += positions %>
         <% end %>
       <% end %>
-      Group Wallet: <%= number_to_currency(total_wallet) %>
+      Group positions: <%= (total_wallet_position) %>
     </div>
     <div class="item" data-toggle="modal" data-target="#exampleModal">
-      Objective: <%= number_to_currency(Group.first.objective) %>
+      Objective: <%= 36 %>
+    </div>
+    <div class="item">
+        Week: 1
     </div>
     <div class="item">
         <% players = @users.count %>
@@ -59,10 +62,6 @@
           <%  players -= 1 %>
           <% end %>
         <% end %>
-        <% initialAmount = players*100000 %>
-      Group Wallet P/L%: <%= (((total_wallet-initialAmount)/initialAmount)*100).truncate(2) %>%
-    </div>
-    <div class="item">
       Team Size: <%= players %>
     </div>
   </div>
