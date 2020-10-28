@@ -44,7 +44,7 @@
       <% @users.each do | user | %>
         <% positions = Position.all %>
         <% if positions.length > 0 %>
-          <% total_wallet_position += positions %>
+          <% total_wallet_position = positions.length %>
         <% end %>
       <% end %>
       Group positions: <%= (total_wallet_position) %>
