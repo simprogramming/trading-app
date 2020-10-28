@@ -40,6 +40,16 @@
 <div class="container mb-5">
   <div class="summary" id="mainBar">
     <div class="item">
+
+      <% total_wallet_position = 0 %>
+      <% @users.each do | user | %>
+        <% positions = Position.all %>
+        <% if positions.length > 0 %>
+          <% total_wallet_position = positions.length %>
+        <% end %>
+      <% end %>
+      Group positions: <%= (total_wallet_position) %>
+
       <!-- <% total_wallet_position = 0 %> -->
 
         <!-- <% positions = Position.all %> -->
@@ -48,6 +58,7 @@
         <!-- <% end %> -->
 
       Group positions: 0
+
     </div>
     <div class="item" data-toggle="modal" data-target="#exampleModal">
       Objective: 36
