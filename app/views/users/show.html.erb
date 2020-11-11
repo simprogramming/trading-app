@@ -31,7 +31,7 @@
           <div class="d-flex">
             <div><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p></div>
             <% if @user == current_user%>
-              <div><p class="ml-3 avatar-refresh"><%= link_to image_tag("refresh.svg"), refresh_path %></p></div>
+              <div><p class="ml-3 avatar-refresh" id="activate-wallet"><%= link_to image_tag("refresh.svg"), refresh_path %></p></div>
             <% end %>
           </div>
         </div>

@@ -10,9 +10,10 @@ class PriceUpdateJob < ApplicationJob
 
     opening = (Time.now.beginning_of_day + 9.hours + 30.minutes)
     closing = (Time.now.beginning_of_day + 16.hours + 15.minutes)
+    time = Time.now
 
 
-    if (Time.now) < opening || (Time.now) > closing
+    if (time) < opening || (time) > closing
       return
     end
 
