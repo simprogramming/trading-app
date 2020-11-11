@@ -8,8 +8,8 @@ class PriceUpdateJob < ApplicationJob
 
   def perform
 
-    opening = (Time.now.beginning_of_day + 9.hours + 30.minutes)
-    closing = (Time.now.beginning_of_day + 16.hours + 15.minutes)
+    opening = (Time.now.beginning_of_day + 14.hours + 30.minutes)
+    closing = (Time.now.beginning_of_day + 21.hours + 15.minutes)
     time = Time.now
 
 
