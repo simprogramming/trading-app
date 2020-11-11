@@ -5,7 +5,7 @@ const updatePrices = () => {
       setInterval(function() {
         console.log("Price Updates for scoreboard")
         btn.click();
-      }, 50000)
+      }, 500000)
     }
   }
 }
