@@ -27,6 +27,6 @@ export default function DerivativesCalendar() {
 }
 
 
-  ReactDOM.render(<DerivativesCalendar />, root);
+  // ReactDOM.render(<DerivativesCalendar />, root);
 
 

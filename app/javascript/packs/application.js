@@ -26,6 +26,8 @@ require("channels")
 import "bootstrap";
 import { newPosition } from '../components/new_position.js'
 import { initSelect2 } from '../plugins/select2.js'
+import { updatePrices } from '../components/updatePrices'
+import { updateWallets } from '../components/updateWallets'
 
 
 
@@ -37,6 +39,8 @@ import { initSelect2 } from '../plugins/select2.js'
 document.addEventListener('turbolinks:load', () => {
   newPosition();
   initSelect2();
+  updatePrices();
+  updateWallets();
 });
 
 

@@ -45,6 +45,11 @@ class PositionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def perform_now
+    PriceUpdateJob.perform_now
+    redirect_to scoreboard_path
+  end
+
   def no_wallet
     @positions = Position.where(user_id: current_user.id)
     @positions.destroy_all
