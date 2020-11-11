@@ -40,6 +40,7 @@
 <div class="container mb-5">
   <div class="summary" id="mainBar">
     <div class="item">
+
       <% total_wallet_position = 0 %>
       <% @users.each do | user | %>
         <% positions = Position.all %>
@@ -48,12 +49,17 @@
         <% end %>
       <% end %>
       Group positions: <%= (total_wallet_position) %>
+
     </div>
     <div class="item" data-toggle="modal" data-target="#exampleModal">
-      Objective: <%= 36 %>
+      Objective: 36
     </div>
     <div class="item">
+<<<<<<< HEAD
         <p id="activate-btn"><%= link_to "Update Prices", perform_now_path %></p>
+=======
+        Week: 2
+>>>>>>> 08ebf2f632711cc942db1f55975d510fd67f1842
     </div>
     <div class="item">
         <% players = @users.count %>
@@ -98,27 +104,7 @@
   <% end %>
 </div>
 
-<!-- modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update group objective</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for Group.first do |f|%>
-          <%= f.input :objective %>
-          <%= f.submit %>
-        <% end %>
 
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
 
