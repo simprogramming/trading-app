@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_152545) do
+ActiveRecord::Schema.define(version: 2020_12_23_161517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "derivatives", force: :cascade do |t|
-    t.text "content"
-    t.string "day"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "groups", force: :cascade do |t|
-    t.float "objective"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "hot_stocks", force: :cascade do |t|
     t.bigint "user_id", null: false

@@ -2,13 +2,17 @@ class Position < ApplicationRecord
   belongs_to :stock
   belongs_to :user
 
-  validates :stock, presence: true
   validates :entry, presence: true
+  validates :stock, presence: true
+  validates :buy_sell, presence: true
   validates :size, presence: true
   validates :baseline, presence: true
   validates :target, presence: true
   validates :stop_loss, presence: true
   validates :current_price, presence: true
+  validates :r1, presence: true
+  validates :r2, presence: true
+  validates :r3, presence: true
 
   def total_amount
     entry * size
@@ -28,16 +32,15 @@ class Position < ApplicationRecord
     self.user.equity += remaining_size * entry
     self.user.save
     self.remaining_size = 0
-    self.stop_loss_hit = true
     self.save
   end
+
 
   def exit_long
     self.user.cash += remaining_size * stop_loss
     self.user.equity -= remaining_size * entry
     self.user.save
     self.remaining_size = 0
-    self.stop_loss_hit = true
     self.save
   end
 
@@ -48,7 +51,7 @@ class Position < ApplicationRecord
 
     if buy_sell == "Buy"
 
-      if current_price <= stop_loss
+      if stop_loss_hit
         exit_long
       else
         take_profit_long_R1(size1)
@@ -58,7 +61,7 @@ class Position < ApplicationRecord
       # position.exit (stop-loss) / opposite for short-sell
     else
       if buy_sell == "Sell"
-        if current_price >= stop_loss
+        if stop_loss_hit
           exit_short
         else
           take_profit_short_R1(size1)

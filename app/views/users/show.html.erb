@@ -11,36 +11,32 @@
         <h2> Equity curve coming soon..</h2>
       </div>
     </div>
-    <div class="profile-overview d-flex">
-      <div class="sector-info center">
-        <h2 class="text-center mb-3">Sectors</h2><div class="container sector-color"><%=  @user.category  %></div>
+    <div class="profile-overview d-flex justify-content-around">
+      <div>
+        <% positions = Position.where(user_id: @user) %>
+        <% count = 0 %>
+        <% positions.each do | position | %>
+          <% if position.remaining_size == 0%>
+           <% count += 1 %>
+          <% end %>
+        <% end %>
+        <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
+        <p>Equity: <%= number_to_currency(@user.equity) %></p>
+        <p>Cash: <%= number_to_currency(@user.cash) %></p>
+        <p>Positions: <%= @positions.count - count %></p>
       </div>
-      <div class="finance-info-1">
-        <div class="container wallet-overview">
-          <% positions = Position.where(user_id: @user) %>
-          <% count = 0 %>
-          <% positions.each do | position | %>
-            <% if position.remaining_size == 0%>
-             <% count += 1 %>
-            <% end %>
-          <% end %>
-          <p>Wallet: <%= number_to_currency(@user.cash + @user.equity) %></p>
-          <p>Equity: <%= number_to_currency(@user.equity) %></p>
-          <p>Cash: <%= number_to_currency(@user.cash) %></p>
-          <p>Positions: <%= @positions.count - count %></p>
-          <div class="d-flex">
-            <div><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p></div>
-            <% if @user == current_user%>
-              <div><p class="ml-3 avatar-refresh" id="activate-wallet"><%= link_to image_tag("refresh.svg"), refresh_path %></p></div>
-            <% end %>
-          </div>
-        </div>
-        <div class="d-flex pt-2">
+      <div>
+        <div class="d-flex">
+          <div><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p></div>
           <% if @user == current_user%>
-            <div class="mr-2 pl-3"><p><%= link_to "No wallet", no_wallet_path, data: { confirm: 'Are you sure you want to delete your wallet?' } %></p></div>
-            <div><p class="ml-3"><%= link_to "Reset", reset_path, data: { confirm: 'Are you sure you want to reset your wallet?' } %></p></div>
+            <div><p class="ml-2 avatar-refresh" id="activate-wallet"><%= link_to image_tag("refresh.svg"), refresh_my_pl_path %></p></div>
           <% end %>
         </div>
+        <% if @user == current_user%>
+          <p><%= link_to "No wallet", no_wallet_path, data: { confirm: 'Are you sure you want to delete your wallet?' } %></p>
+          <p><%= link_to "Reset my wallet", reset_path, data: { confirm: 'Are you sure you want to reset your wallet?' } %></p>
+          <p><%= link_to "Update Prices on my Positions", my_perform_now_path %></p>
+        <% end %>
       </div>
     </div>
   </div>

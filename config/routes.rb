@@ -9,30 +9,29 @@ Rails.application.routes.draw do
 
   resources :hot_stocks, only: [ :create, :destroy ]
 
-  resources :positions, only: [ :create, :update]
+  resources :positions, only: [ :create, :update, :edit, :destroy]
 
   resources :groups, only: [ :update]
 
   get '/dashboard', to: 'pages#dashboard'
 
-  get '/my_watchlist', to: 'pages#my_watchlist' #create & delete
+  get '/my_watchlist', to: 'pages#my_watchlist'
 
   get '/scoreboard', to: 'pages#scoreboard'
 
   get '/positions/reset', to: 'positions#reset', as: :reset
 
+  get '/positions/:id/stop_hit', to: 'positions#stop_hit', as: :stop_hit
+
   get '/positions/refresh', to: 'positions#refresh', as: :refresh
+
+  get '/positions/refresh_my_pl', to: 'positions#refresh_my_pl', as: :refresh_my_pl
 
   get '/positions/no_wallet', to: 'positions#no_wallet', as: :no_wallet
 
   get '/positions/perform_now', to: 'positions#perform_now', as: :perform_now
 
-
-  namespace :api, defaults: { format: :json } do
-    namespace :v1 do
-      resources :derivatives, only: [ :index, :edit, :update ]
-    end
-  end
+  get '/positions/my_perform_now', to: 'positions#my_perform_now', as: :my_perform_now
 
   Rails.application.routes.draw do
   get 'stocks/new'
