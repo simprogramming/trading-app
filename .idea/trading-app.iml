@@ -104,7 +104,10 @@
     <orderEntry type="library" scope="PROVIDED" name="sassc (v2.4.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sassc-rails (v2.1.2, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v3.142.7, rbenv: 2.6.6) [gem]" level="application" />
+
     <orderEntry type="library" scope="PROVIDED" name="shutup (v0.1.1, rbenv: 2.6.6) [gem]" level="application" />
+
+
     <orderEntry type="library" scope="PROVIDED" name="sidekiq (v6.1.2, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sidekiq-failures (v1.0.0, rbenv: 2.6.6) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_form (v5.0.3, rbenv: 2.6.6) [gem]" level="application" />
