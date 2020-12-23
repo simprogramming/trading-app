@@ -198,6 +198,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    shutup (0.1.1)
     sidekiq (6.1.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   react-rails
   sass-rails (>= 6)
   selenium-webdriver
+  shutup (~> 0.1.1)
   sidekiq
   sidekiq-failures (~> 1.0)
   simple_form
