@@ -16,6 +16,5 @@ class PagesController < ApplicationController
 
   def dashboard
     @hot_stocks = HotStock.all
-    @derivatives = Derivative.all
   end
 end
