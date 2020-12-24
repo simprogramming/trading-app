@@ -21,7 +21,7 @@ class StocksController < ApplicationController
   private
 
   def stock_params
-    params.require(:stock).permit(:symbol)
+    params.require(:stock).permit(:symbol, :category, :name, :grade)
   end
 
   def set_stock

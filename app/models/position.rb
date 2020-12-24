@@ -189,12 +189,4 @@ class Position < ApplicationRecord
       self.save
     end
   end
-
-  def profit_loss_position
-    if current_price == close_price_r1
-      profit = (size * 0.3 * r1) + (shares * current_price)
-    else
-    profit = (current_price - entry) * size
-    end
-  end
 end
