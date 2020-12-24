@@ -2,38 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd50b01c-d0ec-4e7e-8c71-2c5df4103406" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/positions/edit.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20201222233133_delete_derivative.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/migrate/20201223161517_drop_group_objective_table.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trading-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trading-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_form.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_sector_tables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/pages/_market_tables.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/api/v1/derivatives_controller.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/positions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/positions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/jobs/price_update_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/price_update_job.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/derivative.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/hot_stock.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/hot_stock.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/position.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/position.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/stock.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/stock.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/_new_hot_stock.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/_new_hot_stock.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/_scroll_widget.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/_scroll_widget.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/_table.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_table.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20200819152545_create_derivatives.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/stocks/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/stocks/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

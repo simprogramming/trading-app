@@ -2,9 +2,15 @@
     <h2>Add a Stock</h2>
   <div class="form-group">
     <%= simple_form_for @stock do |f| %>
-      <%= f.input :symbol, placeholder: 'AAPL or ACB.TO'   %>
+      <%= f.input :name, placeholder: 'Apple', class: "input" %>
 
-      <%= f.button :submit, class: 'btn btn-primary rounded-btn' %>
+      <%= f.input :symbol, placeholder: 'AAPL', class: "input" %>
+
+      <%= f.input :grade, placeholder: 'A', class: "input", collection: %w[A B C D E F] %>
+
+      <%= f.input :category, placeholder: 'Technology', class: "input", collection: ["Financial", "Technology","Real Estate", "Telecommunication", "Healthcare", "Discretionary", "Staple", "Utilities", "Energy", "Basic Material", "Industrial", "Others"] %>
+
+      <%= f.button :submit, class: 'btn btn-success rounded-btn mt-3' %>
     <% end %>
   </div>
 </div>

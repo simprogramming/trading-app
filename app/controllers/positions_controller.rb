@@ -135,8 +135,6 @@ class PositionsController < ApplicationController
     flash[:notice] = 'P/L updated'
   end
 
-
-
   private
 
   def position_params

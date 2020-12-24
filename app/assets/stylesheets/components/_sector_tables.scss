@@ -1,0 +1,8 @@
+.sector-tables {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 12px;
+  column-gap: 10px;
+  row-gap: 15px;
+}

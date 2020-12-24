@@ -16,5 +16,18 @@ class PagesController < ApplicationController
 
   def dashboard
     @hot_stocks = HotStock.all
+    @stock = Stock.new
+    @tech_stocks = Stock.where(category: 'Technology')
+    @financial_stocks = Stock.where(category: 'Financial')
+    @real_estate_stocks = Stock.where(category: 'Real Estate')
+    @telecom_stocks = Stock.where(category: 'Telecommunication')
+    @health_care_stocks = Stock.where(category: 'Healthcare')
+    @discretionary_stocks = Stock.where(category: 'Discretionary')
+    @staple_stocks = Stock.where(category: 'Staple')
+    @utilities_stocks = Stock.where(category: 'Utilities')
+    @energy_stocks = Stock.where(category: 'Energy')
+    @basic_material_stocks = Stock.where(category: 'Basic Material')
+    @industrial_stocks = Stock.where(category: 'Industrial')
+    @other_stocks = Stock.where(category: 'Others')
   end
 end
