@@ -14,16 +14,10 @@
   font-weight: medium;
 }
 
- // #text-light {
- //    font-weight: lighter;
- //  }
-
-
 @media (max-width: 1440px){
   .table th, .table td {
     padding: 0.35rem;
   }
-
 }
 
 @media (max-width: 780px){
@@ -31,13 +25,7 @@
     padding: 0.1rem;
     font-weight: lighter;
   }
-
 }
-
-// .Bdazzled-blue {
-//   background-color: #415A77;
-//   opacity: .85;
-// }
 
 .gray {
   background-color: #239C8F;
