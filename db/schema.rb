@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_143552) do
+ActiveRecord::Schema.define(version: 2020_12_24_160954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,18 +34,15 @@ ActiveRecord::Schema.define(version: 2020_12_24_143552) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.float "baseline"
+    t.float "iceline"
     t.float "current_price"
     t.string "buy_sell"
     t.float "entry"
     t.float "r1"
-    t.float "r2"
-    t.float "r3"
     t.integer "remaining_size"
     t.boolean "r1_hit", default: false
-    t.boolean "r2_hit", default: false
-    t.boolean "r3_hit", default: false
     t.boolean "stop_loss_hit", default: false
+    t.boolean "target_hit", default: false
     t.index ["stock_id"], name: "index_positions_on_stock_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end

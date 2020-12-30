@@ -6,13 +6,11 @@ class Position < ApplicationRecord
   validates :stock, presence: true
   validates :buy_sell, presence: true
   validates :size, presence: true
-  validates :baseline, presence: true
+  validates :iceline, presence: true
   validates :target, presence: true
   validates :stop_loss, presence: true
   validates :current_price, presence: true
   validates :r1, presence: true
-  validates :r2, presence: true
-  validates :r3, presence: true
 
   def total_amount
     entry * size
@@ -45,67 +43,53 @@ class Position < ApplicationRecord
   end
 
   def gain_loss_closed
-    size1 = size * 0.3
-    size2 = (size - size1) * 0.5
-    size3 = size - size1 - size2
+    size_of_r1 = size * 0.3
+    target_size = size - size_of_r1
 
     if buy_sell == "Buy"
-
       if stop_loss_hit
         exit_long
       else
-        take_profit_long_R1(size1)
-        take_profit_long_R2(size1, size2)
-        take_profit_long_R3(size1, size2, size3)
+        take_profit_long_R1(size_of_r1)
+        take_profit_long_target(size_of_r1, target_size)
       end
-      # position.exit (stop-loss) / opposite for short-sell
     else
       if buy_sell == "Sell"
         if stop_loss_hit
           exit_short
         else
-          take_profit_short_R1(size1)
-          take_profit_short_R2(size1, size2)
-          take_profit_short_R3(size1, size2, size3)
+          take_profit_short_R1(size_of_r1)
+          take_profit_short_target(size_of_r1, target_size)
         end
       end
     end
   end
 
   def p_l_closed
-    size1 = size * 0.3
-    size2 = (size - size1) * 0.5
-    size3 = size - size1 - size2
+    size_of_r1 = size * 0.3
+    target_size = size - size_of_r1
 
     if buy_sell == "Buy" && remaining_size == 0
       if stop_loss_hit == true
-        if r1_hit && r2_hit && r3_hit
-          return size1 * r1 + size2 * r2 + size3 * r3 - total_amount
-        elsif r1_hit && r2_hit
-          return size1 * r1 + size2 * r2 + size3 * stop_loss - total_amount
-        elsif r1_hit
-          return size1 * r1 + (size2 + size3) * stop_loss - total_amount
+        if r1_hit
+          return size_of_r1 * r1 + target_size * stop_loss - total_amount
         else
           return size * stop_loss - total_amount
         end
       else
-        return size1 * r1 + size2 * r2 + size3 * r3 - total_amount
+        return size_of_r1 * r1 + target_size * target - total_amount
       end
     end
 
     if buy_sell == "Sell" && remaining_size == 0
       if stop_loss_hit == true # put in DB
-        if r1_hit && r2_hit && r3_hit
-          return total_amount - (size1 * r1 + size2 * r2 + size3 * r3)
-        elsif r1_hit && r2_hit
-          return total_amount - (size1 * r1 + size2 * r2 + size3 * stop_loss)
-        elsif r1_hit
-          return total_amount - (size1 * r1 + (size2 + size3) * stop_loss)
+        if r1_hit
+          return total_amount - (size_of_r1 * r1 + target_size * stop_loss)
         else
           return total_amount - size * stop_loss
         end
       else
-        return total_amount - (size1 * r1 + size2 * r2 + size3 * r3)
+        return total_amount - (size_of_r1 * r1 + target_size * target)
       end
     end
       return "N/A"
@@ -119,73 +103,49 @@ class Position < ApplicationRecord
     end
   end
 
-  def take_profit_long_R1(size1)
+  def take_profit_long_R1(size_of_r1)
     if current_price >= r1 && r1_hit == false && remaining_size != 0
-      self.user.cash += size1 * r1
-      self.user.equity -= size1 * entry
+      self.user.cash += size_of_r1 * r1
+      self.user.equity -= size_of_r1 * entry
       self.user.save
       self.r1_hit = true
       self.stop_loss = entry
-      self.remaining_size -= size1
+      self.remaining_size -= size_of_r1
       self.save
     end
   end
 
-  def take_profit_long_R2(size1, size2)
+  def take_profit_long_target(size_of_r1, target_size)
     # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r2 && r2_hit == false && remaining_size != 0
-      # sell_2 = (size2 * (r2 - entry))
-      self.user.cash += size2 * r2
-      self.user.equity -= size2 * entry
+    if current_price >= target && target_hit == false && remaining_size != 0
+      self.user.cash += target_size * target
+      self.user.equity -= target_size * entry
       self.user.save
-      self.r2_hit = true
-      self.remaining_size -= size2
+      self.target_hit = true
+      self.remaining_size -= target_size
       self.save
     end
   end
 
-  def take_profit_long_R3(size1, size2, size3)
-    # need a way to execute only once, not every time the stock hits the taregt
-    if current_price >= r3 && r3_hit == false && remaining_size != 0
-      self.user.cash += size3 * r3
-      self.user.equity -= size3 * entry
-      self.user.save
-      self.r3_hit = true
-      self.remaining_size -= size3
-      self.save
-    end
-  end
-
-  def take_profit_short_R1(size1)
+  def take_profit_short_R1(size_of_r1)
     if current_price <= r1 && r1_hit == false && remaining_size != 0
-      self.user.cash -= size1 * r1
-      self.user.equity += size1 * entry
+      self.user.cash -= size_of_r1 * r1
+      self.user.equity += size_of_r1 * entry
       self.user.save
       self.r1_hit = true
       self.stop_loss = entry
-      self.remaining_size -= size1
+      self.remaining_size -= size_of_r1
       self.save
     end
   end
 
-  def take_profit_short_R2(size1, size2)
-    if current_price <= r2 && r2_hit == false && remaining_size != 0
-      self.user.cash -= size2 * r2
-      self.user.equity += size2 * entry
+  def take_profit_short_target(size_of_r1, target_size)
+    if current_price <= target && target_hit == false && remaining_size != 0
+      self.user.cash -= target_size * target
+      self.user.equity += target_size * entry
       self.user.save
-      self.r2_hit = true
-      self.remaining_size -= size2
-      self.save
-    end
-  end
-
-  def take_profit_short_R3(size1, size2, size3)
-    if current_price <= r3 && r3_hit == false && remaining_size != 0
-      self.user.cash -= size3 * r3
-      self.user.equity += size3 * entry
-      self.user.save
-      self.r3_hit = true
-      self.remaining_size -= size3
+      self.target_hit = true
+      self.remaining_size -= target_size
       self.save
     end
   end

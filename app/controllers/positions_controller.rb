@@ -1,18 +1,13 @@
 class PositionsController < ApplicationController
+
+  def new
+    @position = Position.new
+  end
+
   def create
     @position = Position.new(position_params)
     # @position.current_price = @position.entry
     @position.user = current_user
-
-    if @position.buy_sell == "Buy"
-      # @position.r1 = @position.baseline + ((@position.target - @position.baseline) * 0.3)
-      @position.r2 = @position.baseline + ((@position.target - @position.baseline) * 0.7)
-      @position.r3 = @position.target
-    else
-      # @position.r1 = @position.baseline - ((@position.baseline - @position.target) * 0.3)
-      @position.r2 = @position.baseline - ((@position.baseline - @position.target) * 0.7)
-      @position.r3 = @position.target
-    end
 
     if @position.buy_sell == "Buy" && current_user.cash <= ( @position.size * @position.entry )
       flash[:notice] = 'Insufficient funds to complete the transaction!'
@@ -55,6 +50,22 @@ class PositionsController < ApplicationController
 
   def destroy
     @position = Position.find(params[:id])
+    if @position.buy_sell == "Buy" && @position.r1_hit == false && @position.stop_loss_hit == false && @position.target_hit == false
+      current_user.cash += @position.size * @position.entry
+      current_user.equity -= @position.remaining_size * @position.current_price
+      current_user.save
+    elsif @position.buy_sell == "Sell" && @position.r1_hit == false && @position.stop_loss_hit == false && @position.target_hit == false
+      current_user.cash -= @position.size * @position.entry
+      current_user.equity += @position.remaining_size * @position.current_price
+      current_user.save
+    # elsif @position.buy_sell == "Buy" && @position.stop_loss_hit == true && @position.r1_hit == false  && @position.target_hit == false
+    #   current_user.cash += @position.p_l_closed
+    #   current_user.save
+    else
+      flash[:notice] = 'Position is active, cannot delete!'
+      redirect_to user_path(current_user)
+      return
+    end
     @position.destroy
     redirect_to user_path(current_user)
   end
@@ -138,6 +149,6 @@ class PositionsController < ApplicationController
   private
 
   def position_params
-    params.require(:position).permit(:stock_id, :size, :entry, :baseline, :target, :stop_loss, :buy_sell, :r1, :r2, :r3, :current_price, :id, :stop_loss_hit)
+    params.require(:position).permit(:stock_id, :size, :entry, :iceline, :target, :stop_loss, :buy_sell, :r1, :current_price, :id, :stop_loss_hit, :target_hit)
   end
 end

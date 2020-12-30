@@ -18,6 +18,16 @@ class StocksController < ApplicationController
     redirect_to new_stock_path
   end
 
+  def edit
+    @stock = Stock.find(params[:id])
+  end
+
+  def update
+    @stock = Stock.find(params[:id])
+    @stock.update(stock_params)
+    redirect_to root_path
+  end
+
   private
 
   def stock_params

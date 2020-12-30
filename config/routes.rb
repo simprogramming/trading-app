@@ -5,11 +5,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :show, :edit, :update]
 
-  resources :stocks, only: [ :new, :create, :destroy]
+  resources :stocks, only: [ :new, :edit, :update, :create, :destroy]
 
   resources :hot_stocks, only: [ :create, :destroy ]
 
-  resources :positions, only: [ :create, :update, :edit, :destroy]
+  resources :positions, only: [ :create, :new, :update, :edit, :destroy]
 
   resources :groups, only: [ :update]
 
