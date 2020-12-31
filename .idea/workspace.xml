@@ -3,24 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dd50b01c-d0ec-4e7e-8c71-2c5df4103406" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_banner.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_banner.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_scoreboard_bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_scoreboard_bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/components/_table.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/components/_table.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/positions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/positions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/jobs/price_update_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/price_update_job.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/position.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/position.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/positions/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/positions/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/shared/_navbar.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/_table.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/_table.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/positions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/positions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/stocks/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/stocks/new.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +177,7 @@
       <workItem from="1608080798702" duration="52000" />
       <workItem from="1608657132726" duration="22210000" />
       <workItem from="1609342966449" duration="73000" />
-      <workItem from="1609343060025" duration="13823000" />
+      <workItem from="1609343060025" duration="15557000" />
     </task>
     <servers />
   </component>

@@ -1,19 +1,16 @@
-<div class="container border p-3 rounded my-5  w-50 ">
-    <h2>Add a Stock</h2>
-  <div class="form-group">
-    <%= simple_form_for @stock do |f| %>
-      <%= f.input :name, placeholder: 'Apple', class: "input" %>
 
-      <%= f.input :symbol, placeholder: 'AAPL', class: "input" %>
+<h2 class="text-center p-5">Add a Stock</h2>
+<div class="broker-form">
+  <%= simple_form_for [@stock] do |f| %>
+    <%= f.input :name, placeholder: 'Apple', class: "input" %>
+    <%= f.input :symbol, placeholder: 'AAPL', class: "input" %>
+    <%= f.input :grade, placeholder: 'A', class: "input", collection: %w[A B C D E F] %>
+    <%= f.input :category, placeholder: 'Technology', class: "input", collection: ["Financial", "Technology","Real Estate", "Telecommunication", "Healthcare", "Discretionary", "Staple", "Utilities", "Energy", "Basic Material", "Industrial", "Others"] %>
 
-      <%= f.input :grade, placeholder: 'A', class: "input", collection: %w[A B C D E F] %>
-
-      <%= f.input :category, placeholder: 'Technology', class: "input", collection: ["Financial", "Technology","Real Estate", "Telecommunication", "Healthcare", "Discretionary", "Staple", "Utilities", "Energy", "Basic Material", "Industrial", "Others"] %>
-
-      <%= f.button :submit, class: 'btn btn-success rounded-btn mt-3' %>
-    <% end %>
-  </div>
+    <%= f.button :submit, class: 'btn btn-success rounded-btn mt-3' %>
+  <% end %>
 </div>
+
 
 <div class="container">
   <% stocks_sorted = @stocks.sort { |a, b| a <=> b } %>
