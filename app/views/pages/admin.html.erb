@@ -1,0 +1,27 @@
+<div class="container p-5 ">
+  <table class="table table-striped table-dark table-hover">
+    <thead class="text-center text-white">
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>Total Positions</th>
+      <th>Total Hot Stocks</th>
+      <th>P/L</th>
+      <th>Wallet</th>
+    </thead>
+    <tbody class="text-white text-center">
+    <% @users.each do |user| %>
+      <tr>
+        <th><%= user.nickname %></th>
+        <th><%= user.email %></th>
+        <th><%= @positions.where(user_id: user.id).count %></th>
+        <th><%= @hot_stocks.where(user_id: user.id).count %></th>
+        <th><%= number_to_currency((user.cash + user.equity)-(100000)) %></th>
+        <% wallet = (user.equity + user.cash) %>
+        <th><%= number_to_currency(wallet) %></th>
+
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

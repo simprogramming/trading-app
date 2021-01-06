@@ -31,4 +31,10 @@ class PagesController < ApplicationController
     @industrial_stocks = Stock.where(category: 'Industrial').order(grade: :asc)
     @other_stocks = Stock.where(category: 'Others').order(grade: :asc)
   end
+
+  def admin
+    @users = User.all
+    @positions = Position.all
+    @hot_stocks = HotStock.all
+  end
 end
