@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'pages#dashboard'
 
+  get '/admin', to: 'pages#admin'
+
   get '/my_watchlist', to: 'pages#my_watchlist'
 
   get '/scoreboard', to: 'pages#scoreboard'
