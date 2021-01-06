@@ -12,7 +12,7 @@
     <tbody class="text-white text-center">
     <% @users.each do |user| %>
       <tr>
-        <th><%= user.nickname %></th>
+        <th><%= link_to user.nickname, user_path(user)%></th>
         <th><%= user.email %></th>
         <th><%= @positions.where(user_id: user.id).count %></th>
         <th><%= @hot_stocks.where(user_id: user.id).count %></th>
