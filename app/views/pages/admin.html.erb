@@ -19,7 +19,6 @@
         <th><%= number_to_currency((user.cash + user.equity)-(100000)) %></th>
         <% wallet = (user.equity + user.cash) %>
         <th><%= number_to_currency(wallet) %></th>
-
       </tr>
     <% end %>
     </tbody>
