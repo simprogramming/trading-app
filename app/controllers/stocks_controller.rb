@@ -13,6 +13,11 @@ class StocksController < ApplicationController
     flash[:notice] = 'New stock added to database'
   end
 
+  def import
+    Stock.import(params[:file])
+    redirect_to new_stock_path, notice: 'New stock added to database'
+  end
+
   def destroy
     @stock.destroy
     redirect_to new_stock_path

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [ :show, :edit, :update]
 
-  resources :stocks, only: [ :new, :edit, :update, :create, :destroy]
+  resources :stocks, only: [ :new, :edit, :update, :create, :destroy] do
+    collection { post :import }
+  end
 
   resources :hot_stocks, only: [ :create, :destroy ]
 
