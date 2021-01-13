@@ -35,7 +35,7 @@
           <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -62,7 +62,7 @@
           <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -90,7 +90,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -118,7 +118,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -146,7 +146,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -174,7 +174,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -202,7 +202,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -230,7 +230,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -258,7 +258,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -286,7 +286,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -314,7 +314,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
@@ -342,7 +342,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% hot_stock = HotStock.find_by(stock_id: stock) %>
-              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 14) %>
+              <% if HotStock.exists?(stock_id: stock) && hot_stock.date > (Date.today - 5) %>
                 <th><%= link_to stock.symbol, edit_stock_path(stock)%></th>
                 <th><%= stock.created_at.to_date.strftime("%m/%d") %></th>
                 <th class="<%= HotStock.exists?(direction: 'Buy') ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
