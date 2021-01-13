@@ -30,7 +30,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @hot_stocks = HotStock.all
-    @stock = Stock.new
     tech = Stock.where(category: 'Technology')
     @tech_stocks = HotStock.where(stock_id: tech)
     finance = Stock.where(category: 'Financial')
