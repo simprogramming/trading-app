@@ -41,7 +41,7 @@ class StocksController < ApplicationController
   def update
     @stock = Stock.find(params[:id])
     @stock.update(stock_params)
-    redirect_to root_path
+    redirect_to new_stock_path
   end
 
   private
