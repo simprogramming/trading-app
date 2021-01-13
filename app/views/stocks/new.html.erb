@@ -11,12 +11,12 @@
   <% end %>
 </div>
 
-<div class="container text-center p-5">
-  <%= form_tag import_stocks_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
-  <% end %>
-</div>
+<!--<div class="container text-center p-5">-->
+  <%#= form_tag import_stocks_path, multipart: true do %>
+    <%#= file_field_tag :file %>
+    <%#= submit_tag "Import CSV" %>
+  <%# end %>
+<!--</div>-->
 
 <div class="container p-5">
   <% stocks_sorted = @stocks.sort { |a, b| a <=> b } %>
