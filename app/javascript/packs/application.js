@@ -44,10 +44,6 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-
  // def perform
 
 // url = URI(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=${symbols.uniq.join(',')}`)
