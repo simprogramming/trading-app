@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd50b01c-d0ec-4e7e-8c71-2c5df4103406" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/stocks_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +193,8 @@
       <workItem from="1610065958031" duration="945000" />
       <workItem from="1610368829784" duration="3154000" />
       <workItem from="1610489769765" duration="6778000" />
-      <workItem from="1610548094171" duration="3919000" />
+      <workItem from="1610548094171" duration="4128000" />
+      <workItem from="1610580809039" duration="985000" />
     </task>
     <servers />
   </component>
