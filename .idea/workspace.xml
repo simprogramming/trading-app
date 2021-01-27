@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd50b01c-d0ec-4e7e-8c71-2c5df4103406" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/trading-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trading-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/pages/_next_week_dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/_next_week_dashboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/_this_week_dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/_this_week_dashboard.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/pages/scoreboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/scoreboard.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +220,13 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/trading_app@StocksController_POST__create.rcov" NAME="StocksController POST #create Coverage Results" MODIFIED="1611062035674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
+    <SUITE FILE_PATH="coverage/trading_app@User.rcov" NAME="User Coverage Results" MODIFIED="1611104734886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
     <SUITE FILE_PATH="coverage/trading_app@Development__trading_app.rcov" NAME="Development: trading-app Coverage Results" MODIFIED="1610022901632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
+    <SUITE FILE_PATH="coverage/trading_app@StocksController_GET__new.rcov" NAME="StocksController GET #new Coverage Results" MODIFIED="1611008330157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
+    <SUITE FILE_PATH="coverage/trading_app@HotStocksController.rcov" NAME="HotStocksController Coverage Results" MODIFIED="1611319605178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
+    <SUITE FILE_PATH="coverage/trading_app@UsersController.rcov" NAME="UsersController Coverage Results" MODIFIED="1611255187800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
+    <SUITE FILE_PATH="coverage/trading_app@StocksController_POST__crea___.rcov" NAME="StocksController POST #crea... Coverage Results" MODIFIED="1611014633132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
+    <SUITE FILE_PATH="coverage/trading_app@StocksController.rcov" NAME="StocksController Coverage Results" MODIFIED="1611785244925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="trading-app" />
   </component>
 </project>
