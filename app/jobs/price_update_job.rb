@@ -30,8 +30,8 @@ class PriceUpdateJob < ApplicationJob
     bid = JSON.parse(response.read_body)
     new_price = bid['quoteResponse']['result'].each do |result|
       Position.joins(:stock).where(stocks: {symbol: result['symbol']}).each do |position|
-        avg = (result['bid'] + result['ask']) / 2
-        position.update({current_price: avg})
+        close_price = result['regularMarketPrice']
+        position.update({current_price: close_price})
         # call other method in there
         position.gain_loss_closed
       end

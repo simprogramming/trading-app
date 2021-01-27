@@ -22,7 +22,7 @@ class Position < ApplicationRecord
     else
       x = entry/current_price - 1
     end
-    return x
+    x
   end
 
   def exit_short
