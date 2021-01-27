@@ -22,6 +22,14 @@ class StocksController < ApplicationController
     @stock = Stock.create(stock_params)
     redirect_to new_stock_path
     flash[:notice] = 'New stock added to database'
+    # @stock = Stock.new(stock_params)
+    # if @stock.save
+    #   redirect_to new_stock_path
+    #   flash[:notice] = 'New stock added to database'
+    # else
+    #   redirect_to new_stock_path
+    #   flash[:notice] = 'it didnt work'
+    # end
   end
 
   def import

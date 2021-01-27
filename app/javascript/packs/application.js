@@ -27,7 +27,9 @@ import "bootstrap";
 import { newPosition } from '../components/new_position.js'
 import { initSelect2 } from '../plugins/select2.js'
 import { updatePrices } from '../components/updatePrices'
+import { openBox } from '../components/openBox.js'
 import { updateWallets } from '../components/updateWallets'
+
 
 
 
@@ -41,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   updatePrices();
   updateWallets();
+  openBox();
 });
 
 
