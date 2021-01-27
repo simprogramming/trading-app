@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd50b01c-d0ec-4e7e-8c71-2c5df4103406" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/trading-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trading-app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/_next_week_dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/_next_week_dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/_this_week_dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/_this_week_dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/dashboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/pages/scoreboard.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/pages/scoreboard.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" afterDir="false" />
-    </list>
+    <list default="true" id="dd50b01c-d0ec-4e7e-8c71-2c5df4103406" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
