@@ -35,7 +35,7 @@
           <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -61,7 +61,7 @@
           <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -88,7 +88,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -115,7 +115,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -142,7 +142,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -169,7 +169,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -196,7 +196,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -223,7 +223,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -250,7 +250,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -277,7 +277,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -304,7 +304,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
@@ -331,7 +331,7 @@
             <tbody class="text-white text-center">
             <tr>
               <% if stock.date > (Date.today - 10) %>
-                <th><%= link_to stock.stock.symbol, "https://www.barchart.com/stocks/quotes/#{stock.stock.symbol}/interactive-chart", target: :_blank %></th>
+                <th><%= link_to stock.stock.symbol,  hot_stock_path(stock), method: :delete, data: { confirm: "Are you sure you want to delete?"}  %></th>
                 <th><%= stock.date.to_date.strftime("%m/%d") %></th>
                 <th class="<%= stock.direction == "Buy" ? 'stock_ticker_R_hit' : 'text-white' %>">Buy</th>
                 <th class="<%= stock.direction == "Sell" ? 'stock_ticker_SL_hit' : 'text-white' %>">Sell</th>
