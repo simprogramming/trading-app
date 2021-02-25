@@ -32,7 +32,7 @@
         <% if position.stop_loss_hit %>
           <div class="stock_ticker_SL_hit"><%= position.stop_loss.round(2) %></div>
         <% else %>
-          <%= link_to position.stop_loss.round(2), stop_hit_path(position), class: "text-white" %>
+          <%= link_to position.stop_loss.round(2), stop_hit_path(position), data: { confirm: "Are you sure you want to activate stop loss?"} , class: "text-white" %>
         <% end %>
         </td>
       <td class= "table-text-color" id="stock_current_price" scope="row"><%= position.current_price.round(2) %></td>
