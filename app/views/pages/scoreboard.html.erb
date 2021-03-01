@@ -14,16 +14,7 @@
   </div>
   <div class="summary" id="mainBar">
     <div class="item">
-
-      <% total_wallet_position = 0 %>
-      <% @users.each do | user | %>
-        <% positions = Position.all %>
-        <% if positions.length > 0 %>
-          <% total_wallet_position = positions.length %>
-        <% end %>
-      <% end %>
-      Group positions: <%= (total_wallet_position) %>
-
+      Group positions: <%= (@all_positions).count %>
     </div>
     <div class="item" data-toggle="modal" data-target="#exampleModal">
       Objective: 36
@@ -58,7 +49,7 @@
         <% if user.cash+user.equity > 0 %>
             <tr>
               <th><%= link_to user.nickname, user_path(user)%></th>
-              <th><%= @positions.where(user_id: user.id).count %></th>
+              <th><%= @all_positions.where(user_id: user).count %></th>
               <th><%= number_to_currency((user.cash + user.equity)-(100000)) %></th>
               <% wallet = (user.equity + user.cash) %>
               <th><%= number_to_currency(wallet) %></th>

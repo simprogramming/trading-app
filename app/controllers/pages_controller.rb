@@ -10,7 +10,6 @@ class PagesController < ApplicationController
 
 
   def scoreboard
-    @user = current_user
     @users = User.all
     @positions = Position.where(user_id: current_user.id)
     @all_positions = Position.all
