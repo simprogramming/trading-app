@@ -27,7 +27,8 @@ class PositionsController < ApplicationController
       flash[:notice] = 'Position successfully created'
       redirect_to user_path(current_user)
     else
-      render 'pages/dashboard'
+      render 'positions/new'
+      flash[:notice] = 'Incomplete action, try again'
     end
   end
 
@@ -46,6 +47,7 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
     @position.update(position_params)
     redirect_to user_path(current_user)
+    flash[:notice] = 'Position successfully updated'
   end
 
   def destroy
@@ -70,15 +72,6 @@ class PositionsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def reset
-    @positions = Position.where(user_id: current_user.id)
-    @positions.destroy_all
-    current_user.cash = 100000
-    current_user.equity = 0
-    current_user.save
-    redirect_to user_path(current_user)
-  end
-
   def perform_now
     position = Position.all
     if position.size == 0
@@ -86,8 +79,9 @@ class PositionsController < ApplicationController
       flash[:notice] = 'No active position'
     else
       PriceUpdateJob.perform_now
+      RefreshAllPlJob.perform_now
       redirect_to scoreboard_path
-      flash[:notice] = 'Prices updated'
+      flash[:notice] = 'Scoreboard updated'
     end
   end
 
@@ -98,11 +92,11 @@ class PositionsController < ApplicationController
       flash[:notice] = 'No active position'
     else
       PriceUpdateJob.perform_now
+      RefreshAllPlJob.perform_now
       redirect_to user_path(current_user)
       flash[:notice] = 'Positions prices updated'
     end
   end
-
 
   def no_wallet
     @positions = Position.where(user_id: current_user.id)
@@ -114,36 +108,13 @@ class PositionsController < ApplicationController
     flash[:notice] = 'No more wallet'
   end
 
-  def refresh
-    @positions = Position.all
-    @users = User.all
-    sum = 0
-    @positions.each do |position|
-      if position.buy_sell == "Buy"
-        sum += position.remaining_size * position.current_price
-      else
-        sum -= position.remaining_size * position.current_price
-      end
-    end
-
-    redirect_to scoreboard_path
-    flash[:notice] = 'Position prices updated'
-  end
-
-  def refresh_my_pl
+  def reset
     @positions = Position.where(user_id: current_user.id)
-    sum = 0
-    @positions.each do |position|
-      if position.buy_sell == "Buy"
-        sum += position.remaining_size * position.current_price
-      else
-        sum -= position.remaining_size * position.current_price
-      end
-    end
-    current_user.equity = sum
+    @positions.destroy_all
+    current_user.cash = 100000
+    current_user.equity = 0
     current_user.save
     redirect_to user_path(current_user)
-    flash[:notice] = 'P/L updated'
   end
 
   private
