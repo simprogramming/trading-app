@@ -29,7 +29,7 @@
         <div class="d-flex">
           <div><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p></div>
           <% if @user == current_user%>
-            <%= link_to(refresh_my_pl_path) do %>
+            <%= link_to(my_perform_now_path) do %>
               <i class="fas fa-sync pl-2" id="refresh-cartitem-status"></i>
             <% end %>
           <% end %>
@@ -37,7 +37,6 @@
         <% if @user == current_user%>
           <p><%= link_to "Delete my wallet", no_wallet_path, data: { confirm: 'Are you sure you want to delete your wallet?' } %></p>
           <p><%= link_to "Restart my wallet", reset_path, data: { confirm: 'Are you sure you want to reset your wallet?' } %></p>
-          <p><%= link_to "Update Prices on my Positions", my_perform_now_path %></p>
         <% end %>
       </div>
     </div>

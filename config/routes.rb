@@ -27,10 +27,6 @@ Rails.application.routes.draw do
 
   get '/positions/:id/stop_hit', to: 'positions#stop_hit', as: :stop_hit
 
-  get '/positions/refresh', to: 'positions#refresh', as: :refresh
-
-  get '/positions/refresh_my_pl', to: 'positions#refresh_my_pl', as: :refresh_my_pl
-
   get '/positions/no_wallet', to: 'positions#no_wallet', as: :no_wallet
 
   get '/positions/perform_now', to: 'positions#perform_now', as: :perform_now
