@@ -1,7 +1,7 @@
-<button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#EMA-<%= direction %>-<%= date.day %>">+</button>
+<button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#EMA-<%= date.day %>">+</button>
 
 <!-- Modal -->
-<div class="modal fade modal-color" id="EMA-<%= direction %>-<%= date.day %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-color" id="EMA-<%= date.day %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,8 +14,8 @@
         <%= simple_form_for @ema do |f|%>
           <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', input_html: {class: 'select2 select2-container--open'} %>
           <%= f.input :date, as: :hidden, input_html: { value: date } %>
-          <%= f.input :direction, as: :hidden, input_html: { value: direction } %>
-          <%= f.submit 'add stock', class: "btn-dark"%>
+          <%= f.input :direction, collection: %w[Buy Sell] %>
+          <%= f.submit 'add EMA 9-18', class: "btn-dark"%>
         <% end %>
       </div>
     </div>

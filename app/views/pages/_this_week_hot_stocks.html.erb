@@ -164,12 +164,12 @@
       <div class="d-flex justify-content-between">
         <p></p>
         <div class="down text-right">
-          <%= render partial: 'new_ema', locals: { date: Date.today.monday, direction: 'Buy' } %>
+          <%= render partial: 'new_ema', locals: { date: Date.today.monday} %>
         </div>
       </div>
         <p class="scroll-down-ema-card">
-          <% current_user.emas.where( date: Date.today.monday, direction: 'Buy').each do |ema| %>
-            <span class="ema_ticker_buy"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+          <% current_user.emas.where( date: Date.today.monday).each do |ema| %>
+            <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
           <% end %>
         </p>
     </div>
@@ -177,12 +177,12 @@
       <div class="d-flex justify-content-between">
         <p></p>
         <div class="down text-right">
-          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 1, direction: 'Buy' } %>
+          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 1} %>
         </div>
       </div>
       <p class="scroll-down-ema-card">
-        <% current_user.emas.where( date: Date.today.monday + 1, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+        <% current_user.emas.where( date: Date.today.monday + 1).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
         <% end %>
       </p>
     </div>
@@ -190,12 +190,12 @@
       <div class="d-flex justify-content-between">
         <p></p>
         <div class="down text-right">
-          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 2, direction: 'Buy' } %>
+          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 2} %>
         </div>
       </div>
       <p class="scroll-down-ema-card">
-        <% current_user.emas.where( date: Date.today.monday + 2, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+        <% current_user.emas.where( date: Date.today.monday + 2).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
         <% end %>
       </p>
     </div>
@@ -203,12 +203,12 @@
       <div class="d-flex justify-content-between">
         <p></p>
         <div class="down text-right">
-          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 3, direction: 'Buy' } %>
+          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 3} %>
         </div>
       </div>
       <p class="scroll-down-ema-card">
-        <% current_user.emas.where( date: Date.today.monday + 3, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+        <% current_user.emas.where( date: Date.today.monday + 3).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
         <% end %>
       </p>
     </div>
@@ -216,12 +216,12 @@
       <div class="d-flex justify-content-between">
         <p></p>
         <div class="down text-right">
-          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 4, direction: 'Buy' } %>
+          <%= render partial: 'new_ema', locals: { date: Date.today.monday + 4} %>
         </div>
       </div>
       <p class="scroll-down-ema-card">
-        <% current_user.emas.where( date: Date.today.monday + 4, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
+        <% current_user.emas.where( date: Date.today.monday + 4).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>"><%= link_to ema.stock.symbol, ema_path(ema), method: :delete, data: { confirm: "Are you sure you want to delete?"} %></span>
         <% end %>
       </p>
     </div>
