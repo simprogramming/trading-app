@@ -4,6 +4,7 @@ class Stock < ApplicationRecord
 
   has_many :positions
   has_many :hot_stocks
+  has_many :emas
 
   before_save :upcase_fields, :capitalize_fields
   validates :symbol, presence: true

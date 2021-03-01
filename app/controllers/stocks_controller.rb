@@ -18,18 +18,24 @@ class StocksController < ApplicationController
     @other_stocks = Stock.where(category: 'Others').order(grade: :asc)
   end
 
+  def index
+    @stocks = Stock.all
+    @hot_stocks = HotStock.all
+  end
+
   def create
     @stock = Stock.create(stock_params)
     redirect_to new_stock_path
     flash[:notice] = 'New stock added to database'
-    # @stock = Stock.new(stock_params)
-    # if @stock.save
-    #   redirect_to new_stock_path
-    #   flash[:notice] = 'New stock added to database'
-    # else
-    #   redirect_to new_stock_path
-    #   flash[:notice] = 'it didnt work'
-    # end
+    respond_to do |format|
+      if @stock.save
+        format.html { redirect_to dashboard_path, notice: 'stock was successfully created.' }
+        format.json { render :new, status: :created, location: @stock }
+      else
+        format.html { render :new }
+        format.json { render json: @stock.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def import

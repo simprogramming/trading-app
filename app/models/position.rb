@@ -39,6 +39,7 @@ class Position < ApplicationRecord
     self.user.equity -= remaining_size * entry
     self.user.save
     self.remaining_size = 0
+    self.stop_loss_hit = true unless self.stop_loss_hit == true
     self.save
   end
 
@@ -47,7 +48,7 @@ class Position < ApplicationRecord
     target_size = size - size_of_r1
 
     if buy_sell == "Buy"
-      if stop_loss_hit
+      if current_price <= stop_loss || stop_loss_hit
         exit_long
       else
         take_profit_long_R1(size_of_r1)

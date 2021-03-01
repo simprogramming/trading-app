@@ -2,11 +2,23 @@ class HotStocksController < ApplicationController
 
   before_action :set_hot_stock, only: [:destroy]
 
+  def index
+    @hot_stocks = HotStock.all
+  end
+
   def create
     @hot_stock = HotStock.new(hot_params)
     @hot_stock.user = current_user
-    @hot_stock.save
-    redirect_to my_watchlist_path
+    respond_to do |format|
+      if @hot_stock.save
+        format.html { redirect_to my_watchlist_path, notice: 'Hot stock was successfully created.' }
+        format.json { render :new, status: :created, location: @hot_stock }
+      else
+        format.html { render :new }
+        format.json { render json: @hot_stock.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def destroy

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def my_watchlist
     @hot_stock = HotStock.new
+    @ema = Ema.new
   end
 
 
@@ -16,6 +17,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @emas = Ema.all
     @hot_stocks = HotStock.all
     tech = Stock.where(category: 'Technology')
     @tech_stocks = HotStock.where(stock_id: tech)

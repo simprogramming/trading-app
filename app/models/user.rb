@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :hot_stocks, dependent: :destroy
   has_many :positions, dependent: :destroy
+  has_many :emas, dependent: :destroy
   validates :nickname, presence: true
   validates :email, presence: true
   validates :category, presence: true

@@ -51,13 +51,28 @@
   padding: 2px;
   cursor: pointer;
 }
-
 .stock_ticker_sell {
   background-color: rgba(148, 27, 11, 0.3);
   margin-left: 2px;
   padding: 2px;
   cursor: pointer;
 }
+
+.ema_ticker_sell {
+  background-color: rgba(148, 27, 11, 0.3);
+  margin-left: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.ema_ticker_buy {
+  background-color: rgba(42, 192, 22, 0.2);
+  margin-left: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+
 
 .stock_ticker_R_hit {
   // background-color: rgba(42, 192, 22, 0.2);
@@ -71,5 +86,19 @@
   padding: 2px;
 }
 
+.derivatives-card {
+  width: 20%;
+  height: 150px;
+  border:  1px solid #141822;
+  background-color: #D3D3D3;
+  border-radius: 5px;
+  margin-bottom: 75px;
 
+  textarea {
+    height: 125px;
+    width: 100%;
+    background-color: #D3D3D3!important;
+    color: black!important;
+  }
+}
 
