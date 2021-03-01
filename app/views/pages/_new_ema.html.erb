@@ -10,9 +10,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-left">
         <%= simple_form_for @ema do |f|%>
-          <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', input_html: {class: 'select2 select2-container--open'} %>
+          <%= f.input :stock_id, collection: Stock.pluck(:symbol, :id), label: 'Symbol', input_html: {class: 'select2', id:"ema#{date.day}"} %>
           <%= f.input :date, as: :hidden, input_html: { value: date } %>
           <%= f.input :direction, collection: %w[Buy Sell] %>
           <%= f.submit 'add EMA 9-18', class: "btn-dark"%>

@@ -26,14 +26,6 @@ require("channels")
 import "bootstrap";
 import { newPosition } from '../components/new_position.js'
 import { initSelect2 } from '../plugins/select2.js'
-import { updatePrices } from '../components/updatePrices'
-import { openBox } from '../components/openBox.js'
-import { updateWallets } from '../components/updateWallets'
-
-
-
-
-
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -41,51 +33,9 @@ import { updateWallets } from '../components/updateWallets'
 document.addEventListener('turbolinks:load', () => {
   newPosition();
   initSelect2();
-  updatePrices();
-  updateWallets();
-  openBox();
 });
 
 
- // def perform
-
-// url = URI(`https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=${symbols.uniq.join(',')}`)
-// http = Net::HTTP.new(url.host, url.port)
-// http.use_ssl = true
-// http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-// request = Net::HTTP::Get.new(url)
-// request["x-rapidapi-host"] = 'apidojo-yahoo-finance-v1.p.rapidapi.com'
-// request["x-rapidapi-key"] = 'df97fa1f5bmsh8076ba136b5de40p173515jsn39b34425b6d2'
-
-// response = http.request(request)
- //    positions = Position.all
-
- //    symbols = []
- //    positions.each do |position|
- //      symbols << position.stock.symbol
- //    end
-
- //    url = URI("https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=#{symbols.uniq.join(',')}")
-
- //    http = Net::HTTP.new(url.host, url.port)
- //    http.use_ssl = true
- //    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
- //    request = Net::HTTP::Get.new(url)
- //    request["x-rapidapi-host"] = 'apidojo-yahoo-finance-v1.p.rapidapi.com'
- //    request["x-rapidapi-key"] = 'df97fa1f5bmsh8076ba136b5de40p173515jsn39b34425b6d2'
-
- //    response = http.request(request)
-
- //    bid = JSON.parse(response.read_body)
- //    new_price = bid['quoteResponse']['result'].each do |result|
- //      Position.joins(:stock).where(stocks: {symbol: result['symbol']}).each do |position|
- //        position.update({current_price: result['bid']})
- //      end
- //    end
-
- //  end
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
