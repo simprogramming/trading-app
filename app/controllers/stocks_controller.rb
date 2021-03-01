@@ -25,14 +25,13 @@ class StocksController < ApplicationController
 
   def create
     @stock = Stock.create(stock_params)
-    redirect_to new_stock_path
     flash[:notice] = 'New stock added to database'
     respond_to do |format|
       if @stock.save
-        format.html { redirect_to dashboard_path, notice: 'stock was successfully created.' }
+        format.html { redirect_to my_watchlist_path, notice: 'stock was successfully created.' }
         format.json { render :new, status: :created, location: @stock }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'Incomplete action, try again' }
         format.json { render json: @stock.errors, status: :unprocessable_entity }
       end
     end

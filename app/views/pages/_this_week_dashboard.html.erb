@@ -129,40 +129,40 @@
     <div class="derivatives-card">
       <p></p>
       <p class="scroll-down-ema-card">
-        <% @emas.where( date: Date.today.monday, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
+        <% @emas.where( date: Date.today.monday).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
         <% end %>
       </p>
     </div>
     <div class="derivatives-card">
       <p></p>
       <p class="scroll-down-ema-card">
-        <% @emas.where( date: Date.today.monday + 1, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
+        <% @emas.where( date: Date.today.monday + 1).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
         <% end %>
       </p>
     </div>
     <div class="derivatives-card">
       <p></p>
       <p class="scroll-down-ema-card">
-        <% @emas.where( date: Date.today.monday + 2 , direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
+        <% @emas.where( date: Date.today.monday + 2).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
         <% end %>
       </p>
     </div>
     <div class="derivatives-card">
       <p></p>
       <p class="scroll-down-ema-card">
-        <% @emas.where( date: Date.today.monday + 3, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
+        <% @emas.where( date: Date.today.monday + 3).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
         <% end %>
       </p>
     </div>
     <div class="derivatives-card">
       <p></p>
       <p class="scroll-down-ema-card">
-        <% @emas.where( date: Date.today.monday + 4, direction: 'Buy').each do |ema| %>
-          <span class="ema_ticker_buy" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
+        <% @emas.where( date: Date.today.monday + 4).each do |ema| %>
+          <span class="<%= ema.direction == 'Buy'? 'ema_ticker_buy' : 'ema_ticker_sell' %>" data-toggle="tooltip" data-placement="top" title=<%= ema.user.nickname %>><%= link_to ema.stock.symbol, "https://www.barchart.com/stocks/quotes/#{ema.stock.symbol}/interactive-chart", target: :_blank %></span>
       <% end %>
       </p>
     </div>

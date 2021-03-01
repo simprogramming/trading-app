@@ -14,7 +14,7 @@ class HotStocksController < ApplicationController
         format.html { redirect_to my_watchlist_path, notice: 'Hot stock was successfully created.' }
         format.json { render :new, status: :created, location: @hot_stock }
       else
-        format.html { render :new }
+        format.html { redirect_to my_watchlist_path, notice: 'Incomplete action, try again' }
         format.json { render json: @hot_stock.errors, status: :unprocessable_entity }
       end
     end

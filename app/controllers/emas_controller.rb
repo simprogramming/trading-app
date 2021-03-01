@@ -10,7 +10,7 @@ class EmasController < ApplicationController
         format.html { redirect_to my_watchlist_path, notice: 'EMA 9-18 was successfully created.' }
         format.json { render :new, status: :created, location: @ema }
       else
-        format.html { render :new }
+        format.html { redirect_to my_watchlist_path, notice: 'Incomplete action, try again' }
         format.json { render json: @ema.errors, status: :unprocessable_entity }
       end
     end
@@ -18,7 +18,7 @@ class EmasController < ApplicationController
   
   def destroy
     @ema.destroy
-    redirect_to dashboard_path
+    redirect_to my_watchlist_path
   end
   
   private
