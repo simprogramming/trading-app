@@ -1,9 +1,9 @@
-class HotStock < ApplicationRecord
+class Ema < ApplicationRecord
   belongs_to :user
   belongs_to :stock
 
-  validates :direction, presence: true
   validates :user_id, presence: true
   validates :stock_id, presence: true
   validates :date, presence: true
+  validates :direction, presence: true
 end

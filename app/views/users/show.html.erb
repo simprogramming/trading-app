@@ -1,7 +1,7 @@
 <!-- Updates positions each time the page is refreshed -->
-<% @positions.each do | position | %>
-  <% position.gain_loss_closed %>
-<% end %>
+<% PriceUpdateJob.perform_now %>
+<% RefreshAllPlJob.perform_now %>
+
 
 <div class="container-fluid" >
   <div class="d-flex justify-content-between">
