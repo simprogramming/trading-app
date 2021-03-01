@@ -17,8 +17,7 @@ const newPosition = () => {
       })
       .then(response => response.json())
       .then((data) => {
-        const marketprice = (data['quoteResponse']['result'][0]['regularMarketPrice'])
-        entry.value = marketprice
+        entry.value = (data['quoteResponse']['result'][0]['regularMarketPrice'])
       });
     });
   }

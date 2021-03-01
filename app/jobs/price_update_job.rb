@@ -7,7 +7,7 @@ class PriceUpdateJob < ApplicationJob
   queue_as :default
 
   def perform
-
+    
     positions = Position.all
 
     symbols = []
