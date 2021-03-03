@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_020000) do
+ActiveRecord::Schema.define(version: 2021_03_03_010150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,27 @@ ActiveRecord::Schema.define(version: 2021_03_01_020000) do
     t.bigint "stock_id", null: false
     t.index ["stock_id"], name: "index_hot_stocks_on_stock_id"
     t.index ["user_id"], name: "index_hot_stocks_on_user_id"
+  end
+
+  create_table "my_positions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "stock_id", null: false
+    t.integer "size"
+    t.float "target"
+    t.float "stop_loss"
+    t.float "iceline"
+    t.float "current_price"
+    t.string "buy_sell"
+    t.float "entry"
+    t.float "r1"
+    t.integer "remaining_size"
+    t.boolean "r1_hit", default: false
+    t.boolean "stop_loss_hit", default: false
+    t.boolean "target_hit", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stock_id"], name: "index_my_positions_on_stock_id"
+    t.index ["user_id"], name: "index_my_positions_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -88,6 +109,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_020000) do
   add_foreign_key "emas", "stocks"
   add_foreign_key "emas", "users"
   add_foreign_key "hot_stocks", "users"
+  add_foreign_key "my_positions", "stocks"
+  add_foreign_key "my_positions", "users"
   add_foreign_key "positions", "stocks"
   add_foreign_key "positions", "users"
 end

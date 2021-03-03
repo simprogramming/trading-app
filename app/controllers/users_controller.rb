@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @positions = Position.where(user_id: @user.id)
     @position = Position.new
+    @my_positions = MyPosition.where(user_id: @user.id)
+    @my_position = MyPosition.new
   end
 
   def edit

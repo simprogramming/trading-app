@@ -351,6 +351,7 @@
         $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
+<% MyPriceUpdateJob.perform_now %>
 <% PriceUpdateJob.perform_now %>
 <% RefreshAllPlJob.perform_now %>
 

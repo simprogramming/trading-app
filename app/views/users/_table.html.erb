@@ -4,11 +4,11 @@
       <th class= "table-text-color gray" scope="col">Symbol</th>
       <th class= "table-text-color gray" scope="col">Date</th>
       <th class= "table-text-color" scope="col">Buy/Sell</th>
-      <th class= "table-text-color" scope="col">Size</th>
-      <th class= "table-text-color" scope="col">Entry</th>
+      <th class= "table-text-color blue" scope="col">IceL</th>
+      <th class= "table-text-color blue" scope="col">S/L</th>
       <th class= "table-text-color" scope="col">Total</th>
-      <th class= "table-text-color gray" scope="col">IceL</th>
-      <th class= "table-text-color gray" scope="col">S/L</th>
+      <th class= "table-text-color gray" scope="col">Size</th>
+      <th class= "table-text-color gray" scope="col">Entry</th>
       <th class= "table-text-color blue" scope="col">Price</th>
       <th class= "table-text-color blue" scope="col">P/L%</th>
       <th class= "table-text-color green" scope="col">1R</th>
@@ -24,9 +24,6 @@
       <td class= "table-text-color" scope="row"><%= link_to position.stock.symbol , edit_position_path(position) %></td>
       <td class= "table-text-color" scope="row"><%= position.created_at.to_date.strftime("%m/%d") %></td>
       <td class= "table-text-color" scope="row"><%= position.buy_sell%></td>
-      <td class= "table-text-color" scope="row"><%= position.size%></td>
-      <td class= "table-text-color" scope="row"><%= position.entry.round(2)%></td>
-      <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
       <td class= "table-text-color" scope="row"><%= position.iceline.round(2) %></td>
       <td class= "table-text-color" scope="row">
         <% if position.stop_loss_hit %>
@@ -34,7 +31,10 @@
         <% else %>
           <%= link_to position.stop_loss.round(2), stop_hit_path(position), data: { confirm: "Are you sure you want to activate stop loss?"} , class: "text-white" %>
         <% end %>
-        </td>
+      </td>
+      <td class= "table-text-color" scope="row"><%= number_to_currency(position.total_amount) %></td>
+      <td class= "table-text-color" scope="row"><%= position.size%></td>
+      <td class= "table-text-color" scope="row"><%= position.entry.round(2)%></td>
       <td class= "table-text-color" id="stock_current_price" scope="row"><%= position.current_price.round(2) %></td>
       <td class= "table-text-color" scope="row"><%= ((position.gain_loss_percentage)*100).round(2) %>%</td>
       <td class= "table-text-color" scope="row">

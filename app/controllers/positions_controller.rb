@@ -85,19 +85,6 @@ class PositionsController < ApplicationController
     end
   end
 
-  def my_perform_now
-    position = Position.all
-    if position.size == 0
-      redirect_to user_path(current_user)
-      flash[:notice] = 'No active position'
-    else
-      PriceUpdateJob.perform_now
-      RefreshAllPlJob.perform_now
-      redirect_to user_path(current_user)
-      flash[:notice] = 'Positions prices updated'
-    end
-  end
-
   def no_wallet
     @positions = Position.where(user_id: current_user.id)
     @positions.destroy_all
