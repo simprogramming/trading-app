@@ -1,0 +1,13 @@
+<h4 class="ml-5 mt-5"><%= link_to 'Back', user_path(current_user) %></h4>
+<button class="btn btn-danger text-white mt-3 ml-5"><%= link_to 'Delete position', my_position_path(@my_position), method: :delete, data: { confirm: "Are you sure you want to delete?"} %> </button>
+<h2 class="container text-center mt-5"><%= "Edit my #{@my_position.stock.symbol} position" %></h2>
+<div class="broker-form mb-3">
+  <%= simple_form_for [@my_position] do |f| %>
+    <%= f.input :iceline, label: "Iceline" %>
+    <%= f.input :r1, label: "R1" %>
+    <%= f.input :target, label: "Target" %>
+    <%= f.input :stop_loss, label: "Stop Loss" %>
+
+    <%= f.button :submit, class: "btn-secondary rounded-btn" %>
+  <% end %>
+</div>

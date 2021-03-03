@@ -1,5 +1,6 @@
 <!-- Updates positions each time the page is refreshed -->
 <% PriceUpdateJob.perform_now %>
+<% MyPriceUpdateJob.perform_now %>
 <% RefreshAllPlJob.perform_now %>
 
 
@@ -29,7 +30,7 @@
         <div class="d-flex">
           <div><p>P/L: <%= number_to_currency((@user.cash + @user.equity)-(100000)) %></p></div>
           <% if @user == current_user%>
-            <%= link_to(my_perform_now_path) do %>
+            <%= link_to(user_path(current_user)) do %>
               <i class="fas fa-sync pl-2" id="refresh-cartitem-status"></i>
             <% end %>
           <% end %>
@@ -41,8 +42,13 @@
       </div>
     </div>
   </div>
+  <h2 class="text-center p-5">La Transaction de la Semaine</h2>
   <%= render 'table' %>
   <p class="text-center"><%= link_to "+ Add a position", new_position_path %></p>
+  <div class="goldbar"></div>
+  <h2 class="text-center p-5">My Positions</h2>
+  <%= render 'my_table.html.erb' %>
+  <p class="text-center"><%= link_to "+ Add a position", new_my_position_path %></p>
 
   <div class="goldbar"></div>
 </div>

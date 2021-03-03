@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :hot_stocks, only: [ :create, :destroy, :index ]
 
   resources :positions, only: [ :create, :new, :update, :edit, :destroy]
+  
+  resources :my_positions, only: [ :create, :new, :update, :edit, :destroy]
 
   resources :emas, only: [ :create, :destroy]
 
@@ -30,8 +32,6 @@ Rails.application.routes.draw do
   get '/positions/no_wallet', to: 'positions#no_wallet', as: :no_wallet
 
   get '/positions/perform_now', to: 'positions#perform_now', as: :perform_now
-
-  get '/positions/my_perform_now', to: 'positions#my_perform_now', as: :my_perform_now
 
   Rails.application.routes.draw do
   get 'stocks/new'
