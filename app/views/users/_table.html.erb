@@ -21,7 +21,11 @@
   <tbody>
     <% @positions.each do | position | %>
     <tr class="border">
-      <td class= "table-text-color" scope="row"><%= link_to position.stock.symbol , edit_position_path(position) %></td>
+      <% if @user == current_user %>
+      <td class= "table-text-color" scope="row"><%= link_to position.stock.sym  bol , edit_position_path(position) %></td>
+      <%else %>
+        <td class= "table-text-color" scope="row"><%= position.stock.symbol %></td>
+      <%end %>
       <td class= "table-text-color" scope="row"><%= position.created_at.to_date.strftime("%m/%d") %></td>
       <td class= "table-text-color" scope="row"><%= position.buy_sell%></td>
       <td class= "table-text-color" scope="row"><%= position.iceline.round(2) %></td>

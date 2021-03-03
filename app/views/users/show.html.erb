@@ -44,11 +44,15 @@
   </div>
   <h2 class="text-center p-5">La Transaction de la Semaine</h2>
   <%= render 'table' %>
-  <p class="text-center"><%= link_to "+ Add a position", new_position_path %></p>
+  <% if @user == current_user %>
+    <p class="text-center"><%= link_to "+ Add a position", new_position_path %></p>
+  <% end %>
   <div class="goldbar"></div>
   <h2 class="text-center p-5">My Positions</h2>
   <%= render 'my_table.html.erb' %>
-  <p class="text-center"><%= link_to "+ Add a position", new_my_position_path %></p>
+  <% if @user == current_user %>
+   <p class="text-center"><%= link_to "+ Add a position", new_my_position_path %></p>
+  <% end %>
 
   <div class="goldbar"></div>
 </div>
