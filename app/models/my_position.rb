@@ -27,6 +27,7 @@ class MyPosition < ApplicationRecord
 
   def exit_short
     self.remaining_size = 0
+    self.stop_loss_hit = true unless self.stop_loss_hit == true
     self.save
   end
 
