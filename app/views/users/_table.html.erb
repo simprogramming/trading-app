@@ -22,7 +22,7 @@
     <% @positions.each do | position | %>
     <tr class="border">
       <% if @user == current_user %>
-      <td class= "table-text-color" scope="row"><%= link_to position.stock.sym  bol , edit_position_path(position) %></td>
+      <td class= "table-text-color" scope="row"><%= link_to position.stock.symbol , edit_position_path(position) %></td>
       <%else %>
         <td class= "table-text-color" scope="row"><%= position.stock.symbol %></td>
       <%end %>

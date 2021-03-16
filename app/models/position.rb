@@ -56,7 +56,7 @@ class Position < ApplicationRecord
       end
     else
       if buy_sell == "Sell"
-        if stop_loss_hit
+        if current_price >= stop_loss || stop_loss_hit
           exit_short
         else
           take_profit_short_R1(size_of_r1)
