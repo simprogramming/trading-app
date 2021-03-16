@@ -2,8 +2,7 @@ class HotStock < ApplicationRecord
   belongs_to :user
   belongs_to :stock
 
-  validates :direction, presence: true
-  validates :user_id, presence: true
-  validates :stock_id, presence: true
-  validates :date, presence: true
+  has_one_attached :photo
+
+  validates :direction, :user_id, :stock_id, :date, presence: true
 end
