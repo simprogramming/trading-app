@@ -15,7 +15,10 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+
 gem 'shutup', '~> 0.1.1'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'

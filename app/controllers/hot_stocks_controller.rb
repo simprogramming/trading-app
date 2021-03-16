@@ -29,7 +29,7 @@ class HotStocksController < ApplicationController
 private
 
   def hot_params
-    params.require(:hot_stock).permit(:stock_id, :date, :direction)
+    params.require(:hot_stock).permit(:stock_id, :date, :direction, :photo)
   end
 
   def set_hot_stock
