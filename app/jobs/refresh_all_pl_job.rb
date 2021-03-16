@@ -4,10 +4,10 @@ class RefreshAllPlJob < ApplicationJob
   def perform
     users = User.all
     users.each do |user|
-      @positions = Position.where(user_id: user)
-      unless @positions.empty?
+      positions = Position.where(user_id: user)
+      unless positions.empty?
         sum = 0
-        @positions.each do |position|
+        positions.each do |position|
           if position.buy_sell == "Buy"
             sum += position.remaining_size * position.current_price
           else

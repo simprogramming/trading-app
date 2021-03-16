@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :positions, dependent: :destroy
   has_many :emas, dependent: :destroy
   has_many :my_positions, dependent: :destroy
-  validates :nickname, presence: true
+  # validates :nickname, presence: true
   validates :email, presence: true
-  validates :category, presence: true
+  # validates :category, presence: true
 end
 

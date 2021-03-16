@@ -3,15 +3,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 
 // import PropTypes from 'prop-types'
-
-import Day1 from './days/day1'
-import Day2 from './days/day2'
-import Day3 from './days/day3'
-import Day4 from './days/day4'
-import Day5 from './days/day5'
 const root = document.getElementById('root');
-
-
 
 export default function DerivativesCalendar() {
     const [stocks, setStocks] = useState([]);
@@ -24,7 +16,6 @@ export default function DerivativesCalendar() {
                 )
         })
     }
-
 
  useEffect(() => {
          axios.get('/stocks.json')
@@ -41,8 +32,6 @@ export default function DerivativesCalendar() {
       </div>
   );
 }
-
-
-  ReactDOM.render(<DerivativesCalendar />, root);
+ReactDOM.render(<DerivativesCalendar />, root);
 
 
