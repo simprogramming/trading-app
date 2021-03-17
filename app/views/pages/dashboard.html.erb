@@ -18,6 +18,22 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><%= render 'this_week_dashboard' %></div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><%= render 'next_week_dashboard' %></div>
   </div>
+    <% if @group.bull.attached? || @group.bear.attached? %>
+      <div class="d-flex w-100 justify-content-around ">
+        <%= cl_image_tag @group.bull.key, height: 450, width: 450 %>
+        <%= cl_image_tag @group.bear.key, height: 450, width: 450 %>
+      </div>
+    <% else %>
+      <div class="d-flex w-100 justify-content-around">
+        <div>
+          <%= cl_image_tag "https://res.cloudinary.com/dfjs6fwct/image/upload/v1590074992/samples/animals/three-dogs.jpg", height: 450, width: 450 %>
+        </div>
+        <div>
+          <%= cl_image_tag "https://res.cloudinary.com/dfjs6fwct/image/upload/v1590074992/samples/animals/three-dogs.jpg", height: 450, width: 450 %>
+        </div>
+      </div>
+    <% end %>
+
   <div class="sector-tables mt-5 mb-5">
     <div>
       <h4 class="text-center">Techonology</h4>
