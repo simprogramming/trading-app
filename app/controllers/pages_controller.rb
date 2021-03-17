@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   def my_watchlist
     @hot_stock = HotStock.new
     @ema = Ema.new
+    @group = Group.first
   end
 
 
@@ -16,6 +17,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @group = Group.first
     @emas = Ema.all
     @hot_stocks = HotStock.all
     tech = Stock.where(category: 'Technology')

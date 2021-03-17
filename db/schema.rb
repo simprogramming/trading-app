@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_213926) do
+ActiveRecord::Schema.define(version: 2021_03_16_224242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(version: 2021_03_16_213926) do
     t.string "direction"
     t.index ["stock_id"], name: "index_emas_on_stock_id"
     t.index ["user_id"], name: "index_emas_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "tow_titre", array: true
   end
 
   create_table "hot_stocks", force: :cascade do |t|

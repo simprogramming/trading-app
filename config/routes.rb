@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#dashboard'
 
   resources :users, only: [ :show, :edit, :update]
+  resources :groups, only: [ :update ]
 
   resources :stocks, only: [ :index, :new, :edit, :update, :create, :destroy] do
     collection { post :import }
